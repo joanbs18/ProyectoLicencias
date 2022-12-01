@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -15,10 +16,20 @@ public class Persona implements Model{
     private Integer Id;
     private Integer Cedula;
     private String NombreCompleto;
-    private Date FechaNacimiento;
+    private String FechaNacimiento;
     private String Email;
     private String Telefono;
 
+    public Persona(Integer Id, Integer Cedula, String NombreCompleto, String FechaNacimiento, String Email, String Telefono) {
+        this.Id = Id;
+        this.Cedula = Cedula;
+        this.NombreCompleto = NombreCompleto;
+        this.FechaNacimiento = FechaNacimiento;
+        this.Email = Email;
+        this.Telefono = Telefono;
+    }
+
+    
     public Integer getId() {
         return Id;
     }
@@ -43,11 +54,11 @@ public class Persona implements Model{
         this.NombreCompleto = NombreCompleto;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return FechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date FechaNacimiento) {
+    public void setFechaNacimiento(String FechaNacimiento) {
         this.FechaNacimiento = FechaNacimiento;
     }
 
