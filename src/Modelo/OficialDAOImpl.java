@@ -8,20 +8,20 @@ package Modelo;
  *
  * @author joans
  */
-public class ClienteDAOImpl implements ClienteDao{
+public class OficialDAOImpl implements OficialDAO{
 
     @Override
-    public Cliente leerPorId(int id) {
+    public Oficial leerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void registrar(Cliente model) {
+    public void registrar(Oficial model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void actualizar(Cliente model) {
+    public void actualizar(Oficial model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

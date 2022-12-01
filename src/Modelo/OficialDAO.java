@@ -10,6 +10,6 @@ import CRUD.Crud;
  *
  * @author joans
  */
-public interface ClienteDao extends Crud<Cliente>{
+public interface OficialDAO extends Crud<Oficial>{
     
 }
