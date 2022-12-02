@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Conector;
+package Data.Conexiones;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class Conexion extends Conector {
 
-    protected Connection connection;
+    public static Connection connection;
     protected PreparedStatement transact;
     protected ResultSet data;
 

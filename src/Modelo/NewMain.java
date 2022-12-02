@@ -4,7 +4,7 @@
  */
 package Modelo;
 
-import Conector.Conexion;
+import Data.Conexiones.Conexion;
 
 
 /**
