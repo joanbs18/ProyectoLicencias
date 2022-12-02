@@ -28,7 +28,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     public void comprobar() {
         if (x.connection != null) {
-            this.conexion.setForeground(Color.CYAN);
+            this.conexion.setForeground(Color.BLUE);
             this.conexion.setText("Conectado");
         }
     }
@@ -53,6 +53,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         conectarseBtn = new javax.swing.JPanel();
         conectarseBtnTxt = new javax.swing.JLabel();
+        desconectarseBtn = new javax.swing.JPanel();
+        desconectarseBtnTxt = new javax.swing.JLabel();
         tituloSisLicencias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -176,6 +178,40 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         bg.add(conectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
+        desconectarseBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        desconectarseBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        desconectarseBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        desconectarseBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        desconectarseBtnTxt.setText("DESCONECTARSE");
+        desconectarseBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        desconectarseBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                desconectarseBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                desconectarseBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                desconectarseBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout desconectarseBtnLayout = new javax.swing.GroupLayout(desconectarseBtn);
+        desconectarseBtn.setLayout(desconectarseBtnLayout);
+        desconectarseBtnLayout.setHorizontalGroup(
+            desconectarseBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desconectarseBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(desconectarseBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        desconectarseBtnLayout.setVerticalGroup(
+            desconectarseBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(desconectarseBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        bg.add(desconectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+
         tituloSisLicencias.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         tituloSisLicencias.setText("SISTEMA LICENCIAS CODE");
         bg.add(tituloSisLicencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
@@ -216,6 +252,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        this.conectarseBtn.setVisible(false);
     }//GEN-LAST:event_conectarseBtnTxtMouseClicked
 
     private void conectarseBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarseBtnTxtMouseEntered
@@ -225,6 +262,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void conectarseBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarseBtnTxtMouseExited
         conectarseBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_conectarseBtnTxtMouseExited
+
+    private void desconectarseBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseClicked
+        x.desconectar();
+        this.conectarseBtn.setVisible(true);
+        this.conexion.setForeground(Color.red);
+        this.conexion.setText("Sin conexión");
+    }//GEN-LAST:event_desconectarseBtnTxtMouseClicked
+
+    private void desconectarseBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseEntered
+        conectarseBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_desconectarseBtnTxtMouseEntered
+
+    private void desconectarseBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseExited
+        conectarseBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_desconectarseBtnTxtMouseExited
 
     /**
      * @param args the command line arguments
@@ -275,6 +327,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel conectarseBtn;
     private javax.swing.JLabel conectarseBtnTxt;
     private javax.swing.JLabel conexion;
+    private javax.swing.JPanel desconectarseBtn;
+    private javax.swing.JLabel desconectarseBtnTxt;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;

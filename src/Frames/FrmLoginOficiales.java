@@ -1,18 +1,20 @@
 package Frames;
 
 import java.awt.Color;
+
 /**
  *
  * @author joans
  */
 public class FrmLoginOficiales extends javax.swing.JFrame {
-    
+
     int xMouse, yMouse;
-    
+
     public FrmLoginOficiales() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -238,7 +240,7 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtnTxtMouseEntered
 
     private void loginBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseExited
-        loginBtn.setBackground(new Color(0,134,190));
+        loginBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_loginBtnTxtMouseExited
 
     private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
