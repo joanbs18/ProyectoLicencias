@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class Conexion extends Conector {
 
-    public static Connection connection;
+    public Connection connection;
     protected PreparedStatement transact;
     protected ResultSet data;
 

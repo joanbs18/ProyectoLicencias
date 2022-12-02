@@ -5,11 +5,11 @@ import java.awt.Color;
  *
  * @author joans
  */
-public class Login_Oficiales extends javax.swing.JFrame {
+public class FrmLoginOficiales extends javax.swing.JFrame {
     
     int xMouse, yMouse;
     
-    public Login_Oficiales() {
+    public FrmLoginOficiales() {
         initComponents();
     }
     
@@ -18,7 +18,7 @@ public class Login_Oficiales extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
+        logoG = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
         citybg = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
@@ -34,7 +34,7 @@ public class Login_Oficiales extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         loginBtn = new javax.swing.JPanel();
         loginBtnTxt = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        logoP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -44,9 +44,9 @@ public class Login_Oficiales extends javax.swing.JFrame {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PNG.png"))); // NOI18N
-        bg.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 240, 140));
+        logoG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PNG.png"))); // NOI18N
+        bg.add(logoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 240, 140));
 
         logoname.setBackground(new java.awt.Color(255, 255, 255));
         logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
@@ -191,8 +191,8 @@ public class Login_Oficiales extends javax.swing.JFrame {
 
         bg.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 130, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        logoP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
+        bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -284,21 +284,23 @@ public class Login_Oficiales extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login_Oficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginOficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login_Oficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginOficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login_Oficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginOficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login_Oficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginOficiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login_Oficiales().setVisible(true);
+                new FrmLoginOficiales().setVisible(true);
             }
         });
     }
@@ -310,12 +312,12 @@ public class Login_Oficiales extends javax.swing.JFrame {
     private javax.swing.JLabel exitTxt;
     private javax.swing.JLabel favicon;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel loginBtn;
     private javax.swing.JLabel loginBtnTxt;
-    private javax.swing.JLabel logo;
+    private javax.swing.JLabel logoG;
+    private javax.swing.JLabel logoP;
     private javax.swing.JLabel logoname;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passTxt;
