@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author joans
  */
-public class Persona implements Model{
+public class Persona{
 
     private Integer Id;
     private Integer Cedula;
@@ -78,10 +78,6 @@ public class Persona implements Model{
         this.Telefono = Telefono;
     }
 
-    @Override
-    public boolean verificador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+   
     
 }

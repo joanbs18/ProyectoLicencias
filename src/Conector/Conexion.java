@@ -16,7 +16,7 @@ public class Conexion {
         Connection cn=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            cn= DriverManager.getConnection("jdbc:mysql://LocalHost:3306/Examen2","root","");
+            cn= DriverManager.getConnection("jdbc:mysql://LocalHost:3306/licencias","root","");
         } catch (Exception ex) {
             System.out.println(ex);
         }

@@ -5,9 +5,7 @@
 package Modelo;
 
 import CRUD.Crud;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 
 /**
  *
@@ -19,11 +17,11 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Crud dao = new PersonaDAOImpl();
+      
            
        
     
-        dao.registrar(new Persona(null, 504460403, "Joan Bravo Solano", "11-03-2022", "Joans@gmail.com", "98595993"));
+       // dao.registrar(new Persona(null, 504460403, "Joan Bravo Solano", "11-03-2022", "Joans@gmail.com", "98595993"));
 
     }
 

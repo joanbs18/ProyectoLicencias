@@ -8,7 +8,7 @@ package Modelo;
  *
  * @author joans
  */
-public class Oficial extends Usuario implements Model{
+public class Oficial extends Usuario {
     private double Salario;
 
     public Oficial(Integer Carnet, Integer IdPersona, String Contraseña,double Salario) {
@@ -20,10 +20,7 @@ public class Oficial extends Usuario implements Model{
         return Salario;
     }
 
-    @Override
-    public boolean verificador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
     
     
     
