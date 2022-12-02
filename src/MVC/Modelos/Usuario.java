@@ -8,39 +8,44 @@ package MVC.Modelos;
  *
  * @author joans
  */
-public class Usuario {
-    protected Integer Carnet;
-    protected Integer IdPersona;
-    protected String Contraseña;
+public class Usuario implements Modelo {
+    protected Integer id;
+    protected Integer idPersona;
+    protected String tipoUsuario;
 
-    public Usuario(Integer Carnet, Integer IdPersona, String Contraseña) {
-        this.Carnet = Carnet;
-        this.IdPersona = IdPersona;
-        this.Contraseña = Contraseña;
+    public Usuario(Integer id, Integer idPersona, String tipoUsuario) {
+        this.id = id;
+        this.idPersona = idPersona;
+        this.tipoUsuario = tipoUsuario;
     }
 
-    public Integer getCarnet() {
-        return Carnet;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCarnet(Integer Carnet) {
-        this.Carnet = Carnet;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getIdPersona() {
-        return IdPersona;
+        return idPersona;
     }
 
-    public void setIdPersona(Integer IdPersona) {
-        this.IdPersona = IdPersona;
+    public void setIdPersona(Integer idPersona) {
+        this.idPersona = idPersona;
     }
 
-    public String getContraseña() {
-        return Contraseña;
+    public String getTipoUsuario() {
+        return tipoUsuario;
     }
 
-    public void setContraseña(String Contraseña) {
-        this.Contraseña = Contraseña;
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    @Override
+    public boolean isComplete() {
+         return this.idPersona!=null && this.tipoUsuario!=null;
     }
     
     

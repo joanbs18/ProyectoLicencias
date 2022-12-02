@@ -4,78 +4,91 @@
  */
 package MVC.Modelos;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 /**
  *
  * @author joans
  */
-public class Persona{
+public class Persona implements Modelo{
 
-    private Integer Id;
-    private Integer Cedula;
-    private String NombreCompleto;
-    private String FechaNacimiento;
-    private String Email;
-    private String Telefono;
+    private Integer id;
+    private Integer cedula;
+    private String nombreCompleto;
+    private String fechaNacimiento;
+    private String email;
+    private String telefono;
 
-    public Persona(Integer Id, Integer Cedula, String NombreCompleto, String FechaNacimiento, String Email, String Telefono) {
-        this.Id = Id;
-        this.Cedula = Cedula;
-        this.NombreCompleto = NombreCompleto;
-        this.FechaNacimiento = FechaNacimiento;
-        this.Email = Email;
-        this.Telefono = Telefono;
+    public Persona(Integer id, Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
+        this.id = id;
+        this.cedula = cedula;
+        this.nombreCompleto = nombreCompleto;
+        this.fechaNacimiento = fechaNacimiento;
+        this.email = email;
+        this.telefono = telefono;
     }
-
+    public Persona(Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono ) {
+        this(null,cedula, nombreCompleto, fechaNacimiento, email, telefono);
+    }
     
-    public Integer getId() {
-        return Id;
+    public Persona() {
+        this(null,null,null,null,null,null);
     }
 
-    public void setId(Integer Id) {
-        this.Id = Id;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getCedula() {
-        return Cedula;
+        return cedula;
     }
 
-    public void setCedula(Integer Cedula) {
-        this.Cedula = Cedula;
+    public void setCedula(Integer cedula) {
+        this.cedula = cedula;
     }
 
     public String getNombreCompleto() {
-        return NombreCompleto;
+        return nombreCompleto;
     }
 
-    public void setNombreCompleto(String NombreCompleto) {
-        this.NombreCompleto = NombreCompleto;
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public String getFechaNacimiento() {
-        return FechaNacimiento;
+        return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String FechaNacimiento) {
-        this.FechaNacimiento = FechaNacimiento;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTelefono() {
-        return Telefono;
+        return telefono;
     }
 
-    public void setTelefono(String Telefono) {
-        this.Telefono = Telefono;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    
+   
+
+    @Override
+    public boolean isComplete() {
+        return this.cedula!=null && this.nombreCompleto!=null 
+                && this.fechaNacimiento!=null && this.telefono!=null
+                && this.email!=null;
     }
 
    

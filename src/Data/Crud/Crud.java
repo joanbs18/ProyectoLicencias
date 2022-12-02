@@ -10,13 +10,13 @@ import java.util.ArrayList;
  *
  * @author joans
  */
-public interface Crud<Model> {
-    public boolean crear(Model model);
-    public Model leer(Model model);
-    public ArrayList<Model> leer();
-    public ArrayList<Model> leer(String filter);
-    public boolean actualizar(Model model);
-    public boolean borrar(Model model);
+public interface Crud<Modelo> {
+    public boolean crear(Modelo model);
+    public Modelo leer(Modelo modelo);
+    public ArrayList<Modelo> leer();
+    public ArrayList<Modelo> leer(String filter);
+    public boolean actualizar(Modelo model);
+    public boolean borrar(Modelo model);
     
 //    Model leerPorId(int id);
 //    void registrar (Model model);

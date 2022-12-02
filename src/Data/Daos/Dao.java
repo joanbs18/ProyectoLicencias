@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Francisco
  */
-public abstract class Dao<model> implements Crud<model>{
+public abstract class Dao<modelo> implements Crud<modelo>{
     protected Conector conector;
     protected String error;
     public abstract String getError();
