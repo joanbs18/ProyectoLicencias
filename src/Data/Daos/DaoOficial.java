@@ -19,16 +19,45 @@ public class DaoOficial extends Dao<Oficial> implements Crud<Oficial>{
         this.conector=conector;
     }
 
-    
-
     @Override
-    public boolean crear(Oficial model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean crear(Oficial modelo) {
+        this.error = "";
+        try {
+            this.conector.conectar();
+            this.conector.prepareQuery("call insertarOficial(?,?,?,?)");
+            this.conector.addParameter(1, modelo.getIdPersona());
+            this.conector.addParameter(2, modelo.getNombreUsuario());
+            this.conector.addParameter(3, modelo.getContrasenia());
+            this.conector.addParameter(4, modelo.getSalario());
+
+            return this.conector.executeUpdate();
+
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return false;
     }
 
     @Override
-    public Oficial leer(Oficial model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Oficial leer(Oficial modelo) {
+        this.error = "";
+        try {
+            Object[][] datos;
+            this.conector.conectar();//llamamos el metodo conectar
+            this.conector.prepareQuery("call verOficial(?)");
+            this.conector.addParameter(1, modelo.getId());
+            datos = this.conector.executeQuery();
+            return null == datos ? null : new Oficial(Integer.valueOf(String.valueOf(datos[0][0])), 
+                        Integer.valueOf(String.valueOf(datos[0][1])), String.valueOf(datos[0][2]), 
+                        String.valueOf(datos[0][3]), Double.valueOf(String.valueOf(datos[0][4])));
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
     }
 
     @Override
@@ -38,20 +67,71 @@ public class DaoOficial extends Dao<Oficial> implements Crud<Oficial>{
 
     @Override
     public ArrayList<Oficial> leer(String filter) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.error = "";
+        try {
+            ArrayList<Oficial> list = new ArrayList<>();
+            Object[][] data;
+            this.conector.conectar();//llamamos el metodo conectar
+            this.conector.prepareQuery("Select * from oficial");//se hace la consulta
+            data = this.conector.executeQuery();
+            if (data == null) {
+                return null;
+            }
+            for (Object[] dt : data) {
+                list.add(new Oficial((int) (dt[0]), (int) (dt[1]),
+                        String.valueOf(dt[2]), String.valueOf(dt[3]),
+                        (double)(dt[4])));
+            }
+            return list;
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
     }
 
     @Override
-    public boolean actualizar(Oficial model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean actualizar(Oficial modelo) {
+        this.error = "";
+        try {
+            this.conector.conectar();
+            this.conector.prepareQuery("call actualizarOficial(?,?,?,?,?)");
+            this.conector.addParameter(1, modelo.getCarnet());
+            this.conector.addParameter(2, modelo.getIdPersona());
+            this.conector.addParameter(3, modelo.getNombreUsuario());
+            this.conector.addParameter(4, modelo.getContrasenia());
+            this.conector.addParameter(5, modelo.getSalario());
+            
+
+            return this.conector.executeUpdate();
+
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return false;
     }
 
     @Override
-    public boolean borrar(Oficial model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean borrar(Oficial modelo) {
+         this.error = "";
+        try {
+            this.conector.conectar();
+            this.conector.prepareQuery("call borrarOficial(?)");
+            this.conector.addParameter(1, modelo.getId());
+            return this.conector.executeUpdate();
+
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return false;
     }
     @Override
     public String getError() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.error;
     }
 }

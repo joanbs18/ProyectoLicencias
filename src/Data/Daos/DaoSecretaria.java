@@ -21,38 +21,137 @@ public class DaoSecretaria extends Dao<Secretaria> implements Crud<Secretaria> {
     }
 
     @Override
-    public String getError() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean crear(Secretaria modelo) {
+        this.error = "";
+        try {
+            this.conector.conectar();
+            this.conector.prepareQuery("call insertarSecretaria(?,?,?)");
+            this.conector.addParameter(1, modelo.getIdPersona());
+            this.conector.addParameter(2, modelo.getNombreUsuario());
+            this.conector.addParameter(3, modelo.getPassword());
+
+            return this.conector.executeUpdate();
+
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return false;
     }
 
     @Override
-    public boolean crear(Secretaria model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Secretaria leer(Secretaria model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Secretaria leer(Secretaria modelo) {
+        this.error = "";
+        try {
+            Object[][] datos;
+            this.conector.conectar();//llamamos el metodo conectar
+            this.conector.prepareQuery("call verSecretaria(?)");
+            this.conector.addParameter(1, modelo.getId());
+            datos = this.conector.executeQuery();
+            return null == datos ? null : new Secretaria(Integer.valueOf(String.valueOf(datos[0][0])),
+                    Integer.valueOf(String.valueOf(datos[0][1])), String.valueOf(datos[0][2]), String.valueOf(datos[0][3]));
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
     }
 
     @Override
     public ArrayList<Secretaria> leer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.error = "";
+        try {
+            ArrayList<Secretaria> list = new ArrayList<>();
+            Object[][] data;
+            this.conector.conectar();//llamamos el metodo conectar
+            this.conector.prepareQuery("Select * from Secretaria");//se hace la consulta
+            data = this.conector.executeQuery();
+            if (data == null) {
+                return null;
+            }
+            for (Object[] dt : data) {
+                list.add(new Secretaria((int) (dt[0]), (int) (dt[1]),
+                        String.valueOf(dt[2]), String.valueOf(dt[3])));
+            }
+            return list;
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
     }
 
     @Override
     public ArrayList<Secretaria> leer(String filter) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.error = "";
+        try {
+            ArrayList<Secretaria> list = new ArrayList<>();
+            Object[][] data;
+            this.conector.conectar();//llamamos el metodo conectar
+            this.conector.prepareQuery("Select Id, idPersona, Usuario,Contrasenia from secretaria where Nombre like ?");//se hace la consulta y se filtra solo con el nombre
+            this.conector.addParameter(1, filter);//manda parametro al statemet
+            data = this.conector.executeQuery();
+
+            if (data == null) {
+                return null;
+            }
+            for (Object[] dt : data) {
+                list.add(new Secretaria((int) (dt[0]), (int) (dt[1]),
+                        String.valueOf(dt[2]), String.valueOf(dt[3])));
+            }
+            return list;
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
     }
 
     @Override
-    public boolean actualizar(Secretaria model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean actualizar(Secretaria modelo) {
+        this.error = "";
+        try {
+            this.conector.conectar();
+            this.conector.prepareQuery("call actualizarSecretaria(?,?,?,?)");
+            this.conector.addParameter(1, modelo.getId());
+            this.conector.addParameter(2, modelo.getIdPersona());
+            this.conector.addParameter(3, modelo.getNombreUsuario());
+            this.conector.addParameter(4, modelo.getPassword());
+            
+            return this.conector.executeUpdate();
+
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return false;
     }
 
     @Override
-    public boolean borrar(Secretaria model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean borrar(Secretaria modelo) {
+        this.error = "";
+        try {
+            this.conector.conectar();
+            this.conector.prepareQuery("call borrarSecretaria(?)");
+            this.conector.addParameter(1, modelo.getId());
+            return this.conector.executeUpdate();
+
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return false;
     }
-    
+
+    @Override
+    public String getError() {
+        return this.error;
+    }
+
 }

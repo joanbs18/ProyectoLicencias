@@ -10,11 +10,34 @@ package MVC.Modelos;
  */
 public class Secretaria extends Persona implements Modelo{
     private Integer id;
+    private Integer idPersona;
     private String nombreUsuario;
     private String password;
-    
-    public Secretaria(Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
+
+
+    public Secretaria(Integer id, Integer idPersona, String nombreUsuario, String password, Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
         super(cedula, nombreCompleto, fechaNacimiento, email, telefono);
+        this.id = id;
+        this.idPersona = idPersona;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+    }
+
+    public Secretaria(Integer id, Integer idPersona, String nombreUsuario, String password) {
+        this.id = id;
+        this.idPersona = idPersona;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+    }
+    
+    
+
+    public Integer getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(Integer idPersona) {
+        this.idPersona = idPersona;
     }
 
     @Override
@@ -45,7 +68,7 @@ public class Secretaria extends Persona implements Modelo{
     
     @Override
     public boolean isComplete() {
-         return this.nombreUsuario!=null && this.password!=null;
+         return this.idPersona!=null && this.nombreUsuario!=null && this.password!=null;
     }
     
 }
