@@ -62,7 +62,29 @@ public class DaoOficial extends Dao<Oficial> implements Crud<Oficial>{
 
     @Override
     public ArrayList<Oficial> leer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.error = "";
+        try {
+            ArrayList<Oficial> list = new ArrayList<>();
+            Object[][] data;
+            this.conector.conectar();//llamamos el metodo conectar
+            this.conector.prepareQuery("Select * from oficial");//se hace la consulta
+            data = this.conector.executeQuery();
+            if (data == null) {
+                return null;
+            }
+            for (Object[] dt : data) {
+                list.add(new Oficial((int) (dt[0]), (int) (dt[1]),
+                        String.valueOf(dt[2]), String.valueOf(dt[3]),
+                        (double)(dt[4])));
+            }
+            return list;
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
+
     }
 
     @Override
@@ -72,8 +94,10 @@ public class DaoOficial extends Dao<Oficial> implements Crud<Oficial>{
             ArrayList<Oficial> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select * from oficial");//se hace la consulta
+            this.conector.prepareQuery("Select Id, idPersona, Usuario,Contrasenia from Oficial where Nombre like ?");//se hace la consulta y se filtra solo con el nombre
+            this.conector.addParameter(1, filter);//manda parametro al statemet
             data = this.conector.executeQuery();
+
             if (data == null) {
                 return null;
             }
