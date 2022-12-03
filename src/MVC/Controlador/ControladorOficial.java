@@ -4,6 +4,7 @@
  */
 package MVC.Controlador;
 
+import Data.Conexiones.Conexion;
 import Data.Daos.DaoOficial;
 import MVC.Modelos.Oficial;
 import MVC.Vistas.Vista;
@@ -13,59 +14,80 @@ import java.util.ArrayList;
  *
  * @author Francisco
  */
-public class ControladorOficial implements Controller<Oficial>{
+public class ControladorOficial implements Controlador<Oficial>{
     protected Vista vista;
     protected ArrayList<Oficial> list;// un conjunto de datos 
-    protected Oficial product;
+    protected Oficial oficial;
     protected DaoOficial dao;
 
     @Override
-    public ArrayList<Oficial> getList() {
+    public ArrayList<Oficial> getLista() {
+        return this.list;
+    }
+    
+    @Override
+    public void setModelo(Oficial oficial){
+        this.oficial=oficial;
+    }
+    
+    @Override
+    public Oficial getModelo() {
+        return this.oficial;
+    }
+
+    @Override
+    public void setVista(Vista vista) {
+        this.vista=vista;
+    }
+
+    public ControladorOficial(Vista vista){
+        this.vista = vista;
+        this.list=new ArrayList<Oficial>();
+        this.oficial=new Oficial();
+        this.dao=new DaoOficial(new Conexion());
+        
+    }
+
+    @Override
+    public void crear(Oficial oficial) {
+        if (this.validar(oficial)){
+            if (this.dao.crear(oficial)){
+                this.vista.mostarMensaje("Registro agregado correctamente", Vista.messageTypeSuccess);
+            }else{
+                this.vista.mostarMensaje("Error al agregar el registro", Vista.messageTypeError);
+            }
+        }
+    }
+
+    @Override
+    public void leer(Oficial oficial) {
+        this.oficial=dao.leer(oficial);
+        this.vista.mostarDato();
+    }
+    
+    @Override
+    public void leer() {
+        this.list=dao.leer();//trabaja con dao para obtener una lista
+        this.vista.mostarDato();
+    }
+    
+    @Override
+    public void leer(String filtrar) {
+        this.list=dao.leer(filtrar);
+        this.vista.mostarDato();
+    }
+
+    @Override
+    public void actualizar(Oficial oficial) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void setModel(Oficial modelo) {
+    public void borrar(Oficial oficial) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public Oficial getModel() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void setView(Vista vista) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void create(Oficial modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void read(Oficial modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void read() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void read(String filter) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void update(Oficial modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(Oficial modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private boolean validar(Oficial oficial) {
+        return oficial.isComplete();
     }
 }
