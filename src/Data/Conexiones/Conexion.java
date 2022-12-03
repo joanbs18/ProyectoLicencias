@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,12 +65,21 @@ public class Conexion extends Conector {
     public void addParameter(int index, Object param) throws Exception {
         if (param instanceof Integer) {
             this.transact.setInt(index, (int) param);
+        } else if (param instanceof Double) {
+            this.transact.setDouble(index, (double) param);
+        } else if (param instanceof String string) {
+            this.transact.setString(index, string);
+        } else if (param instanceof Date) {
+            this.transact.setDate(index, (java.sql.Date) param);
+        } else if (param instanceof Boolean) {
+            this.transact.setBoolean(index, (Boolean) param);
         }
+    }
         /**
          * else if (param instanceof Double) { SE USA ESTO MODIFICANDO EL TIPO
          * DE DATO this.transact.setDouble(index, (double) param); }*
          */
-    }
+    
 
     @Override
     public Object[][] executeQuery() throws Exception {

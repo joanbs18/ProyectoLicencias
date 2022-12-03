@@ -24,15 +24,6 @@ public class Oficial extends Persona implements Modelo{
         this.salario = Salario;
     }
 
-    public Oficial(Integer carnet, Integer idPersona, String nombreUsuario, String contrasenia, Double salario, Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
-        super(cedula, nombreCompleto, fechaNacimiento, email, telefono);
-        this.carnet = carnet;
-        this.idPersona = idPersona;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenia = contrasenia;
-        this.salario = salario;
-    }
-
     public Oficial(Integer carnet, Integer idPersona, String nombreUsuario, String contrasenia, Double salario) {
         this.carnet = carnet;
         this.idPersona = idPersona;

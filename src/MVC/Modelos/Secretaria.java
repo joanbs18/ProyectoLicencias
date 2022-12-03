@@ -8,38 +8,38 @@ package MVC.Modelos;
  *
  * @author joans
  */
-public class Secretaria extends Persona implements Modelo{
+public class Secretaria extends Usuario implements Modelo{
     private Integer id;
-    private Integer idPersona;
+    private Integer idUsuario;
     private String nombreUsuario;
     private String password;
 
 
-    public Secretaria(Integer id, Integer idPersona, String nombreUsuario, String password, Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
-        super(cedula, nombreCompleto, fechaNacimiento, email, telefono);
-        this.id = id;
-        this.idPersona = idPersona;
-        this.nombreUsuario = nombreUsuario;
-        this.password = password;
-    }
+    
 
-    public Secretaria(Integer id, Integer idPersona, String nombreUsuario, String password) {
+    public Secretaria(Integer id, Integer idUsuario, String nombreUsuario, String password) {
         this.id = id;
-        this.idPersona = idPersona;
+        this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
     public Secretaria(){
         this(null,null,null,null);
     }
+    public Secretaria(Integer id){
+        this(id,null,null,null);
+    }
+    public Secretaria(Integer idUsuario, String nombreUsuario, String password){
+        this(null,idUsuario,nombreUsuario,password);
+    }
     
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdUsuario(Integer idPersona) {
+        this.idUsuario = idPersona;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class Secretaria extends Persona implements Modelo{
     
     @Override
     public boolean isComplete() {
-         return this.idPersona!=null && this.nombreUsuario!=null && this.password!=null;
+         return this.idUsuario!=null && this.nombreUsuario!=null && this.password!=null;
     }
     
 }

@@ -25,12 +25,13 @@ public class Persona implements Modelo{
         this.email = email;
         this.telefono = telefono;
     }
-    public Persona(Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono ) {
-        this(null,cedula, nombreCompleto, fechaNacimiento, email, telefono);
-    }
+   
     
     public Persona() {
         this(null,null,null,null,null,null);
+    }
+    public Persona(Integer id) {
+        this(id,null,null,null,null,null);
     }
 
     public Integer getId() {

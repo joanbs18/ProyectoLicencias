@@ -26,7 +26,7 @@ public class DaoSecretaria extends Dao<Secretaria> implements Crud<Secretaria> {
         try {
             this.conector.conectar();
             this.conector.prepareQuery("call insertarSecretaria(?,?,?)");
-            this.conector.addParameter(1, modelo.getIdPersona());
+            this.conector.addParameter(1, modelo.getIdUsuario());
             this.conector.addParameter(2, modelo.getNombreUsuario());
             this.conector.addParameter(3, modelo.getPassword());
 
@@ -91,7 +91,7 @@ public class DaoSecretaria extends Dao<Secretaria> implements Crud<Secretaria> {
             ArrayList<Secretaria> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select Id, idPersona, Usuario,Contrasenia from secretaria where Nombre like ?");//se hace la consulta y se filtra solo con el nombre
+            this.conector.prepareQuery("Select Id, idUsuario, Usuario,Contrasenia from secretaria where Nombre like ?");//se hace la consulta y se filtra solo con el nombre
             this.conector.addParameter(1, filter);//manda parametro al statemet
             data = this.conector.executeQuery();
 
@@ -118,7 +118,7 @@ public class DaoSecretaria extends Dao<Secretaria> implements Crud<Secretaria> {
             this.conector.conectar();
             this.conector.prepareQuery("call actualizarSecretaria(?,?,?,?)");
             this.conector.addParameter(1, modelo.getId());
-            this.conector.addParameter(2, modelo.getIdPersona());
+            this.conector.addParameter(2, modelo.getIdUsuario());
             this.conector.addParameter(3, modelo.getNombreUsuario());
             this.conector.addParameter(4, modelo.getPassword());
             
@@ -137,7 +137,7 @@ public class DaoSecretaria extends Dao<Secretaria> implements Crud<Secretaria> {
         this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call borrarSecretaria(?)");
+            this.conector.prepareQuery("delete from secretaria where id=?");
             this.conector.addParameter(1, modelo.getId());
             return this.conector.executeUpdate();
 

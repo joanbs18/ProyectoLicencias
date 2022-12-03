@@ -5,6 +5,8 @@
 package Modelo;
 
 import Data.Conexiones.Conexion;
+import Data.Daos.DaoSecretaria;
+import MVC.Modelos.Secretaria;
 
 
 /**
@@ -13,7 +15,7 @@ import Data.Conexiones.Conexion;
  */
 public class NewMain {
 
-    static Conexion c = new Conexion();
+//    static Conexion c = new Conexion();
 //
 //    public static void comprobar() {
 //        if (Conexion.connection != null) {
@@ -26,12 +28,11 @@ public class NewMain {
      */
     public static void main(String[] args) {
 
-        try {
-            c.conectar();
-//            comprobar();
-        } catch (Exception ex) {
-            System.out.println("Fallo al conectar");
-        }
+        Secretaria secre = new Secretaria(5,1,"fran","ff3");
+        DaoSecretaria dao = new DaoSecretaria (new Conexion());
+        
+        System.out.println(dao.actualizar(secre));
+        System.out.println(dao.getError());
     }
 
 }
