@@ -4,6 +4,7 @@
  */
 package MVC.Controlador;
 
+import Data.Conexiones.Conexion;
 import Data.Daos.DaoPersona;
 import MVC.Modelos.Persona;
 import MVC.Vistas.Vista;
@@ -13,60 +14,94 @@ import java.util.ArrayList;
  *
  * @author Francisco
  */
-public class ControladorPersona implements Controller<Persona>{
+public class ControladorPersona implements Controlador<Persona>{
     protected Vista vista;
     protected ArrayList<Persona> list;// un conjunto de datos 
-    protected Persona product;
+    protected Persona persona;
     protected DaoPersona dao;
 
     @Override
-    public ArrayList<Persona> getList() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Persona> getLista() {
+        return this.list;
+    }
+    
+    @Override
+    public void setModelo(Persona persona){
+        this.persona=persona;
+    }
+    
+    @Override
+    public Persona getModelo() {
+        return this.persona;
     }
 
     @Override
-    public void setModel(Persona modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setVista(Vista vista) {
+        this.vista=vista;
+    }
+
+    public ControladorPersona(Vista vista){
+        this.vista = vista;
+        this.list=new ArrayList<Persona>();
+        this.persona=new Persona();
+        this.dao=new DaoPersona(new Conexion());
+        
     }
 
     @Override
-    public Persona getModel() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void crear(Persona persona) {
+        if (this.validar(persona)){
+            if (this.dao.crear(persona)){
+                this.vista.mostarMensaje("Registro agregado correctamente", Vista.messageTypeSuccess);
+            }else{
+                this.vista.mostarMensaje("Error al agregar el registro", Vista.messageTypeError);
+            }
+        }
     }
 
     @Override
-    public void setView(Vista vista) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void leer(Persona persona) {
+        this.persona=dao.leer(persona);
+        this.vista.mostarDato();
+    }
+    
+    @Override
+    public void leer() {
+        this.list=dao.leer();//trabaja con dao para obtener una lista
+        this.vista.mostarDato();
+    }
+    
+    @Override
+    public void leer(String filtrar) {
+        this.list=dao.leer(filtrar);
+        this.vista.mostarDato();
+    }
+
+     @Override
+    public void actualizar(Persona persona) {
+        if (this.validar(persona)){
+            if (this.dao.actualizar(persona)){
+                this.vista.mostarMensaje("Registro actualizado correctamente", Vista.messageTypeSuccess);
+            }else{
+                this.vista.mostarMensaje("Error al actualizar el registro", Vista.messageTypeError);
+            }
+        }
     }
 
     @Override
-    public void create(Persona modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void borrar(Persona persona) {
+        if (this.validar(persona)){
+            if (this.dao.borrar(persona)){
+                this.vista.mostarMensaje("Registro borrado correctamente", Vista.messageTypeSuccess);
+            }else{
+                this.vista.mostarMensaje("Error al borrar el registro", Vista.messageTypeError);
+            }
+        }
     }
 
-    @Override
-    public void read(Persona modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private boolean validar(Persona persona) {
+        return persona.isComplete();
     }
-
-    @Override
-    public void read() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void read(String filter) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void update(Persona modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(Persona modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
     
 }

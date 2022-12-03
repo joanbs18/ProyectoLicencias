@@ -40,6 +40,9 @@ public class Oficial extends Persona implements Modelo{
         this.contrasenia = contrasenia;
         this.salario = salario;
     }
+    public Oficial(){
+        this(null,null,null,null,null);
+    }
     
     
 

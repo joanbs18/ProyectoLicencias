@@ -4,10 +4,8 @@
  */
 package MVC.Vistas;
 
-import MVC.Controlador.Controller;
+import MVC.Controlador.Controlador;
 
-import java.util.ArrayList;
-import MVC.Modelos.Modelo;
 
 /**
  *
@@ -18,7 +16,7 @@ public interface Vista<Modelo> {
     public static int messageTypeError=2;
     public static int messageTypeConfirm=3;
     
-    public void setController(Controller controller);
-    public void showData();
-    public void showMessage(String msg,int messageType);
+    public void setControlador(Controlador controlador);
+    public void mostarDato();
+    public void mostarMensaje(String msg,int messageType);
 }

@@ -77,14 +77,26 @@ public class ControladorOficial implements Controlador<Oficial>{
         this.vista.mostarDato();
     }
 
-    @Override
+     @Override
     public void actualizar(Oficial oficial) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (this.validar(oficial)){
+            if (this.dao.actualizar(oficial)){
+                this.vista.mostarMensaje("Registro actualizado correctamente", Vista.messageTypeSuccess);
+            }else{
+                this.vista.mostarMensaje("Error al actualizar el registro", Vista.messageTypeError);
+            }
+        }
     }
 
     @Override
     public void borrar(Oficial oficial) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (this.validar(oficial)){
+            if (this.dao.borrar(oficial)){
+                this.vista.mostarMensaje("Registro borrado correctamente", Vista.messageTypeSuccess);
+            }else{
+                this.vista.mostarMensaje("Error al borrar el registro", Vista.messageTypeError);
+            }
+        }
     }
 
     private boolean validar(Oficial oficial) {

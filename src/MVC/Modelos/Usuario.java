@@ -18,6 +18,9 @@ public class Usuario implements Modelo {
         this.idPersona = idPersona;
         this.tipoUsuario = tipoUsuario;
     }
+    public Usuario(){
+        this(null,null,null);
+    }
 
     public Integer getId() {
         return id;
