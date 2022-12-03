@@ -7,7 +7,6 @@ import java.awt.Color;
  * @author joans
  */
 public class FrmLoginOficiales extends javax.swing.JFrame {
-
     int xMouse, yMouse;
 
     public FrmLoginOficiales() {
@@ -222,7 +221,9 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMouseDragged
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
-        System.exit(0);
+        this.dispose();
+        FrmPrincipal frm = new FrmPrincipal();
+        frm.setVisible(true);
     }//GEN-LAST:event_exitTxtMouseClicked
 
     private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered

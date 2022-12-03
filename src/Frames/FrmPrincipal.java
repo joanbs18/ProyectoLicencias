@@ -33,6 +33,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         }
     }
 
+    public void error() {
+        JOptionPane.showMessageDialog(null, "Para ingresar en este módulo debe tener conexión.\nVerifique que esté conectado a la base de datos.");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,18 +48,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         logoG = new javax.swing.JLabel();
+        imagen = new javax.swing.JLabel();
+        logoP = new javax.swing.JLabel();
+        tituloSisLicencias = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
         conexion = new javax.swing.JLabel();
-        logoP = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         conectarseBtn = new javax.swing.JPanel();
         conectarseBtnTxt = new javax.swing.JLabel();
         desconectarseBtn = new javax.swing.JPanel();
         desconectarseBtnTxt = new javax.swing.JLabel();
-        tituloSisLicencias = new javax.swing.JLabel();
+        usuariosBtn = new javax.swing.JPanel();
+        usuariosBtnTxt = new javax.swing.JLabel();
+        clientesBtn = new javax.swing.JPanel();
+        clientesBtnTxt = new javax.swing.JLabel();
+        oficialesBtn = new javax.swing.JPanel();
+        oficialesBtnTxt = new javax.swing.JLabel();
+        citasBtn = new javax.swing.JPanel();
+        citasBtnTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -66,6 +78,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         logoG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PNG.png"))); // NOI18N
         bg.add(logoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 240, 140));
+
+        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/city557.png"))); // NOI18N
+        bg.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 0, -1, -1));
+
+        logoP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
+        bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 70));
+
+        tituloSisLicencias.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        tituloSisLicencias.setText("SISTEMA LICENCIAS CODE");
+        bg.add(tituloSisLicencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         logoname.setBackground(new java.awt.Color(255, 255, 255));
         logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
@@ -114,7 +136,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         conexion.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         conexion.setForeground(new java.awt.Color(255, 0, 0));
-        conexion.setText("Sin conexión");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -122,8 +143,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 442, Short.MAX_VALUE)
-                .addComponent(conexion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 415, Short.MAX_VALUE)
+                .addComponent(conexion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         headerLayout.setVerticalGroup(
@@ -138,18 +159,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, -1));
 
-        logoP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
-        bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, 70));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/city557.png"))); // NOI18N
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 0, -1, -1));
-
         conectarseBtn.setBackground(new java.awt.Color(0, 134, 190));
 
         conectarseBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         conectarseBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
         conectarseBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        conectarseBtnTxt.setText("CONECTARSE");
+        conectarseBtnTxt.setText("ESTABLECER CONEXIÓN");
         conectarseBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         conectarseBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -176,7 +191,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addComponent(conectarseBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        bg.add(conectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+        bg.add(conectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         desconectarseBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -210,11 +225,135 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addComponent(desconectarseBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        bg.add(desconectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+        bg.add(desconectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
-        tituloSisLicencias.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        tituloSisLicencias.setText("SISTEMA LICENCIAS CODE");
-        bg.add(tituloSisLicencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+        usuariosBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        usuariosBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        usuariosBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        usuariosBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usuariosBtnTxt.setText("USUARIOS");
+        usuariosBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        usuariosBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usuariosBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                usuariosBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                usuariosBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout usuariosBtnLayout = new javax.swing.GroupLayout(usuariosBtn);
+        usuariosBtn.setLayout(usuariosBtnLayout);
+        usuariosBtnLayout.setHorizontalGroup(
+            usuariosBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(usuariosBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+        );
+        usuariosBtnLayout.setVerticalGroup(
+            usuariosBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(usuariosBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        bg.add(usuariosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 430, 40));
+
+        clientesBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        clientesBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        clientesBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        clientesBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clientesBtnTxt.setText("CLIENTES");
+        clientesBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        clientesBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clientesBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clientesBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clientesBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout clientesBtnLayout = new javax.swing.GroupLayout(clientesBtn);
+        clientesBtn.setLayout(clientesBtnLayout);
+        clientesBtnLayout.setHorizontalGroup(
+            clientesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(clientesBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+        );
+        clientesBtnLayout.setVerticalGroup(
+            clientesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(clientesBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        bg.add(clientesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
+
+        oficialesBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        oficialesBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        oficialesBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        oficialesBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        oficialesBtnTxt.setText("OFICIALES");
+        oficialesBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        oficialesBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                oficialesBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                oficialesBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                oficialesBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout oficialesBtnLayout = new javax.swing.GroupLayout(oficialesBtn);
+        oficialesBtn.setLayout(oficialesBtnLayout);
+        oficialesBtnLayout.setHorizontalGroup(
+            oficialesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(oficialesBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+        );
+        oficialesBtnLayout.setVerticalGroup(
+            oficialesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(oficialesBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        bg.add(oficialesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
+
+        citasBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        citasBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        citasBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        citasBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        citasBtnTxt.setText("CITAS");
+        citasBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        citasBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                citasBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                citasBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                citasBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout citasBtnLayout = new javax.swing.GroupLayout(citasBtn);
+        citasBtn.setLayout(citasBtnLayout);
+        citasBtnLayout.setHorizontalGroup(
+            citasBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(citasBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+        );
+        citasBtnLayout.setVerticalGroup(
+            citasBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(citasBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        bg.add(citasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,14 +388,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
             x = new Conexion();
             x.conectar();
             this.comprobar();
+            this.conectarseBtn.setVisible(false);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        this.conectarseBtn.setVisible(false);
     }//GEN-LAST:event_conectarseBtnTxtMouseClicked
 
     private void conectarseBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarseBtnTxtMouseEntered
-        conectarseBtn.setBackground(new Color(0, 156, 223));
+        conectarseBtn.setBackground(new Color(0, 0, 0));
     }//GEN-LAST:event_conectarseBtnTxtMouseEntered
 
     private void conectarseBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarseBtnTxtMouseExited
@@ -271,12 +410,62 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_desconectarseBtnTxtMouseClicked
 
     private void desconectarseBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseEntered
-        conectarseBtn.setBackground(new Color(0, 156, 223));
+        desconectarseBtn.setBackground(new Color(0, 0, 0));
     }//GEN-LAST:event_desconectarseBtnTxtMouseEntered
 
     private void desconectarseBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseExited
-        conectarseBtn.setBackground(new Color(0, 134, 190));
+        desconectarseBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_desconectarseBtnTxtMouseExited
+
+    private void usuariosBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosBtnTxtMouseClicked
+
+    }//GEN-LAST:event_usuariosBtnTxtMouseClicked
+
+    private void usuariosBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosBtnTxtMouseEntered
+        usuariosBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_usuariosBtnTxtMouseEntered
+
+    private void usuariosBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosBtnTxtMouseExited
+        usuariosBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_usuariosBtnTxtMouseExited
+
+    private void clientesBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesBtnTxtMouseExited
+        clientesBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_clientesBtnTxtMouseExited
+
+    private void clientesBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesBtnTxtMouseEntered
+        clientesBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_clientesBtnTxtMouseEntered
+
+    private void clientesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesBtnTxtMouseClicked
+        //
+    }//GEN-LAST:event_clientesBtnTxtMouseClicked
+
+    private void oficialesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseClicked
+        FrmLoginOficiales frm = new FrmLoginOficiales();
+        frm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_oficialesBtnTxtMouseClicked
+
+    private void oficialesBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseEntered
+        oficialesBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_oficialesBtnTxtMouseEntered
+
+    private void oficialesBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseExited
+        oficialesBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_oficialesBtnTxtMouseExited
+
+    private void citasBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_citasBtnTxtMouseClicked
+
+    private void citasBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseEntered
+        citasBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_citasBtnTxtMouseEntered
+
+    private void citasBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseExited
+        citasBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_citasBtnTxtMouseExited
 
     /**
      * @param args the command line arguments
@@ -324,6 +513,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JPanel citasBtn;
+    private javax.swing.JLabel citasBtnTxt;
+    private javax.swing.JPanel clientesBtn;
+    private javax.swing.JLabel clientesBtnTxt;
     private javax.swing.JPanel conectarseBtn;
     private javax.swing.JLabel conectarseBtnTxt;
     private javax.swing.JLabel conexion;
@@ -332,10 +525,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel imagen;
     private javax.swing.JLabel logoG;
     private javax.swing.JLabel logoP;
     private javax.swing.JLabel logoname;
+    private javax.swing.JPanel oficialesBtn;
+    private javax.swing.JLabel oficialesBtnTxt;
     private javax.swing.JLabel tituloSisLicencias;
+    private javax.swing.JPanel usuariosBtn;
+    private javax.swing.JLabel usuariosBtnTxt;
     // End of variables declaration//GEN-END:variables
 }
