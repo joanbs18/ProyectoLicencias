@@ -29,7 +29,9 @@ public class Secretaria extends Persona implements Modelo{
         this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
-    
+    public Secretaria(){
+        this(null,null,null,null);
+    }
     
 
     public Integer getIdPersona() {
