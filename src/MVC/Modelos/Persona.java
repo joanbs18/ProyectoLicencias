@@ -30,9 +30,12 @@ public class Persona implements Modelo{
     public Persona() {
         this(null,null,null,null,null,null);
     }
-    public Persona(Integer id) {
-        this(id,null,null,null,null,null);
+    public Persona(Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
+        this(null,cedula,nombreCompleto,fechaNacimiento,email,telefono);
     }
+    
+
+    
 
     public Integer getId() {
         return id;
@@ -87,9 +90,9 @@ public class Persona implements Modelo{
 
     @Override
     public boolean isComplete() {
-        return this.cedula!=null && this.nombreCompleto!=null 
-                && this.fechaNacimiento!=null && this.telefono!=null
-                && this.email!=null;
+        return this.cedula!=null && !this.nombreCompleto.isEmpty() 
+                && !this.fechaNacimiento.isEmpty() && !this.telefono.isEmpty()
+                && !this.email.isEmpty();
     }
 
    

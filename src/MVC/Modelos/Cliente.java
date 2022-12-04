@@ -52,14 +52,14 @@ public class Cliente extends Persona implements Modelo{
         
     }
 
-    public Cliente(Integer idCliente, Integer idPersona, Integer id) {
-        super(id);
-        this.idCliente = idCliente;
-        this.idPersona = idPersona;
-        
-    }
+//    public Cliente(Integer idCliente, Integer idPersona, Integer id) {
+//        super(id);
+//        this.idCliente = idCliente;
+//        this.idPersona = idPersona;
+//        
+//    }
     public Cliente(){
-        this(null,null,null);
+        this(null,null);
     }
 
     
