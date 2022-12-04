@@ -57,6 +57,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         oficialesBtnTxt = new javax.swing.JLabel();
         secretariaBtn = new javax.swing.JPanel();
         secretariaBtnTxt = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -252,6 +253,11 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         bg.add(secretariaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("SELECCIONE EL TIPO DE USUARIO");
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 156, 430, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -374,6 +380,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
     private javax.swing.JLabel imagen;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logoG;
     private javax.swing.JLabel logoP;
     private javax.swing.JLabel logoname;

@@ -3,6 +3,7 @@ package MVC.Vistas.Oficiales;
 import MVC.Vistas.Secretaria.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -279,8 +280,8 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
 
         txtFecha.setBorder(null);
         txtFecha.setForeground(new java.awt.Color(204, 204, 204));
-        txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("YYYY-MM-DD"))));
-        txtFecha.setText("YYYY-MM-DD");
+        txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        txtFecha.setText("yyyy-MM-dd");
         txtFecha.setToolTipText("");
         txtFecha.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtFecha.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -288,7 +289,7 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
                 txtFechaMousePressed(evt);
             }
         });
-        bg.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 410, 20));
+        bg.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 310, 20));
 
         fechaSeparador.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(fechaSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 310, 20));
@@ -361,7 +362,15 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_exitTxtMouseExited
 
     private void continuarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseClicked
-
+        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
+                || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
+                || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+            FrmRegistroOficiales2 frm = new FrmRegistroOficiales2();
+            frm.setVisible(true);
+            this.setExtendedState(ICONIFIED);
+        }
     }//GEN-LAST:event_continuarBtnTxtMouseClicked
 
     private void continuarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseEntered
@@ -435,7 +444,7 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
             txtCedula.setForeground(Color.gray);
         }
         if (txtFecha.getText().isEmpty()) {
-            txtFecha.setText("YYYY-MM-DD");
+            txtFecha.setText("yyyy-MM-dd");
             txtFecha.setForeground(Color.gray);
         }
         if (txtNumero.getText().isEmpty()) {
@@ -462,7 +471,7 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
             txtNombre.setForeground(Color.gray);
         }
         if (txtFecha.getText().isEmpty()) {
-            txtFecha.setText("YYYY-MM-DD");
+            txtFecha.setText("yyyy-MM-dd");
             txtFecha.setForeground(Color.gray);
         }
         if (txtNumero.getText().isEmpty()) {
@@ -472,9 +481,9 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoMousePressed
 
     private void txtFechaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaMousePressed
-        if ("YYYY-MM-DD".equals(txtFecha.getText())) {
+        if ("yyyy-MM-dd".equals(txtFecha.getText())) {
             txtFecha.setText("");
-            txtFecha.setForeground(Color.gray);
+            txtFecha.setForeground(Color.black);
         }
         if (txtNumero.getText().isEmpty()) {
             txtNumero.setText("####-####");
@@ -497,7 +506,7 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
     private void txtNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNumeroMousePressed
         if ("####-####".equals(txtNumero.getText())) {
             txtNumero.setText("");
-            txtNumero.setForeground(Color.gray);
+            txtNumero.setForeground(Color.black);
         }
         if (txtCedula.getText().isEmpty()) {
             txtCedula.setText("Número de cédula");
@@ -512,7 +521,7 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
             txtNombre.setForeground(Color.gray);
         }
         if (txtFecha.getText().isEmpty()) {
-            txtFecha.setText("YYYY-MM-DD");
+            txtFecha.setText("yyyy-MM-dd");
             txtFecha.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtNumeroMousePressed

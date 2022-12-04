@@ -1,17 +1,19 @@
 package MVC.Vistas.Secretaria;
 
 import MVC.Vistas.Oficiales.*;
+import MVC.Vistas.Secretaria.*;
+import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
 
 /**
  *
  * @author joans
  */
-public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
+public class FrmRegistroSecretarias2 extends javax.swing.JFrame {
 
     int xMouse, yMouse;
 
-    public FrmRegistroSecretaria2() {
+    public FrmRegistroSecretarias2() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -21,11 +23,8 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        logoG = new javax.swing.JLabel();
         logoP = new javax.swing.JLabel();
-        logoname = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
-        imagen = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         minimizeBtn = new javax.swing.JPanel();
         minimizeTxt = new javax.swing.JLabel();
@@ -33,12 +32,14 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
         exitTxt = new javax.swing.JLabel();
         registrarseBtn = new javax.swing.JPanel();
         registrarseBtnTxt = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         nombreSeparador = new javax.swing.JSeparator();
         passLabel = new javax.swing.JLabel();
         passTxt = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
+        lblNombre = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -48,26 +49,12 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logoG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PNG.png"))); // NOI18N
-        bg.add(logoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 240, 140));
-
         logoP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
-        bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 60, 60));
-
-        logoname.setBackground(new java.awt.Color(255, 255, 255));
-        logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        logoname.setForeground(new java.awt.Color(255, 255, 255));
-        logoname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoname.setText("LICENCIAS");
-        bg.add(logoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 250, 20));
+        bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 60, 60));
 
         title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title.setText("REGISTRO SECRETARIA");
+        title.setText("REGISTRO SECRETARIAS");
         bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
-        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/city557.png"))); // NOI18N
-        bg.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 40, 190, 390));
 
         header.setBackground(new java.awt.Color(0, 0, 0));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -210,10 +197,6 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
 
         bg.add(registrarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 310, 40));
 
-        lblNombre.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        lblNombre.setText("NOMBRE USUARIO");
-        bg.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
-
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("Nombre usuario");
@@ -244,6 +227,23 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 310, 20));
+
+        lblNombre.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        lblNombre.setText("NOMBRE USUARIO");
+        bg.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Para finalizar con su proceso de registro en el\nsistema de Licencias Code, por favor, ingrese\nsu nombre de usuario y contraseña que utilizará\npara ingresar en el perfil de secretarias.\n\nPor su seguridad, le sugerimos que esta \ncontraseña sea lo más segura posible. Evite \nnombres sencillos o fáciles de adivinar. \n\nAl dar click en el botón de \"REGISTRARSE\" solo\npodrá cambiar su contraseña, además que solo\npodrá editarla desde el apartado de seguridad. \nPara ello, deberá ingresar su nombre de usuario,\nen dado caso que no recuerde su nombre de \nusuario, deberá comunicarse con nuestros asesores.\n");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 360, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -377,7 +377,7 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmRegistroSecretaria2().setVisible(true);
+                new FrmRegistroSecretarias2().setVisible(true);
             }
         });
     }
@@ -387,12 +387,11 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel imagen;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel logoG;
     private javax.swing.JLabel logoP;
-    private javax.swing.JLabel logoname;
     private javax.swing.JPanel minimizeBtn;
     private javax.swing.JLabel minimizeTxt;
     private javax.swing.JSeparator nombreSeparador;

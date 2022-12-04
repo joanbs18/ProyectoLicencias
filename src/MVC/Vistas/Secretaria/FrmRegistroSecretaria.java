@@ -2,6 +2,7 @@ package MVC.Vistas.Secretaria;
 
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -279,7 +280,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         txtFecha.setBorder(null);
         txtFecha.setForeground(new java.awt.Color(204, 204, 204));
         txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("YYYY-MM-DD"))));
-        txtFecha.setText("YYYY-MM-DD");
+        txtFecha.setText("yyyy-MM-dd");
         txtFecha.setToolTipText("");
         txtFecha.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtFecha.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -287,7 +288,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
                 txtFechaMousePressed(evt);
             }
         });
-        bg.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 410, 20));
+        bg.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 310, 20));
 
         fechaSeparador.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(fechaSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 310, 20));
@@ -360,7 +361,15 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_exitTxtMouseExited
 
     private void continuarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseClicked
-        // TODO add your handling code here:
+        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
+                || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
+                || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+            FrmRegistroSecretarias2 frm = new FrmRegistroSecretarias2();
+            frm.setVisible(true);
+        }
+
     }//GEN-LAST:event_continuarBtnTxtMouseClicked
 
     private void continuarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseEntered

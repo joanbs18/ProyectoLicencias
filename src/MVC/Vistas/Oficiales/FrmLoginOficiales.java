@@ -37,7 +37,7 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
         iniciarSesionBtn = new javax.swing.JPanel();
         iniciarSesionBtnTxt = new javax.swing.JLabel();
         registrarseSesionBtn = new javax.swing.JPanel();
-        registrarseSesionBtnTxt1 = new javax.swing.JLabel();
+        registrarseSesionBtnTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -204,20 +204,20 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
 
         registrarseSesionBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        registrarseSesionBtnTxt1.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        registrarseSesionBtnTxt1.setForeground(new java.awt.Color(255, 255, 255));
-        registrarseSesionBtnTxt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registrarseSesionBtnTxt1.setText("REGISTRARSE");
-        registrarseSesionBtnTxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        registrarseSesionBtnTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+        registrarseSesionBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        registrarseSesionBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registrarseSesionBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registrarseSesionBtnTxt.setText("REGISTRARSE");
+        registrarseSesionBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        registrarseSesionBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registrarseSesionBtnTxt1MouseClicked(evt);
+                registrarseSesionBtnTxtMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registrarseSesionBtnTxt1MouseEntered(evt);
+                registrarseSesionBtnTxtMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                registrarseSesionBtnTxt1MouseExited(evt);
+                registrarseSesionBtnTxtMouseExited(evt);
             }
         });
 
@@ -225,11 +225,11 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
         registrarseSesionBtn.setLayout(registrarseSesionBtnLayout);
         registrarseSesionBtnLayout.setHorizontalGroup(
             registrarseSesionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrarseSesionBtnTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+            .addComponent(registrarseSesionBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
         );
         registrarseSesionBtnLayout.setVerticalGroup(
             registrarseSesionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrarseSesionBtnTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(registrarseSesionBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         bg.add(registrarseSesionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 130, 40));
@@ -307,17 +307,18 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
         javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos:\nUsuario: " + userTxt.getText() + "\nContraseña: " + String.valueOf(passTxt.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_iniciarSesionBtnTxtMouseClicked
 
-    private void registrarseSesionBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxt1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registrarseSesionBtnTxt1MouseClicked
+    private void registrarseSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseClicked
+        FrmRegistroOficiales frm = new FrmRegistroOficiales();
+        frm.setVisible(true);
+    }//GEN-LAST:event_registrarseSesionBtnTxtMouseClicked
 
-    private void registrarseSesionBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxt1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registrarseSesionBtnTxt1MouseEntered
+    private void registrarseSesionBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseEntered
+        registrarseSesionBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_registrarseSesionBtnTxtMouseEntered
 
-    private void registrarseSesionBtnTxt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxt1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registrarseSesionBtnTxt1MouseExited
+    private void registrarseSesionBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseExited
+        registrarseSesionBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_registrarseSesionBtnTxtMouseExited
 
     private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
         // TODO add your handling code here:
@@ -378,7 +379,7 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passTxt;
     private javax.swing.JPanel registrarseSesionBtn;
-    private javax.swing.JLabel registrarseSesionBtnTxt1;
+    private javax.swing.JLabel registrarseSesionBtnTxt;
     private javax.swing.JLabel title;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTxt;
