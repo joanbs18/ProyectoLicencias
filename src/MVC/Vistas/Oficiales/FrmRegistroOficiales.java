@@ -1,7 +1,12 @@
 package MVC.Vistas.Oficiales;
 
+import Data.Conexiones.Conexion;
+import Data.Daos.DaoPersona;
+import MVC.Controlador.Controlador;
+import MVC.Controlador.ControladorPersona;
+import MVC.Modelos.Persona;
 import MVC.Vistas.Secretaria.*;
-import MVC.Vistas.Oficiales.*;
+import MVC.Vistas.Vista;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -9,15 +14,36 @@ import javax.swing.JOptionPane;
  *
  * @author joans
  */
-public class FrmRegistroOficiales extends javax.swing.JFrame {
-
+public class FrmRegistroOficiales extends javax.swing.JFrame implements Vista<Persona> {
+    
+    private Controlador<Persona>controlador;
+    @Override
+    public void setControlador(Controlador controlador) {
+        this.controlador=(ControladorPersona)controlador;
+    }
     int xMouse, yMouse;
 
     public FrmRegistroOficiales() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setControlador(new ControladorPersona(this));
     }
-
+public void guardar(){
+    if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
+                || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
+                || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+            FrmRegistroOficiales2 frm = new FrmRegistroOficiales2();
+            frm.setVisible(true);
+            this.setExtendedState(ICONIFIED);
+            //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
+            
+           Persona per =new Persona(null, Integer.valueOf(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText());
+            this.controlador.crear(per);
+        }
+    
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -362,16 +388,7 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_exitTxtMouseExited
 
     private void continuarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseClicked
-        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
-                || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
-                || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-        } else {
-            FrmRegistroOficiales2 frm = new FrmRegistroOficiales2();
-            frm.setVisible(true);
-            this.setExtendedState(ICONIFIED);
-            //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
-        }
+        guardar();
     }//GEN-LAST:event_continuarBtnTxtMouseClicked
 
     private void continuarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseEntered
@@ -621,4 +638,14 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JFormattedTextField txtNumero;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void mostarDato() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mostarMensaje(String msg, int messageType) {
+        JOptionPane.showMessageDialog(null, msg,"Oficial",messageType);
+    }
 }
