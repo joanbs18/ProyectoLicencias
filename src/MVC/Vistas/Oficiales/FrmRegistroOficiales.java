@@ -370,6 +370,7 @@ public class FrmRegistroOficiales extends javax.swing.JFrame {
             FrmRegistroOficiales2 frm = new FrmRegistroOficiales2();
             frm.setVisible(true);
             this.setExtendedState(ICONIFIED);
+            //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
         }
     }//GEN-LAST:event_continuarBtnTxtMouseClicked
 

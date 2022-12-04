@@ -368,6 +368,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         } else {
             FrmRegistroSecretarias2 frm = new FrmRegistroSecretarias2();
             frm.setVisible(true);
+            //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
         }
 
     }//GEN-LAST:event_continuarBtnTxtMouseClicked

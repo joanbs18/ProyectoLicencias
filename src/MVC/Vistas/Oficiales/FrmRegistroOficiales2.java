@@ -1,8 +1,10 @@
 package MVC.Vistas.Oficiales;
 
+import Frames.FrmRegistroCompleto;
 import MVC.Vistas.Secretaria.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -278,7 +280,15 @@ public class FrmRegistroOficiales2 extends javax.swing.JFrame {
     }//GEN-LAST:event_registrarseBtnTxtMouseEntered
 
     private void registrarseBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseBtnTxtMouseClicked
-        // TODO add your handling code here:
+        if (this.txtNombre.getText().equals("Nombre usuario") || this.txtNombre.getText().isEmpty() || this.passTxt.getPassword().equals("********")) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+            FrmRegistroCompleto frm = new FrmRegistroCompleto();
+            frm.setVisible(true);
+            //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS//
+            this.dispose();
+        }
+
     }//GEN-LAST:event_registrarseBtnTxtMouseClicked
 
     private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
