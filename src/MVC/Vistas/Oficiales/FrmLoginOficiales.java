@@ -293,7 +293,7 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_userTxtMousePressed
 
     private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
-        if (String.valueOf(passTxt.getPassword()).equals("********")) {
+        if (String.valueOf(passTxt.getPassword()).equals("***********")) {
             passTxt.setText("");
             passTxt.setForeground(Color.black);
         }
