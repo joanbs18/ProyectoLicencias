@@ -71,8 +71,8 @@ public class Conexion extends Conector {
             this.transact.setString(index, string);
         } else if (param instanceof Date) {
             this.transact.setDate(index, (java.sql.Date) param);
-        } else if (param instanceof Boolean) {
-            this.transact.setBoolean(index, (Boolean) param);
+        } else if (param instanceof Boolean boolean1) {
+            this.transact.setBoolean(index, boolean1);
         }
     }
         /**

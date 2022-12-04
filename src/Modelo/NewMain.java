@@ -5,9 +5,12 @@
 package Modelo;
 
 import Data.Conexiones.Conexion;
+import Data.Daos.DaoCliente;
+import Data.Daos.DaoPersona;
 import Data.Daos.DaoSecretaria;
+import MVC.Modelos.Cliente;
+import MVC.Modelos.Persona;
 import MVC.Modelos.Secretaria;
-
 
 /**
  *
@@ -22,16 +25,22 @@ public class NewMain {
 //            System.out.println("Conectado");
 //        }
 //    }
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //prueba cliente
+//        Cliente cli = new Cliente(0,4);
+//        DaoCliente dao = new DaoCliente (new Conexion());
+//        
+//        System.out.println(dao.crear(cli));
+//        System.out.println(dao.getError());
+        //prueba persona
+        Persona neutro = new Persona(0,3445477, "Joel", "2022-12-01", "fr@gmail.com","7465362553");
+//        Persona neutro = new Persona(4);
+        DaoPersona dao = new DaoPersona(new Conexion());
 
-        Secretaria secre = new Secretaria(5,1,"fran","ff3");
-        DaoSecretaria dao = new DaoSecretaria (new Conexion());
-        
-        System.out.println(dao.actualizar(secre));
+        System.out.println(dao.crear(neutro));
         System.out.println(dao.getError());
     }
 
