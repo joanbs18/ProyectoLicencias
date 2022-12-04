@@ -279,7 +279,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
 
         txtFecha.setBorder(null);
         txtFecha.setForeground(new java.awt.Color(204, 204, 204));
-        txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("YYYY-MM-DD"))));
+        txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
         txtFecha.setText("yyyy-MM-dd");
         txtFecha.setToolTipText("");
         txtFecha.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -444,7 +444,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
             txtCedula.setForeground(Color.gray);
         }
         if (txtFecha.getText().isEmpty()) {
-            txtFecha.setText("YYYY-MM-DD");
+            txtFecha.setText("yyyy-MM-dd");
             txtFecha.setForeground(Color.gray);
         }
         if (txtNumero.getText().isEmpty()) {
@@ -471,7 +471,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
             txtNombre.setForeground(Color.gray);
         }
         if (txtFecha.getText().isEmpty()) {
-            txtFecha.setText("YYYY-MM-DD");
+            txtFecha.setText("yyyy-MM-dd");
             txtFecha.setForeground(Color.gray);
         }
         if (txtNumero.getText().isEmpty()) {
@@ -481,9 +481,9 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoMousePressed
 
     private void txtFechaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaMousePressed
-        if ("YYYY-MM-DD".equals(txtFecha.getText())) {
+        if ("yyyy-MM-dd".equals(txtFecha.getText())) {
             txtFecha.setText("");
-            txtFecha.setForeground(Color.gray);
+            txtFecha.setForeground(Color.black);
         }
         if (txtNumero.getText().isEmpty()) {
             txtNumero.setText("####-####");
@@ -506,7 +506,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
     private void txtNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNumeroMousePressed
         if ("####-####".equals(txtNumero.getText())) {
             txtNumero.setText("");
-            txtNumero.setForeground(Color.gray);
+            txtNumero.setForeground(Color.black);
         }
         if (txtCedula.getText().isEmpty()) {
             txtCedula.setText("Número de cédula");
@@ -521,7 +521,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
             txtNombre.setForeground(Color.gray);
         }
         if (txtFecha.getText().isEmpty()) {
-            txtFecha.setText("YYYY-MM-DD");
+            txtFecha.setText("yyyy-MM-dd");
             txtFecha.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtNumeroMousePressed
