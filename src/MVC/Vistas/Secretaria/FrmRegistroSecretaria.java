@@ -29,7 +29,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
         continuarBtn = new javax.swing.JPanel();
-        registrarseSesionBtnTxt1 = new javax.swing.JLabel();
+        continuarBtnTxt = new javax.swing.JLabel();
         lblCedula = new javax.swing.JLabel();
         txtCedula = new javax.swing.JFormattedTextField();
         cedulaSeparador = new javax.swing.JSeparator();
@@ -177,20 +177,20 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
 
         continuarBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        registrarseSesionBtnTxt1.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        registrarseSesionBtnTxt1.setForeground(new java.awt.Color(255, 255, 255));
-        registrarseSesionBtnTxt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registrarseSesionBtnTxt1.setText("CONTINUAR");
-        registrarseSesionBtnTxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        registrarseSesionBtnTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+        continuarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        continuarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        continuarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        continuarBtnTxt.setText("CONTINUAR");
+        continuarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        continuarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registrarseSesionBtnTxt1MouseClicked(evt);
+                continuarBtnTxtMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registrarseSesionBtnTxt1MouseEntered(evt);
+                continuarBtnTxtMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                registrarseSesionBtnTxt1MouseExited(evt);
+                continuarBtnTxtMouseExited(evt);
             }
         });
 
@@ -198,11 +198,11 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         continuarBtn.setLayout(continuarBtnLayout);
         continuarBtnLayout.setHorizontalGroup(
             continuarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrarseSesionBtnTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+            .addComponent(continuarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
         );
         continuarBtnLayout.setVerticalGroup(
             continuarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrarseSesionBtnTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(continuarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         bg.add(continuarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 310, 40));
@@ -359,17 +359,17 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         exitTxt.setForeground(Color.white);
     }//GEN-LAST:event_exitTxtMouseExited
 
-    private void registrarseSesionBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxt1MouseClicked
+    private void continuarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_registrarseSesionBtnTxt1MouseClicked
+    }//GEN-LAST:event_continuarBtnTxtMouseClicked
 
-    private void registrarseSesionBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxt1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registrarseSesionBtnTxt1MouseEntered
+    private void continuarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseEntered
+        continuarBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_continuarBtnTxtMouseEntered
 
-    private void registrarseSesionBtnTxt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxt1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registrarseSesionBtnTxt1MouseExited
+    private void continuarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseExited
+        continuarBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_continuarBtnTxtMouseExited
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
@@ -570,6 +570,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JSeparator cedulaSeparador;
     private javax.swing.JPanel continuarBtn;
+    private javax.swing.JLabel continuarBtnTxt;
     private javax.swing.JSeparator correoSeparador;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
@@ -586,7 +587,6 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
     private javax.swing.JLabel minimizeTxt;
     private javax.swing.JSeparator nombreSeparador;
     private javax.swing.JSeparator numeroSeparado;
-    private javax.swing.JLabel registrarseSesionBtnTxt1;
     private javax.swing.JLabel title;
     private javax.swing.JFormattedTextField txtCedula;
     private javax.swing.JTextField txtCorreo;

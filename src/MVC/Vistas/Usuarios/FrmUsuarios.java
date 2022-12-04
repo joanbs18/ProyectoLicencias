@@ -27,16 +27,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
     public FrmUsuarios() {
         initComponents();
         this.setLocationRelativeTo(null);
-        if (!"Conectado".equals(this.conexion.getText())) {
-            this.conexion.setText("Sin conexión");
-        }
-    }
-
-    public void comprobar() {
-        if (x.connection != null) {
-            this.conexion.setForeground(Color.BLUE);
-            this.conexion.setText("Conectado");
-        }
     }
 
     public void errorNoConectado() {
@@ -61,7 +51,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        conexion = new javax.swing.JLabel();
         minimizeBtn = new javax.swing.JPanel();
         minimizeTxt = new javax.swing.JLabel();
         oficialesBtn = new javax.swing.JPanel();
@@ -134,10 +123,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 .addComponent(exitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        conexion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        conexion.setForeground(new java.awt.Color(255, 0, 0));
-        conexion.setToolTipText("");
-
         minimizeBtn.setBackground(new java.awt.Color(255, 255, 255));
         minimizeBtn.setPreferredSize(new java.awt.Dimension(40, 40));
 
@@ -185,9 +170,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
-                .addComponent(conexion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(484, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +178,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(conexion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(523, 523, 523))
         );
@@ -388,7 +370,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel conexion;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;

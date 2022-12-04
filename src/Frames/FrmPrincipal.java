@@ -396,9 +396,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_desconectarseBtnTxtMouseExited
 
     private void usuariosBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosBtnTxtMouseClicked
-        FrmUsuarios frm = new FrmUsuarios();
-        frm.setVisible(true);
-        this.setExtendedState(ICONIFIED);
+        if ("Sin conexión".equals(conexion.getText())) {
+            errorNoConectado();
+        } else {
+            FrmUsuarios frm = new FrmUsuarios();
+            frm.setVisible(true);
+            this.setExtendedState(ICONIFIED);
+        }
     }//GEN-LAST:event_usuariosBtnTxtMouseClicked
 
     private void usuariosBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosBtnTxtMouseEntered
@@ -418,11 +422,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_clientesBtnTxtMouseEntered
 
     private void clientesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesBtnTxtMouseClicked
-        //
+        if ("Sin conexión".equals(conexion.getText())) {
+            errorNoConectado();
+        } else {
+
+        }
     }//GEN-LAST:event_clientesBtnTxtMouseClicked
 
     private void citasBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseClicked
-        // TODO add your handling code here:
+        if ("Sin conexión".equals(conexion.getText())) {
+            errorNoConectado();
+        } else {
+
+        }
     }//GEN-LAST:event_citasBtnTxtMouseClicked
 
     private void citasBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseEntered
