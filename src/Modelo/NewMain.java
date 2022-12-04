@@ -36,8 +36,9 @@ public class NewMain {
 //        System.out.println(dao.crear(cli));
 //        System.out.println(dao.getError());
         //prueba persona
-        Persona neutro = new Persona(0,3445477, "Joel", "2022-12-01", "fr@gmail.com","7465362553");
+        Persona neutro = new Persona(0,344547, "Juan", "2022-12-01", "fr@gmail.com","7465362553");
 //        Persona neutro = new Persona(4);
+
         DaoPersona dao = new DaoPersona(new Conexion());
 
         System.out.println(dao.crear(neutro));
