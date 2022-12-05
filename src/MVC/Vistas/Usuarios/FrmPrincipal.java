@@ -5,7 +5,9 @@
 package MVC.Vistas.Usuarios;
 
 import Data.Conexiones.Conexion;
+import MVC.Vistas.Oficiales.FrmLoginOficiales;
 import MVC.Vistas.Oficiales.FrmOficiales;
+import MVC.Vistas.Secretaria.FrmLoginSecretaria;
 import MVC.Vistas.Secretaria.FrmSecretaria;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -30,7 +32,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        this.modificarBtn.setVisible(false);
     }
 
     public void errorNoConectado() {
@@ -57,18 +58,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         minimizarBtnTxt = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        opcionesBtn = new javax.swing.JPanel();
-        opcionesBtnTxt = new javax.swing.JLabel();
         secretariasBtn = new javax.swing.JPanel();
         secretariasBtnTxt = new javax.swing.JLabel();
         clientesBtn = new javax.swing.JPanel();
         clientesBtnTxt = new javax.swing.JLabel();
-        citasBtn = new javax.swing.JPanel();
-        citasBtnTxt = new javax.swing.JLabel();
         oficialesBtn = new javax.swing.JPanel();
         oficialesBtnTxt = new javax.swing.JLabel();
-        modificarBtn = new javax.swing.JPanel();
-        modificarBtnTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -179,38 +174,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(exitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        opcionesBtn.setBackground(new java.awt.Color(0, 0, 0));
-        opcionesBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                opcionesBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                opcionesBtnMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                opcionesBtnMousePressed(evt);
-            }
-        });
-
-        opcionesBtnTxt.setBackground(new java.awt.Color(255, 102, 0));
-        opcionesBtnTxt.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        opcionesBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        opcionesBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        opcionesBtnTxt.setText("OPCIONES");
-
-        javax.swing.GroupLayout opcionesBtnLayout = new javax.swing.GroupLayout(opcionesBtn);
-        opcionesBtn.setLayout(opcionesBtnLayout);
-        opcionesBtnLayout.setHorizontalGroup(
-            opcionesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(opcionesBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-        );
-        opcionesBtnLayout.setVerticalGroup(
-            opcionesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(opcionesBtnLayout.createSequentialGroup()
-                .addComponent(opcionesBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
@@ -219,9 +182,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(minimizarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
-                .addComponent(opcionesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addContainerGap(484, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,9 +190,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(minimizarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(opcionesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(535, 535, 535))
+                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(541, 541, 541))
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, -1));
@@ -268,7 +228,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bg.add(secretariasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 430, 70));
+        bg.add(secretariasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 430, 70));
 
         clientesBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -302,41 +262,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bg.add(clientesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
-
-        citasBtn.setBackground(new java.awt.Color(0, 134, 190));
-
-        citasBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        citasBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        citasBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        citasBtnTxt.setText("CITAS");
-        citasBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        citasBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                citasBtnTxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                citasBtnTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                citasBtnTxtMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout citasBtnLayout = new javax.swing.GroupLayout(citasBtn);
-        citasBtn.setLayout(citasBtnLayout);
-        citasBtnLayout.setHorizontalGroup(
-            citasBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(citasBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-        );
-        citasBtnLayout.setVerticalGroup(
-            citasBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(citasBtnLayout.createSequentialGroup()
-                .addComponent(citasBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        bg.add(citasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, 68));
+        bg.add(clientesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
 
         oficialesBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -372,38 +298,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         bg.add(oficialesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
-        modificarBtn.setBackground(new java.awt.Color(0, 134, 190));
-        modificarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modificarBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                modificarBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                modificarBtnMouseExited(evt);
-            }
-        });
-
-        modificarBtnTxt.setBackground(new java.awt.Color(0, 0, 0));
-        modificarBtnTxt.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        modificarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        modificarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        modificarBtnTxt.setText("USUARIOS");
-
-        javax.swing.GroupLayout modificarBtnLayout = new javax.swing.GroupLayout(modificarBtn);
-        modificarBtn.setLayout(modificarBtnLayout);
-        modificarBtnLayout.setHorizontalGroup(
-            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-        );
-        modificarBtnLayout.setVerticalGroup(
-            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        bg.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 170, 40));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -433,7 +327,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitTxtMouseExited
 
     private void secretariasBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secretariasBtnTxtMouseClicked
-        FrmSecretaria frm = new FrmSecretaria();
+        FrmLoginSecretaria frm = new FrmLoginSecretaria();
         frm.setVisible(true);
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_secretariasBtnTxtMouseClicked
@@ -458,21 +352,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_clientesBtnTxtMouseClicked
 
-    private void citasBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseClicked
-
-    }//GEN-LAST:event_citasBtnTxtMouseClicked
-
-    private void citasBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseEntered
-        citasBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_citasBtnTxtMouseEntered
-
-    private void citasBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseExited
-        citasBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_citasBtnTxtMouseExited
-
     private void oficialesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseClicked
-
-        FrmOficiales frm = new FrmOficiales();
+        FrmLoginOficiales frm = new FrmLoginOficiales();
         frm.setVisible(true);
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_oficialesBtnTxtMouseClicked
@@ -499,32 +380,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         minimizarBtnTxt.setForeground(Color.black);
     }//GEN-LAST:event_minimizarBtnTxtMouseExited
 
-    private void opcionesBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMouseEntered
-        opcionesBtn.setBackground(new Color(255,102,51));
-    }//GEN-LAST:event_opcionesBtnMouseEntered
-
-    private void opcionesBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMouseExited
-        opcionesBtn.setBackground(new Color(0,0,0));
-    }//GEN-LAST:event_opcionesBtnMouseExited
-
-    private void modificarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnMouseClicked
-        FrmUsuarios frm = new FrmUsuarios();
-        frm.setVisible(true);
-    }//GEN-LAST:event_modificarBtnMouseClicked
-
-    private void modificarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnMouseEntered
-        modificarBtn.setBackground(new Color(0, 156, 223));    }//GEN-LAST:event_modificarBtnMouseEntered
-
-    private void modificarBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnMouseExited
-        modificarBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_modificarBtnMouseExited
-
-    private void opcionesBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMousePressed
-        this.modificarBtn.setVisible(true);
-    }//GEN-LAST:event_opcionesBtnMousePressed
-
     private void bgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseClicked
-        this.modificarBtn.setVisible(false);
     }//GEN-LAST:event_bgMouseClicked
 
     /**
@@ -573,8 +429,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JPanel citasBtn;
-    private javax.swing.JLabel citasBtnTxt;
     private javax.swing.JPanel clientesBtn;
     private javax.swing.JLabel clientesBtnTxt;
     private javax.swing.JPanel exitBtn;
@@ -586,12 +440,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel logoname;
     private javax.swing.JPanel minimizarBtn;
     private javax.swing.JLabel minimizarBtnTxt;
-    private javax.swing.JPanel modificarBtn;
-    private javax.swing.JLabel modificarBtnTxt;
     private javax.swing.JPanel oficialesBtn;
     private javax.swing.JLabel oficialesBtnTxt;
-    private javax.swing.JPanel opcionesBtn;
-    private javax.swing.JLabel opcionesBtnTxt;
     private javax.swing.JPanel secretariasBtn;
     private javax.swing.JLabel secretariasBtnTxt;
     private javax.swing.JLabel tituloSisLicencias;

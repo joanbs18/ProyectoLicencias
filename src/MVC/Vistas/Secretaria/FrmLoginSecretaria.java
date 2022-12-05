@@ -1,8 +1,9 @@
-package MVC.Vistas.Oficiales;
+package MVC.Vistas.Secretaria;
 
-import MVC.Vistas.Secretaria.*;
 import MVC.Vistas.Usuarios.*;
 import Data.Conexiones.Conexion;
+import MVC.Vistas.*;
+import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -10,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author joans
  */
-public class FrmActualizar extends javax.swing.JFrame {
+public class FrmLoginSecretaria extends javax.swing.JFrame {
 
     Conexion x;
     int xMouse, yMouse;
 
-    public FrmActualizar() {
+    public FrmLoginSecretaria() {
         initComponents();
         this.setLocationRelativeTo(null);
         try {
@@ -34,25 +35,25 @@ public class FrmActualizar extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         logoP = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
+        logoG = new javax.swing.JLabel();
+        logoname = new javax.swing.JLabel();
+        citybg = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         minimizeBtn = new javax.swing.JPanel();
         minimizeTxt = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
+        favicon = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         userTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         passLabel = new javax.swing.JLabel();
         passTxt = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
-        modificarBtn = new javax.swing.JPanel();
-        modificarBtnTxt = new javax.swing.JLabel();
-        newPassLabel = new javax.swing.JLabel();
-        newPassTxt = new javax.swing.JPasswordField();
-        jSeparator3 = new javax.swing.JSeparator();
-        confirmNewPassLabel = new javax.swing.JLabel();
-        confirmNewPassTxt = new javax.swing.JPasswordField();
-        jSeparator4 = new javax.swing.JSeparator();
+        iniciarSesionBtn = new javax.swing.JPanel();
+        iniciarSesionBtnTxt = new javax.swing.JLabel();
+        registrarseSesionBtn = new javax.swing.JPanel();
+        registrarseSesionBtnTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -63,13 +64,28 @@ public class FrmActualizar extends javax.swing.JFrame {
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
-        bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
+        bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title.setText("ACTUALIZAR OFICIALES");
-        bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        title.setText("INICIO SESIÓN SECRETARIAS");
+        bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        header.setBackground(new java.awt.Color(0, 0, 0));
+        logoG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PNG.png"))); // NOI18N
+        bg.add(logoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 240, 140));
+
+        logoname.setBackground(new java.awt.Color(255, 255, 255));
+        logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        logoname.setForeground(new java.awt.Color(255, 255, 255));
+        logoname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoname.setText("LICENCIAS");
+        bg.add(logoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 250, 20));
+
+        citybg.setBackground(new java.awt.Color(0, 134, 190));
+        citybg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/city.png"))); // NOI18N
+        bg.add(citybg, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 0, -1, 500));
+
+        header.setBackground(new java.awt.Color(255, 255, 255));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -81,12 +97,11 @@ public class FrmActualizar extends javax.swing.JFrame {
             }
         });
 
-        minimizeBtn.setBackground(new java.awt.Color(0, 0, 0));
+        minimizeBtn.setBackground(new java.awt.Color(255, 255, 255));
         minimizeBtn.setPreferredSize(new java.awt.Dimension(40, 40));
 
-        minimizeTxt.setBackground(new java.awt.Color(0, 0, 0));
+        minimizeTxt.setBackground(new java.awt.Color(255, 255, 255));
         minimizeTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        minimizeTxt.setForeground(new java.awt.Color(255, 255, 255));
         minimizeTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeTxt.setText("-");
         minimizeTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -120,10 +135,9 @@ public class FrmActualizar extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        exitBtn.setBackground(new java.awt.Color(0, 0, 0));
+        exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
         exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        exitTxt.setForeground(new java.awt.Color(255, 255, 255));
         exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exitTxt.setText("x");
         exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -173,9 +187,13 @@ public class FrmActualizar extends javax.swing.JFrame {
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 40));
 
+        favicon.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        favicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LogoSample_ByTailorBrands (2).jpg"))); // NOI18N
+        bg.add(favicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, -1, -1));
+
         userLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         userLabel.setText("USUARIO");
-        bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         userTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         userTxt.setForeground(new java.awt.Color(204, 204, 204));
@@ -191,14 +209,14 @@ public class FrmActualizar extends javax.swing.JFrame {
                 userTxtActionPerformed(evt);
             }
         });
-        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 410, 30));
+        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 410, 30));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 350, 20));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 410, 20));
 
         passLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel.setText("CONTRASEÑA ACTUAL");
-        bg.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        passLabel.setText("CONTRASEÑA");
+        bg.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         passTxt.setForeground(new java.awt.Color(204, 204, 204));
         passTxt.setText("***********");
@@ -208,76 +226,74 @@ public class FrmActualizar extends javax.swing.JFrame {
                 passTxtMousePressed(evt);
             }
         });
-        bg.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 410, 30));
+        bg.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 410, 30));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 350, 20));
+        bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 410, 20));
 
-        modificarBtn.setBackground(new java.awt.Color(0, 134, 190));
+        iniciarSesionBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        modificarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        modificarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        modificarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        modificarBtnTxt.setText(" MODIFICAR");
-        modificarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        modificarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        iniciarSesionBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        iniciarSesionBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        iniciarSesionBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iniciarSesionBtnTxt.setText("INICIAR SESIÓN");
+        iniciarSesionBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        iniciarSesionBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modificarBtnTxtMouseClicked(evt);
+                iniciarSesionBtnTxtMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                modificarBtnTxtMouseEntered(evt);
+                iniciarSesionBtnTxtMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                modificarBtnTxtMouseExited(evt);
+                iniciarSesionBtnTxtMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout modificarBtnLayout = new javax.swing.GroupLayout(modificarBtn);
-        modificarBtn.setLayout(modificarBtnLayout);
-        modificarBtnLayout.setHorizontalGroup(
-            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+        javax.swing.GroupLayout iniciarSesionBtnLayout = new javax.swing.GroupLayout(iniciarSesionBtn);
+        iniciarSesionBtn.setLayout(iniciarSesionBtnLayout);
+        iniciarSesionBtnLayout.setHorizontalGroup(
+            iniciarSesionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(iniciarSesionBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
         );
-        modificarBtnLayout.setVerticalGroup(
-            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        iniciarSesionBtnLayout.setVerticalGroup(
+            iniciarSesionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(iniciarSesionBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        bg.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 360, 40));
+        bg.add(iniciarSesionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 130, 40));
 
-        newPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        newPassLabel.setText("CONTRASEÑA NUEVA");
-        bg.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        registrarseSesionBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        newPassTxt.setForeground(new java.awt.Color(204, 204, 204));
-        newPassTxt.setText("***********");
-        newPassTxt.setBorder(null);
-        newPassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                newPassTxtMousePressed(evt);
+        registrarseSesionBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        registrarseSesionBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registrarseSesionBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registrarseSesionBtnTxt.setText("REGISTRARSE");
+        registrarseSesionBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        registrarseSesionBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registrarseSesionBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registrarseSesionBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registrarseSesionBtnTxtMouseExited(evt);
             }
         });
-        bg.add(newPassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 410, 30));
 
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 350, 20));
+        javax.swing.GroupLayout registrarseSesionBtnLayout = new javax.swing.GroupLayout(registrarseSesionBtn);
+        registrarseSesionBtn.setLayout(registrarseSesionBtnLayout);
+        registrarseSesionBtnLayout.setHorizontalGroup(
+            registrarseSesionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registrarseSesionBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        registrarseSesionBtnLayout.setVerticalGroup(
+            registrarseSesionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registrarseSesionBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
 
-        confirmNewPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel.setText("CONFIRMAR CONTRASEÑA NUEVA");
-        bg.add(confirmNewPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 250, -1));
-
-        confirmNewPassTxt.setForeground(new java.awt.Color(204, 204, 204));
-        confirmNewPassTxt.setText("***********");
-        confirmNewPassTxt.setBorder(null);
-        confirmNewPassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                confirmNewPassTxtMousePressed(evt);
-            }
-        });
-        bg.add(confirmNewPassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 360, 30));
-
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 360, 20));
+        bg.add(registrarseSesionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -287,7 +303,7 @@ public class FrmActualizar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -318,6 +334,14 @@ public class FrmActualizar extends javax.swing.JFrame {
         exitTxt.setForeground(Color.black);
     }//GEN-LAST:event_exitTxtMouseExited
 
+    private void iniciarSesionBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBtnTxtMouseEntered
+        iniciarSesionBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_iniciarSesionBtnTxtMouseEntered
+
+    private void iniciarSesionBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBtnTxtMouseExited
+        iniciarSesionBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_iniciarSesionBtnTxtMouseExited
+
     private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
         if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
             userTxt.setText("");
@@ -340,18 +364,24 @@ public class FrmActualizar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_passTxtMousePressed
 
-    private void modificarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseClicked
+    private void iniciarSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBtnTxtMouseClicked
+        //CODIGO PARA VERIFICAR SI EXISTE O NO EL USUARIO
+        FrmPrincipal frm = new FrmPrincipal();
+        frm.setVisible(true);
+    }//GEN-LAST:event_iniciarSesionBtnTxtMouseClicked
+
+    private void registrarseSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseClicked
         FrmRegistroUsuarios frm = new FrmRegistroUsuarios();
         frm.setVisible(true);
-    }//GEN-LAST:event_modificarBtnTxtMouseClicked
+    }//GEN-LAST:event_registrarseSesionBtnTxtMouseClicked
 
-    private void modificarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseEntered
-        modificarBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_modificarBtnTxtMouseEntered
+    private void registrarseSesionBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseEntered
+        registrarseSesionBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_registrarseSesionBtnTxtMouseEntered
 
-    private void modificarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseExited
-        modificarBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_modificarBtnTxtMouseExited
+    private void registrarseSesionBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseExited
+        registrarseSesionBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_registrarseSesionBtnTxtMouseExited
 
     private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
         // TODO add your handling code here:
@@ -371,14 +401,6 @@ public class FrmActualizar extends javax.swing.JFrame {
         minimizeTxt.setForeground(Color.black);
     }//GEN-LAST:event_minimizeTxtMouseExited
 
-    private void newPassTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newPassTxtMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newPassTxtMousePressed
-
-    private void confirmNewPassTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmNewPassTxtMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmNewPassTxtMousePressed
-
     /**
      * @param args the command line arguments
      */
@@ -396,206 +418,14 @@ public class FrmActualizar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmActualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmActualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmActualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmActualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -664,31 +494,31 @@ public class FrmActualizar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmActualizar().setVisible(true);
+                new FrmLoginSecretaria().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel confirmNewPassLabel;
-    private javax.swing.JPasswordField confirmNewPassTxt;
+    private javax.swing.JLabel citybg;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
+    private javax.swing.JLabel favicon;
     private javax.swing.JPanel header;
+    private javax.swing.JPanel iniciarSesionBtn;
+    private javax.swing.JLabel iniciarSesionBtnTxt;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel logoG;
     private javax.swing.JLabel logoP;
+    private javax.swing.JLabel logoname;
     private javax.swing.JPanel minimizeBtn;
     private javax.swing.JLabel minimizeTxt;
-    private javax.swing.JPanel modificarBtn;
-    private javax.swing.JLabel modificarBtnTxt;
-    private javax.swing.JLabel newPassLabel;
-    private javax.swing.JPasswordField newPassTxt;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passTxt;
+    private javax.swing.JPanel registrarseSesionBtn;
+    private javax.swing.JLabel registrarseSesionBtnTxt;
     private javax.swing.JLabel title;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTxt;

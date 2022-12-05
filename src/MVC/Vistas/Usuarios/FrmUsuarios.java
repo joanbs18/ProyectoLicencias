@@ -387,7 +387,8 @@ public class FrmUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeTxtMouseExited
 
     private void mostrarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtnTxtMouseClicked
-        // TODO add your handling code here:
+        FrmMostrar frm = new FrmMostrar();
+        frm.setVisible(true);
     }//GEN-LAST:event_mostrarBtnTxtMouseClicked
 
     private void mostrarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtnTxtMouseEntered

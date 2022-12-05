@@ -193,7 +193,7 @@ public class FrmMostrar extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Para mostrar los datos del usuario, por favor\ndigite la cédula del usuario para que pueda\nser mostrado.");
+        jTextArea1.setText("Para mostrar los datos del usuario, por favor\ndigite la cédula de la secretaria para que \npueda ser mostrado.");
         jScrollPane3.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);

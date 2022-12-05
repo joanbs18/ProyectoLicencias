@@ -347,7 +347,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Para mostrar los datos del usuario, por favor&#xa;digite la c&#xe9;dula del usuario para que pueda&#xa;ser mostrado."/>
+                <Property name="text" type="java.lang.String" value="Para mostrar los datos del usuario, por favor&#xa;digite la c&#xe9;dula de la secretaria para que &#xa;pueda ser mostrado."/>
               </Properties>
             </Component>
           </SubComponents>
