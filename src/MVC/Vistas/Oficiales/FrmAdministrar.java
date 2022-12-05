@@ -470,7 +470,7 @@ public class FrmAdministrar extends javax.swing.JFrame {
         crear1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title.setText("REGISTRO USUARIOS");
+        title.setText("REGISTRO OFICIALES");
         crear1.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         logoname.setBackground(new java.awt.Color(255, 255, 255));
@@ -634,7 +634,7 @@ public class FrmAdministrar extends javax.swing.JFrame {
         crear2.add(logoP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 60, 60));
 
         title1.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title1.setText("REGISTRO USUARIOS");
+        title1.setText("REGISTRO OFICIALES");
         crear2.add(title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         registrarseBtn.setBackground(new java.awt.Color(0, 134, 190));
