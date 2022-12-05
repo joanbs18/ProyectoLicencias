@@ -9,8 +9,13 @@ import Data.Daos.DaoCliente;
 import Data.Daos.DaoPersona;
 import Data.Daos.DaoSecretaria;
 import MVC.Modelos.Cliente;
+import MVC.Modelos.Oficial;
 import MVC.Modelos.Persona;
+import MVC.Modelos.Prueba;
 import MVC.Modelos.Secretaria;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
@@ -36,13 +41,24 @@ public class NewMain {
 //        System.out.println(dao.crear(cli));
 //        System.out.println(dao.getError());
         //prueba persona
-        Persona neutro = new Persona(0,344547, "Juan", "2022-12-01", "fr@gmail.com","7465362553");
-//        Persona neutro = new Persona(4);
+//        Persona neutro = new Persona(0,344547, "Juan", "2022-12-01", "fr@gmail.com","7465362553");
+////        Persona neutro = new Persona(4);
+//
+//        DaoPersona dao = new DaoPersona(new Conexion());
+//
+//        System.out.println(dao.crear(neutro));
+//        System.out.println(dao.getError());
 
-        DaoPersona dao = new DaoPersona(new Conexion());
+        //prueba salario deducciones
+//        Oficial of= new Oficial(1, 2, "fran", "123", 900000.);
+//        of.salarioNetoCalcular(of.getSalario());
 
-        System.out.println(dao.crear(neutro));
-        System.out.println(dao.getError());
+        //prueba de la prueba jaja
+        LocalDateTime hoy = LocalDateTime.now(); 
+        String fecha1= String.valueOf(hoy.getYear()+"-"+hoy.getMonthValue()+"-"+hoy.getDayOfMonth());
+        Prueba pru=new Prueba(1, fecha1, 847, 34, 2, 100.,null,null);
+        System.out.println(pru.toString());
+        
     }
 
 }
