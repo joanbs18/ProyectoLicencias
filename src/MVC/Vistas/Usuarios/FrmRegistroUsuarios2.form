@@ -64,7 +64,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto Black" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="REGISTRO SECRETARIAS"/>
+            <Property name="text" type="java.lang.String" value="REGISTRO USUARIOS"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -396,7 +396,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Para finalizar con su proceso de registro en el&#xa;sistema de Licencias Code, por favor, ingrese&#xa;su nombre de usuario y contrase&#xf1;a que utilizar&#xe1;&#xa;para ingresar en el perfil de secretarias.&#xa;&#xa;Por su seguridad, le sugerimos que esta &#xa;contrase&#xf1;a sea lo m&#xe1;s segura posible. Evite &#xa;nombres sencillos o f&#xe1;ciles de adivinar. &#xa;&#xa;Al dar click en el bot&#xf3;n de &quot;REGISTRARSE&quot; solo&#xa;podr&#xe1; cambiar su contrase&#xf1;a, adem&#xe1;s que solo&#xa;podr&#xe1; editarla desde el apartado de seguridad. &#xa;Para ello, deber&#xe1; ingresar su nombre de usuario,&#xa;en dado caso que no recuerde su nombre de &#xa;usuario, deber&#xe1; comunicarse con nuestros asesores.&#xa;"/>
+                <Property name="text" type="java.lang.String" value="Para finalizar con su proceso de registro en el&#xa;sistema de Licencias Code, por favor, ingrese&#xa;su nombre de usuario y contrase&#xf1;a que utilizar&#xe1;&#xa;para ingresar en el perfil de su usuario.&#xa;&#xa;Por su seguridad, le sugerimos que esta &#xa;contrase&#xf1;a sea lo m&#xe1;s segura posible. Evite &#xa;nombres sencillos o f&#xe1;ciles de adivinar. &#xa;&#xa;Al dar click en el bot&#xf3;n de &quot;REGISTRARSE&quot; solo&#xa;podr&#xe1; editar su contrase&#xf1;a desde el apartado de &#xa;seguridad. &#xa;Para ello, deber&#xe1; ingresar su contrase&#xf1;a actual.&#xa;En caso de no recordar su contrase&#xf1;a actual, deber&#xe1;&#xa;contactarse con nuestros asesores.&#xa;"/>
               </Properties>
             </Component>
           </SubComponents>

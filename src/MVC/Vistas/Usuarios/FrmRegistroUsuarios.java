@@ -1,5 +1,6 @@
-package MVC.Vistas.Secretaria;
+package MVC.Vistas.Usuarios;
 
+import MVC.Vistas.Secretaria.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -8,11 +9,11 @@ import javax.swing.JOptionPane;
  *
  * @author joans
  */
-public class FrmRegistroSecretaria extends javax.swing.JFrame {
+public class FrmRegistroUsuarios extends javax.swing.JFrame {
 
     int xMouse, yMouse;
 
-    public FrmRegistroSecretaria() {
+    public FrmRegistroUsuarios() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -29,8 +30,8 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         minimizeTxt = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        registrarBtn = new javax.swing.JPanel();
-        registrarBtnTxt = new javax.swing.JLabel();
+        continuarBtn = new javax.swing.JPanel();
+        continuarBtnTxt = new javax.swing.JLabel();
         lblCedula = new javax.swing.JLabel();
         txtCedula = new javax.swing.JFormattedTextField();
         cedulaSeparador = new javax.swing.JSeparator();
@@ -57,7 +58,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title.setText("REGISTRO SECRETARIA");
+        title.setText("REGISTRO USUARIOS");
         bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         logoname.setBackground(new java.awt.Color(255, 255, 255));
@@ -176,37 +177,37 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 40));
 
-        registrarBtn.setBackground(new java.awt.Color(0, 134, 190));
+        continuarBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        registrarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        registrarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        registrarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registrarBtnTxt.setText("REGISTRAR");
-        registrarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        registrarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        continuarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        continuarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        continuarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        continuarBtnTxt.setText("CONTINUAR");
+        continuarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        continuarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registrarBtnTxtMouseClicked(evt);
+                continuarBtnTxtMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registrarBtnTxtMouseEntered(evt);
+                continuarBtnTxtMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                registrarBtnTxtMouseExited(evt);
+                continuarBtnTxtMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout registrarBtnLayout = new javax.swing.GroupLayout(registrarBtn);
-        registrarBtn.setLayout(registrarBtnLayout);
-        registrarBtnLayout.setHorizontalGroup(
-            registrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+        javax.swing.GroupLayout continuarBtnLayout = new javax.swing.GroupLayout(continuarBtn);
+        continuarBtn.setLayout(continuarBtnLayout);
+        continuarBtnLayout.setHorizontalGroup(
+            continuarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(continuarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
         );
-        registrarBtnLayout.setVerticalGroup(
-            registrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        continuarBtnLayout.setVerticalGroup(
+            continuarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(continuarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        bg.add(registrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 310, 40));
+        bg.add(continuarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 310, 40));
 
         lblCedula.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         lblCedula.setText("NÚMERO DE CÉDULA");
@@ -360,24 +361,26 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         exitTxt.setForeground(Color.white);
     }//GEN-LAST:event_exitTxtMouseExited
 
-    private void registrarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBtnTxtMouseClicked
+    private void continuarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseClicked
         if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
                 || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
                 || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
+            FrmRegistroUsuarios2 frm = new FrmRegistroUsuarios2();
+            frm.setVisible(true);
             //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
         }
 
-    }//GEN-LAST:event_registrarBtnTxtMouseClicked
+    }//GEN-LAST:event_continuarBtnTxtMouseClicked
 
-    private void registrarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBtnTxtMouseEntered
-        registrarBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_registrarBtnTxtMouseEntered
+    private void continuarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseEntered
+        continuarBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_continuarBtnTxtMouseEntered
 
-    private void registrarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBtnTxtMouseExited
-        registrarBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_registrarBtnTxtMouseExited
+    private void continuarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseExited
+        continuarBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_continuarBtnTxtMouseExited
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
@@ -541,14 +544,62 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -569,7 +620,7 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmRegistroSecretaria().setVisible(true);
+                new FrmRegistroUsuarios().setVisible(true);
             }
         });
     }
@@ -577,6 +628,8 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JSeparator cedulaSeparador;
+    private javax.swing.JPanel continuarBtn;
+    private javax.swing.JLabel continuarBtnTxt;
     private javax.swing.JSeparator correoSeparador;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
@@ -593,8 +646,6 @@ public class FrmRegistroSecretaria extends javax.swing.JFrame {
     private javax.swing.JLabel minimizeTxt;
     private javax.swing.JSeparator nombreSeparador;
     private javax.swing.JSeparator numeroSeparado;
-    private javax.swing.JPanel registrarBtn;
-    private javax.swing.JLabel registrarBtnTxt;
     private javax.swing.JLabel title;
     private javax.swing.JFormattedTextField txtCedula;
     private javax.swing.JTextField txtCorreo;

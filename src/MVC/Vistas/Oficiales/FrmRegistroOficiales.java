@@ -15,11 +15,12 @@ import javax.swing.JOptionPane;
  * @author joans
  */
 public class FrmRegistroOficiales extends javax.swing.JFrame implements Vista<Persona> {
-    
-    private Controlador<Persona>controlador;
+
+    private Controlador<Persona> controlador;
+
     @Override
     public void setControlador(Controlador controlador) {
-        this.controlador=(ControladorPersona)controlador;
+        this.controlador = (ControladorPersona) controlador;
     }
     int xMouse, yMouse;
 
@@ -28,22 +29,21 @@ public class FrmRegistroOficiales extends javax.swing.JFrame implements Vista<Pe
         this.setLocationRelativeTo(null);
         this.setControlador(new ControladorPersona(this));
     }
-public void guardar(){
-    if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
+
+    public void guardar() {
+        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
                 || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
                 || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
-            FrmRegistroOficiales2 frm = new FrmRegistroOficiales2();
-            frm.setVisible(true);
             this.setExtendedState(ICONIFIED);
             //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
-            
-           Persona per =new Persona(null, Integer.valueOf(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText());
+            Persona per = new Persona(null, Integer.valueOf(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText());
             this.controlador.crear(per);
         }
-    
-}
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,8 +56,8 @@ public void guardar(){
         minimizeTxt = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        continuarBtn = new javax.swing.JPanel();
-        continuarBtnTxt = new javax.swing.JLabel();
+        registrarBtn = new javax.swing.JPanel();
+        registrarBtnTxt = new javax.swing.JLabel();
         lblCedula = new javax.swing.JLabel();
         txtCedula = new javax.swing.JFormattedTextField();
         cedulaSeparador = new javax.swing.JSeparator();
@@ -203,37 +203,37 @@ public void guardar(){
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 40));
 
-        continuarBtn.setBackground(new java.awt.Color(0, 134, 190));
+        registrarBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        continuarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        continuarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        continuarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        continuarBtnTxt.setText("CONTINUAR");
-        continuarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        continuarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        registrarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        registrarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        registrarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registrarBtnTxt.setText("REGISTRAR");
+        registrarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        registrarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                continuarBtnTxtMouseClicked(evt);
+                registrarBtnTxtMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                continuarBtnTxtMouseEntered(evt);
+                registrarBtnTxtMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                continuarBtnTxtMouseExited(evt);
+                registrarBtnTxtMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout continuarBtnLayout = new javax.swing.GroupLayout(continuarBtn);
-        continuarBtn.setLayout(continuarBtnLayout);
-        continuarBtnLayout.setHorizontalGroup(
-            continuarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(continuarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+        javax.swing.GroupLayout registrarBtnLayout = new javax.swing.GroupLayout(registrarBtn);
+        registrarBtn.setLayout(registrarBtnLayout);
+        registrarBtnLayout.setHorizontalGroup(
+            registrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registrarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
         );
-        continuarBtnLayout.setVerticalGroup(
-            continuarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(continuarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        registrarBtnLayout.setVerticalGroup(
+            registrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registrarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        bg.add(continuarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 310, 40));
+        bg.add(registrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 310, 40));
 
         lblCedula.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         lblCedula.setText("NÚMERO DE CÉDULA");
@@ -387,17 +387,17 @@ public void guardar(){
         exitTxt.setForeground(Color.white);
     }//GEN-LAST:event_exitTxtMouseExited
 
-    private void continuarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseClicked
+    private void registrarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBtnTxtMouseClicked
         guardar();
-    }//GEN-LAST:event_continuarBtnTxtMouseClicked
+    }//GEN-LAST:event_registrarBtnTxtMouseClicked
 
-    private void continuarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseEntered
-        continuarBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_continuarBtnTxtMouseEntered
+    private void registrarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBtnTxtMouseEntered
+        registrarBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_registrarBtnTxtMouseEntered
 
-    private void continuarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnTxtMouseExited
-        continuarBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_continuarBtnTxtMouseExited
+    private void registrarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBtnTxtMouseExited
+        registrarBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_registrarBtnTxtMouseExited
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
@@ -613,8 +613,6 @@ public void guardar(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JSeparator cedulaSeparador;
-    private javax.swing.JPanel continuarBtn;
-    private javax.swing.JLabel continuarBtnTxt;
     private javax.swing.JSeparator correoSeparador;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
@@ -631,6 +629,8 @@ public void guardar(){
     private javax.swing.JLabel minimizeTxt;
     private javax.swing.JSeparator nombreSeparador;
     private javax.swing.JSeparator numeroSeparado;
+    private javax.swing.JPanel registrarBtn;
+    private javax.swing.JLabel registrarBtnTxt;
     private javax.swing.JLabel title;
     private javax.swing.JFormattedTextField txtCedula;
     private javax.swing.JTextField txtCorreo;
@@ -646,6 +646,6 @@ public void guardar(){
 
     @Override
     public void mostarMensaje(String msg, int messageType) {
-        JOptionPane.showMessageDialog(null, msg,"Oficial",messageType);
+        JOptionPane.showMessageDialog(null, msg, "Oficial", messageType);
     }
 }

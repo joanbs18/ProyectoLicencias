@@ -1,5 +1,6 @@
-package MVC.Vistas.Secretaria;
+package MVC.Vistas.Usuarios;
 
+import MVC.Vistas.Secretaria.*;
 import Frames.FrmRegistroCompleto;
 import MVC.Vistas.Oficiales.*;
 import MVC.Vistas.Secretaria.*;
@@ -11,11 +12,11 @@ import javax.swing.JOptionPane;
  *
  * @author joans
  */
-public class FrmRegistroSecretarias2 extends javax.swing.JFrame {
+public class FrmRegistroUsuarios2 extends javax.swing.JFrame {
 
     int xMouse, yMouse;
 
-    public FrmRegistroSecretarias2() {
+    public FrmRegistroUsuarios2() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -55,7 +56,7 @@ public class FrmRegistroSecretarias2 extends javax.swing.JFrame {
         bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 60, 60));
 
         title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title.setText("REGISTRO SECRETARIAS");
+        title.setText("REGISTRO USUARIOS");
         bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         header.setBackground(new java.awt.Color(0, 0, 0));
@@ -242,7 +243,7 @@ public class FrmRegistroSecretarias2 extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Para finalizar con su proceso de registro en el\nsistema de Licencias Code, por favor, ingrese\nsu nombre de usuario y contraseña que utilizará\npara ingresar en el perfil de secretarias.\n\nPor su seguridad, le sugerimos que esta \ncontraseña sea lo más segura posible. Evite \nnombres sencillos o fáciles de adivinar. \n\nAl dar click en el botón de \"REGISTRARSE\" solo\npodrá cambiar su contraseña, además que solo\npodrá editarla desde el apartado de seguridad. \nPara ello, deberá ingresar su nombre de usuario,\nen dado caso que no recuerde su nombre de \nusuario, deberá comunicarse con nuestros asesores.\n");
+        jTextArea1.setText("Para finalizar con su proceso de registro en el\nsistema de Licencias Code, por favor, ingrese\nsu nombre de usuario y contraseña que utilizará\npara ingresar en el perfil de su usuario.\n\nPor su seguridad, le sugerimos que esta \ncontraseña sea lo más segura posible. Evite \nnombres sencillos o fáciles de adivinar. \n\nAl dar click en el botón de \"REGISTRARSE\" solo\npodrá editar su contraseña desde el apartado de \nseguridad. \nPara ello, deberá ingresar su contraseña actual.\nEn caso de no recordar su contraseña actual, deberá\ncontactarse con nuestros asesores.\n");
         jScrollPane1.setViewportView(jTextArea1);
 
         bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 360, 300));
@@ -351,42 +352,12 @@ public class FrmRegistroSecretarias2 extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmRegistroSecretarias2().setVisible(true);
+                new FrmRegistroUsuarios2().setVisible(true);
             }
         });
     }
