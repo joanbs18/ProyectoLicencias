@@ -353,7 +353,7 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
     private void crearBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxtMouseClicked
 
-        FrmRegistroSecretaria frm = new FrmRegistroSecretaria();
+        FrmRegistroSecretarias frm = new FrmRegistroSecretarias();
         frm.setVisible(true);
 
     }//GEN-LAST:event_crearBtnTxtMouseClicked
@@ -399,7 +399,8 @@ public class FrmSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarBtnTxtMouseExited
 
     private void actualizarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseClicked
-        // TODO add your handling code here:
+        FrmActualizar frm = new FrmActualizar();
+        frm.setVisible(true);
     }//GEN-LAST:event_actualizarBtnTxtMouseClicked
 
     private void actualizarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseEntered
@@ -411,7 +412,8 @@ public class FrmSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_actualizarBtnTxtMouseExited
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
-        // TODO add your handling code here:
+        FrmEliminar frm = new FrmEliminar();
+        frm.setVisible(true);
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
     private void eliminarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseEntered
