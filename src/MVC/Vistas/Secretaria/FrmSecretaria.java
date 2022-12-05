@@ -26,15 +26,11 @@ public class FrmSecretaria extends javax.swing.JFrame {
     public FrmSecretaria() {
         initComponents();
         this.setLocationRelativeTo(null);
-        if (!"Conectado".equals(this.conexion.getText())) {
-            this.conexion.setText("Sin conexión");
-        }
-    }
-
-    public void comprobar() {
-        if (x.connection != null) {
-            this.conexion.setForeground(Color.BLUE);
-            this.conexion.setText("Conectado");
+        try {
+            x = new Conexion();
+            x.conectar();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -62,7 +58,6 @@ public class FrmSecretaria extends javax.swing.JFrame {
         minimizeTxt = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        conexion = new javax.swing.JLabel();
         crearBtn = new javax.swing.JPanel();
         crearBtnTxt = new javax.swing.JLabel();
         mostrarBtn = new javax.swing.JPanel();
@@ -176,10 +171,6 @@ public class FrmSecretaria extends javax.swing.JFrame {
                 .addComponent(exitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        conexion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        conexion.setForeground(new java.awt.Color(255, 0, 0));
-        conexion.setToolTipText("");
-
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
@@ -188,16 +179,13 @@ public class FrmSecretaria extends javax.swing.JFrame {
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
-                .addComponent(conexion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(484, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(conexion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(523, 523, 523))
@@ -364,11 +352,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_crearBtnTxtMouseEntered
 
     private void crearBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxtMouseClicked
-        if ("Sin conexión".equals(conexion.getText())) {
-            errorNoConectado();
-        } else {
 
-        }
+        FrmRegistroSecretaria frm = new FrmRegistroSecretaria();
+        frm.setVisible(true);
+
     }//GEN-LAST:event_crearBtnTxtMouseClicked
 
     private void exitTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseExited
@@ -404,11 +391,11 @@ public class FrmSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarBtnTxtMouseClicked
 
     private void mostrarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtnTxtMouseEntered
-        // TODO add your handling code here:
+        mostrarBtn.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_mostrarBtnTxtMouseEntered
 
     private void mostrarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtnTxtMouseExited
-        // TODO add your handling code here:
+        mostrarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_mostrarBtnTxtMouseExited
 
     private void actualizarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseClicked
@@ -416,11 +403,11 @@ public class FrmSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_actualizarBtnTxtMouseClicked
 
     private void actualizarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseEntered
-        // TODO add your handling code here:
+        actualizarBtn.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_actualizarBtnTxtMouseEntered
 
     private void actualizarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseExited
-        // TODO add your handling code here:
+        actualizarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_actualizarBtnTxtMouseExited
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
@@ -428,11 +415,11 @@ public class FrmSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
     private void eliminarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseEntered
-        // TODO add your handling code here:
+        eliminarBtn.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_eliminarBtnTxtMouseEntered
 
     private void eliminarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseExited
-        // TODO add your handling code here:
+        eliminarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_eliminarBtnTxtMouseExited
 
     /**
@@ -489,7 +476,6 @@ public class FrmSecretaria extends javax.swing.JFrame {
     private javax.swing.JPanel actualizarBtn;
     private javax.swing.JLabel actualizarBtnTxt;
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel conexion;
     private javax.swing.JPanel crearBtn;
     private javax.swing.JLabel crearBtnTxt;
     private javax.swing.JPanel eliminarBtn;

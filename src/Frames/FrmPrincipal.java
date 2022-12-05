@@ -6,6 +6,7 @@ package Frames;
 
 import Data.Conexiones.Conexion;
 import MVC.Vistas.Oficiales.FrmOficiales;
+import MVC.Vistas.Secretaria.FrmSecretaria;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,18 +29,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         try {
             x = new Conexion();
             x.conectar();
-            this.comprobar();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
-    }
-
-    public void comprobar() {
-        if (x.connection != null) {
-            this.conexion.setForeground(Color.BLUE);
-            this.conexion.setText("Conectado");
-        }
     }
 
     public void errorNoConectado() {
@@ -56,21 +49,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
+        logoname = new javax.swing.JLabel();
         logoG = new javax.swing.JLabel();
         imagen = new javax.swing.JLabel();
         logoP = new javax.swing.JLabel();
         tituloSisLicencias = new javax.swing.JLabel();
-        logoname = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         minimizarBtn = new javax.swing.JPanel();
         minimizarBtnTxt = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        conexion = new javax.swing.JLabel();
-        desconectarseBtn = new javax.swing.JPanel();
-        desconectarseBtnTxt = new javax.swing.JLabel();
-        conectarseBtn = new javax.swing.JPanel();
-        conectarseBtnTxt = new javax.swing.JLabel();
+        opcionesBtn = new javax.swing.JPanel();
+        opcionesBtnTxt = new javax.swing.JLabel();
         secretariasBtn = new javax.swing.JPanel();
         secretariasBtnTxt = new javax.swing.JLabel();
         clientesBtn = new javax.swing.JPanel();
@@ -86,12 +76,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        logoname.setBackground(new java.awt.Color(255, 255, 255));
+        logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        logoname.setForeground(new java.awt.Color(255, 255, 255));
+        logoname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoname.setText("LICENCIAS");
+        bg.add(logoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 250, 20));
+
         logoG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PNG.png"))); // NOI18N
         bg.add(logoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 240, 140));
 
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/city557.png"))); // NOI18N
-        bg.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 0, -1, -1));
+        bg.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 260, -1));
 
         logoP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
         bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 70));
@@ -99,13 +96,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         tituloSisLicencias.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         tituloSisLicencias.setText("SISTEMA LICENCIAS CODE");
         bg.add(tituloSisLicencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
-
-        logoname.setBackground(new java.awt.Color(255, 255, 255));
-        logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        logoname.setForeground(new java.awt.Color(255, 255, 255));
-        logoname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoname.setText("LICENCIAS");
-        bg.add(logoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 250, 20));
 
         header.setBackground(new java.awt.Color(255, 255, 255));
         header.setPreferredSize(new java.awt.Dimension(840, 40));
@@ -184,9 +174,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(exitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        conexion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        conexion.setForeground(new java.awt.Color(255, 0, 0));
-        conexion.setToolTipText("");
+        opcionesBtn.setBackground(new java.awt.Color(0, 0, 0));
+
+        opcionesBtnTxt.setBackground(new java.awt.Color(0, 0, 0));
+        opcionesBtnTxt.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        opcionesBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        opcionesBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        opcionesBtnTxt.setText("OPCIONES");
+
+        javax.swing.GroupLayout opcionesBtnLayout = new javax.swing.GroupLayout(opcionesBtn);
+        opcionesBtn.setLayout(opcionesBtnLayout);
+        opcionesBtnLayout.setHorizontalGroup(
+            opcionesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(opcionesBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+        );
+        opcionesBtnLayout.setVerticalGroup(
+            opcionesBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(opcionesBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -196,90 +201,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(minimizarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 639, Short.MAX_VALUE)
-                .addComponent(conexion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
+                .addComponent(opcionesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(opcionesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(minimizarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(conexion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(523, 523, 523))
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, -1));
-
-        desconectarseBtn.setBackground(new java.awt.Color(255, 51, 51));
-
-        desconectarseBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        desconectarseBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        desconectarseBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        desconectarseBtnTxt.setText("DESCONECTARSE");
-        desconectarseBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        desconectarseBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                desconectarseBtnTxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                desconectarseBtnTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                desconectarseBtnTxtMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout desconectarseBtnLayout = new javax.swing.GroupLayout(desconectarseBtn);
-        desconectarseBtn.setLayout(desconectarseBtnLayout);
-        desconectarseBtnLayout.setHorizontalGroup(
-            desconectarseBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desconectarseBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(desconectarseBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        desconectarseBtnLayout.setVerticalGroup(
-            desconectarseBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desconectarseBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        bg.add(desconectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, -1, -1));
-
-        conectarseBtn.setBackground(new java.awt.Color(0, 134, 190));
-
-        conectarseBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        conectarseBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        conectarseBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        conectarseBtnTxt.setText("ESTABLECER CONEXIÓN");
-        conectarseBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        conectarseBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                conectarseBtnTxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                conectarseBtnTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                conectarseBtnTxtMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout conectarseBtnLayout = new javax.swing.GroupLayout(conectarseBtn);
-        conectarseBtn.setLayout(conectarseBtnLayout);
-        conectarseBtnLayout.setHorizontalGroup(
-            conectarseBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, conectarseBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(conectarseBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        conectarseBtnLayout.setVerticalGroup(
-            conectarseBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(conectarseBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        bg.add(conectarseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, -1, -1));
 
         secretariasBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -313,7 +250,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bg.add(secretariasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 430, 70));
+        bg.add(secretariasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 430, 70));
 
         clientesBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -347,7 +284,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bg.add(clientesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        bg.add(clientesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
 
         citasBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -381,7 +318,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bg.add(citasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, 68));
+        bg.add(citasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, 68));
 
         oficialesBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -415,7 +352,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        bg.add(oficialesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+        bg.add(oficialesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -445,27 +382,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         exitTxt.setForeground(Color.black);
     }//GEN-LAST:event_exitTxtMouseExited
 
-    private void desconectarseBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseClicked
-        x.desconectar();
-        this.conexion.setForeground(Color.red);
-        this.conexion.setText("Sin conexión");
-        this.desconectarseBtnTxt.setVisible(false);
-    }//GEN-LAST:event_desconectarseBtnTxtMouseClicked
-
-    private void desconectarseBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseEntered
-        desconectarseBtn.setBackground(new Color(0, 0, 0));
-    }//GEN-LAST:event_desconectarseBtnTxtMouseEntered
-
-    private void desconectarseBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectarseBtnTxtMouseExited
-        desconectarseBtn.setBackground(new Color(255, 0, 51));
-    }//GEN-LAST:event_desconectarseBtnTxtMouseExited
-
     private void secretariasBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secretariasBtnTxtMouseClicked
-        if ("Sin conexión".equals(conexion.getText())) {
-            errorNoConectado();
-        } else {
-            this.setExtendedState(ICONIFIED);
-        }
+        FrmSecretaria frm = new FrmSecretaria();
+        frm.setVisible(true);
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_secretariasBtnTxtMouseClicked
 
     private void secretariasBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secretariasBtnTxtMouseEntered
@@ -485,19 +405,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_clientesBtnTxtMouseEntered
 
     private void clientesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesBtnTxtMouseClicked
-        if ("Sin conexión".equals(conexion.getText())) {
-            errorNoConectado();
-        } else {
 
-        }
     }//GEN-LAST:event_clientesBtnTxtMouseClicked
 
     private void citasBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseClicked
-        if ("Sin conexión".equals(conexion.getText())) {
-            errorNoConectado();
-        } else {
 
-        }
     }//GEN-LAST:event_citasBtnTxtMouseClicked
 
     private void citasBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnTxtMouseEntered
@@ -509,13 +421,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_citasBtnTxtMouseExited
 
     private void oficialesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseClicked
-        if ("Sin conexión".equals(conexion.getText())) {
-            errorNoConectado();
-        } else {
-            FrmOficiales frm = new FrmOficiales();
-            frm.setVisible(true);
-            this.setExtendedState(ICONIFIED);
-        }
+
+        FrmOficiales frm = new FrmOficiales();
+        frm.setVisible(true);
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_oficialesBtnTxtMouseClicked
 
     private void oficialesBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseEntered
@@ -525,26 +434,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void oficialesBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseExited
         oficialesBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_oficialesBtnTxtMouseExited
-
-    private void conectarseBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarseBtnTxtMouseExited
-        conectarseBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_conectarseBtnTxtMouseExited
-
-    private void conectarseBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarseBtnTxtMouseEntered
-        conectarseBtn.setBackground(new Color(0, 0, 0));
-    }//GEN-LAST:event_conectarseBtnTxtMouseEntered
-
-    private void conectarseBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarseBtnTxtMouseClicked
-        try {
-            x = new Conexion();
-            x.conectar();
-            this.comprobar();
-            this.desconectarseBtnTxt.setVisible(true);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_conectarseBtnTxtMouseClicked
 
     private void minimizarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizarBtnTxtMouseClicked
         this.setExtendedState(ICONIFIED);
@@ -610,11 +499,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel citasBtnTxt;
     private javax.swing.JPanel clientesBtn;
     private javax.swing.JLabel clientesBtnTxt;
-    private javax.swing.JPanel conectarseBtn;
-    private javax.swing.JLabel conectarseBtnTxt;
-    private javax.swing.JLabel conexion;
-    private javax.swing.JPanel desconectarseBtn;
-    private javax.swing.JLabel desconectarseBtnTxt;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
@@ -624,12 +508,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel logoname;
     private javax.swing.JPanel minimizarBtn;
     private javax.swing.JLabel minimizarBtnTxt;
-    private javax.swing.JPanel minimizeBtn;
-    private javax.swing.JPanel minimizeBtn1;
-    private javax.swing.JLabel minimizeTxt;
-    private javax.swing.JLabel minimizeTxt1;
     private javax.swing.JPanel oficialesBtn;
     private javax.swing.JLabel oficialesBtnTxt;
+    private javax.swing.JPanel opcionesBtn;
+    private javax.swing.JLabel opcionesBtnTxt;
     private javax.swing.JPanel secretariasBtn;
     private javax.swing.JLabel secretariasBtnTxt;
     private javax.swing.JLabel tituloSisLicencias;

@@ -1,21 +1,32 @@
 package MVC.Vistas.Usuarios;
 
+import Data.Conexiones.Conexion;
 import Frames.FrmPrincipal;
 import MVC.Vistas.*;
 import MVC.Vistas.Oficiales.*;
 import MVC.Vistas.Secretaria.FrmRegistroSecretaria;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author joans
  */
 public class FrmLoginUsuarios extends javax.swing.JFrame {
+
+    Conexion x;
     int xMouse, yMouse;
 
     public FrmLoginUsuarios() {
         initComponents();
         this.setLocationRelativeTo(null);
+        try {
+            x = new Conexion();
+            x.conectar();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -165,7 +176,7 @@ public class FrmLoginUsuarios extends javax.swing.JFrame {
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 754, Short.MAX_VALUE))
+                .addContainerGap(754, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
