@@ -9,11 +9,17 @@ package MVC.Modelos;
  * @author joans
  */
 public class Oficial extends Persona implements Modelo{
+    private final double EM=5.5;
+    private final double IM=3.84;
+    private final double AT=1;
+    private final double ASS=3.3;
+    
     private Integer carnet;
     private Integer idPersona;
     private String nombreUsuario;
     private String contrasenia;
     private Double salario;
+    
 
     public Oficial(Integer carnet, Integer idPersona, String nombreUsuario, String Contrasenia, Double Salario, Integer id, Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
         super(id, cedula, nombreCompleto, fechaNacimiento, email, telefono);
@@ -21,7 +27,8 @@ public class Oficial extends Persona implements Modelo{
         this.idPersona = idPersona;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = Contrasenia;
-        this.salario = Salario;
+        this.setSalario(Salario);
+       
     }
 
     public Oficial(Integer carnet, Integer idPersona, String nombreUsuario, String contrasenia, Double salario) {
@@ -29,12 +36,31 @@ public class Oficial extends Persona implements Modelo{
         this.idPersona = idPersona;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
-        this.salario = salario;
+        this.setSalario(salario);
+      
     }
     public Oficial(){
         this(null,null,null,null,null);
+        
     }
-    
+
+   
+    public Double salarioNetoCalcular(Double salario){
+        double deducciones=(this.EM+this.ASS+this.AT+this.IM)/100;
+        double salarioNeto;
+        if(salario<=817001){
+           salarioNeto=salario-(salario*deducciones);
+            System.out.println(salarioNeto+" sin impuesto renta");
+        }else if(salario>817001 && salario<=1226000){
+            salarioNeto=salario-(salario*(deducciones+(10/100)));
+            System.out.println(salarioNeto+" con impuesto renta");
+        }else{
+           salarioNeto=salario-(salario*(deducciones+(15/100))); 
+           System.out.println(salarioNeto+" con impuesto renta");
+        }
+        
+         return salarioNeto;
+    }
     
 
     public Integer getCarnet() {
@@ -73,11 +99,14 @@ public class Oficial extends Persona implements Modelo{
         return salario;
     }
 
-    public void setSalario(double Salario) {
-        this.salario = Salario;
+    public void setSalario(Double salario) {
+        if(salario<0){
+            this.salario=0.0;
+        }else{
+            this.salario = salario;
+        }
+        
     }
-
-    
     
     @Override
     public boolean isComplete() {
