@@ -3,7 +3,6 @@ package MVC.Vistas.Usuarios;
 import Data.Conexiones.Conexion;
 import MVC.Vistas.*;
 import MVC.Vistas.Oficiales.*;
-import MVC.Vistas.Secretaria.FrmRegistroSecretarias;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 

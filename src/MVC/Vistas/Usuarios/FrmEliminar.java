@@ -5,7 +5,6 @@ import Data.Conexiones.Conexion;
 import MVC.Vistas.Usuarios.FrmPrincipal;
 import MVC.Vistas.*;
 import MVC.Vistas.Oficiales.*;
-import MVC.Vistas.Secretaria.FrmRegistroSecretarias;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 

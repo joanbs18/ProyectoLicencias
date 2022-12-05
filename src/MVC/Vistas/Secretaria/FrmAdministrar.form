@@ -489,7 +489,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto Black" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="MOSTRAR OFICIALES"/>
+            <Property name="text" type="java.lang.String" value="MOSTRAR SECRETARIAS"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="logoP2">
@@ -1399,7 +1399,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto Black" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ELIMINAR OFICIAL"/>
+            <Property name="text" type="java.lang.String" value="ELIMINAR SECRETARIAS"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

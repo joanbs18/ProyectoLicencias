@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package MVC.Vistas.Oficiales;
+package MVC.Vistas.Secretaria;
 
+import MVC.Vistas.Oficiales.*;
 import Frames.FrmRegistroCompleto;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -407,7 +408,7 @@ public class FrmAdministrar extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         title2.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title2.setText("MOSTRAR OFICIALES");
+        title2.setText("MOSTRAR SECRETARIAS");
 
         logoP2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
 
@@ -844,7 +845,7 @@ public class FrmAdministrar extends javax.swing.JFrame {
         eliminar.add(logoP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
         title4.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title4.setText("ELIMINAR OFICIAL");
+        title4.setText("ELIMINAR SECRETARIAS");
         eliminar.add(title4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         userLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
@@ -1333,6 +1334,7 @@ public class FrmAdministrar extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmAdministrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
