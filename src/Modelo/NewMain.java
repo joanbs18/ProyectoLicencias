@@ -5,9 +5,11 @@
 package Modelo;
 
 import Data.Conexiones.Conexion;
+import Data.Daos.DaoCita;
 import Data.Daos.DaoCliente;
 import Data.Daos.DaoPersona;
 import Data.Daos.DaoSecretaria;
+import MVC.Modelos.Cita;
 import MVC.Modelos.Cliente;
 import MVC.Modelos.Oficial;
 import MVC.Modelos.Persona;
@@ -35,11 +37,11 @@ public class NewMain {
      */
     public static void main(String[] args) {
         //prueba cliente
-//        Cliente cli = new Cliente(0,4);
-//        DaoCliente dao = new DaoCliente (new Conexion());
-//        
-//        System.out.println(dao.crear(cli));
-//        System.out.println(dao.getError());
+        Cliente cli = new Cliente(1,16);
+        DaoCliente dao = new DaoCliente (new Conexion());
+        
+        System.out.println(dao.borrar(cli));
+        System.out.println(dao.getError());
         //prueba persona
 //        Persona neutro = new Persona(0,344547, "Juan", "2022-12-01", "fr@gmail.com","7465362553");
 ////        Persona neutro = new Persona(4);
@@ -48,16 +50,22 @@ public class NewMain {
 //
 //        System.out.println(dao.crear(neutro));
 //        System.out.println(dao.getError());
+            
+            //citas
+//            Cita c=new Cita(null, 1, "2022-12-23", "12:00:00", true);
+//            DaoCita dao=new DaoCita(new Conexion());
+//            System.out.println(dao.crear(c));
+//        System.out.println(dao.getError());
 
         //prueba salario deducciones
 //        Oficial of= new Oficial(1, 2, "fran", "123", 900000.);
 //        of.salarioNetoCalcular(of.getSalario());
 
         //prueba de la prueba jaja
-        LocalDateTime hoy = LocalDateTime.now(); 
-        String fecha1= String.valueOf(hoy.getYear()+"-"+hoy.getMonthValue()+"-"+hoy.getDayOfMonth());
-        Prueba pru=new Prueba(1, fecha1, 847, 34, 2, 100.,null,null);
-        System.out.println(pru.toString());
+//        LocalDateTime hoy = LocalDateTime.now(); 
+//        String fecha1= String.valueOf(hoy.getYear()+"-"+hoy.getMonthValue()+"-"+hoy.getDayOfMonth());
+//        Prueba pru=new Prueba(1, fecha1, 847, 34, 2, 100.,null,null);
+//        System.out.println(pru.toString());
         
     }
 

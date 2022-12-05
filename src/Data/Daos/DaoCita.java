@@ -6,6 +6,7 @@ package Data.Daos;
 
 import Data.Conexiones.Conector;
 import Data.Crud.Crud;
+import MVC.Modelos.Cita;
 import MVC.Modelos.Prueba;
 import java.util.ArrayList;
 
@@ -13,24 +14,22 @@ import java.util.ArrayList;
  *
  * @author Francisco
  */
-public class DaoPrueba extends Dao<Prueba> implements Crud<Prueba>{
-     public DaoPrueba(Conector conector) {
+public class DaoCita extends Dao<Cita> implements Crud<Cita>{
+     public DaoCita(Conector conector) {
         this.conector = conector;
     }
 
     @Override
-    public boolean crear(Prueba modelo) {
+    public boolean crear(Cita modelo) {
         this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call insertarPrueba(?,?,?,?,?,?,?)");
-            this.conector.addParameter(1, modelo.getFecha());
-            this.conector.addParameter(2, modelo.getCarnetOficial());
-            this.conector.addParameter(4, modelo.getIdCita());
-            this.conector.addParameter(5, modelo.getNota());
-            this.conector.addParameter(6, modelo.getEstado());
-            this.conector.addParameter(7, modelo.getObsevacion());
-
+            this.conector.prepareQuery("call insertarCita(?,?,?,?)");
+            this.conector.addParameter(1, modelo.getIdCliente());
+            this.conector.addParameter(2, modelo.getFecha());
+            this.conector.addParameter(3, modelo.getHora());
+            this.conector.addParameter(4, modelo.getEstado());
+            
             return this.conector.executeUpdate();
 
         } catch (Exception ex) {
@@ -42,18 +41,17 @@ public class DaoPrueba extends Dao<Prueba> implements Crud<Prueba>{
     }
 
     @Override
-    public Prueba leer(Prueba modelo) {
+    public Cita leer(Cita modelo) {
         this.error = "";
         try {
             Object[][] datos;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("call verPrueba(?)");
+            this.conector.prepareQuery("call verCita(?)");
             this.conector.addParameter(1, modelo.getId());
             datos = this.conector.executeQuery();
-            return null == datos ? null : new Prueba(Integer.valueOf(String.valueOf(datos[0][0])),
-                    String.valueOf(datos[0][1]), 
-                    Integer.valueOf(String.valueOf(datos[0][2])), Integer.valueOf(String.valueOf(datos[0][3])), 
-                    Double.valueOf(String.valueOf(datos[0][4])), Boolean.valueOf(String.valueOf(datos[0][5])), String.valueOf(datos[0][6]));
+            return null == datos ? null : new Cita(Integer.valueOf(String.valueOf(datos[0][0])), 
+                    Integer.valueOf(String.valueOf(datos[0][1])), String.valueOf(datos[0][2]), 
+                    String.valueOf(datos[0][3]),Boolean.valueOf(String.valueOf(datos[0][4])));
         } catch (Exception ex) {
             this.error = ex.toString();
         } finally {
@@ -63,21 +61,19 @@ public class DaoPrueba extends Dao<Prueba> implements Crud<Prueba>{
     }
 
     @Override
-    public ArrayList<Prueba> leer() {
+    public ArrayList<Cita> leer() {
         this.error = "";
         try {
-            ArrayList<Prueba> list = new ArrayList<>();
+            ArrayList<Cita> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select * from prueba");//se hace la consulta
+            this.conector.prepareQuery("Select * from Cita");//se hace la consulta
             data = this.conector.executeQuery();
             if (data == null) {
                 return null;
             }
             for (Object[] dt : data) {
-                list.add(new Prueba((int)(dt[0]), String.valueOf(dt[1]), 
-                        (int)(dt[2]), (int)(dt[3]), (Double)(dt[4]), (Boolean)(dt[5]), 
-                        String.valueOf(dt[6])));
+                list.add(new Cita((int)(dt[0]), (int)(dt[1]), String.valueOf(dt[2]), String.valueOf(dt[3]), (Boolean)(dt[4])));
             }
             return list;
         } catch (Exception ex) {
@@ -89,12 +85,12 @@ public class DaoPrueba extends Dao<Prueba> implements Crud<Prueba>{
     }
 
     @Override
-    public ArrayList<Prueba> leer(String filter) {
-        String consulta="Select Id, fecha, Carnet oficial, idCliente, idCita,nota,estado,observacion "
-                + "from prueba where Nombre like ?";//se hace la consulta y se filtra solo con el nombre
+    public ArrayList<Cita> leer(String filter) {
+        String consulta="Select Id,cedula,fecha,hora,estado "
+                + "from cita where Nombre like ?";//se hace la consulta y se filtra solo con el nombre
         this.error = "";
         try {
-            ArrayList<Prueba> list = new ArrayList<>();
+            ArrayList<Cita> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
             this.conector.prepareQuery(consulta);
@@ -105,9 +101,7 @@ public class DaoPrueba extends Dao<Prueba> implements Crud<Prueba>{
                 return null;
             }
             for (Object[] dt : data) {
-                list.add(new Prueba((int)(dt[0]), String.valueOf(dt[1]), 
-                        (int)(dt[2]), (int)(dt[3]), (Double)(dt[4]), (Boolean)(dt[5]), 
-                        String.valueOf(dt[6])));
+                list.add(new Cita((int)(dt[0]), (int)(dt[1]), String.valueOf(dt[2]), String.valueOf(dt[3]), (Boolean)(dt[4])));
             }
             return list;
         } catch (Exception ex) {
@@ -119,18 +113,16 @@ public class DaoPrueba extends Dao<Prueba> implements Crud<Prueba>{
     }
 
     @Override
-    public boolean actualizar(Prueba modelo) {
+    public boolean actualizar(Cita modelo) {
         this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call actualizarPrueba(?,?,?,?,?)");
+            this.conector.prepareQuery("call insertarCita(?,?,?,?,?)");
             this.conector.addParameter(1, modelo.getId());
-            this.conector.addParameter(2, modelo.getFecha());
-            this.conector.addParameter(3, modelo.getCarnetOficial());
-            this.conector.addParameter(5, modelo.getIdCita());
-            this.conector.addParameter(6, modelo.getNota());
-            this.conector.addParameter(7, modelo.getEstado());
-            this.conector.addParameter(8, modelo.getObsevacion());
+            this.conector.addParameter(2, modelo.getIdCliente());
+            this.conector.addParameter(3, modelo.getFecha());
+            this.conector.addParameter(4, modelo.getHora());
+            this.conector.addParameter(5, modelo.getEstado());
 
             return this.conector.executeUpdate();
 
@@ -143,11 +135,11 @@ public class DaoPrueba extends Dao<Prueba> implements Crud<Prueba>{
     }
 
     @Override
-    public boolean borrar(Prueba modelo) {
+    public boolean borrar(Cita modelo) {
         this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call borrarPrueba(?)");
+            this.conector.prepareQuery("call borrarCita(?)");
             this.conector.addParameter(1, modelo.getId());
             return this.conector.executeUpdate();
 

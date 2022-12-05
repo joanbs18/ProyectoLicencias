@@ -73,7 +73,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             ArrayList<Cliente> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select * from oficial");//se hace la consulta
+            this.conector.prepareQuery("Select * from cliente");//se hace la consulta
             data = this.conector.executeQuery();
             if (data == null) {
                 return null;
@@ -100,7 +100,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             ArrayList<Cliente> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select Id, idPersona, Usuario,Contrasenia from Oficial where Nombre like ?");//se hace la consulta y se filtra solo con el nombre
+            this.conector.prepareQuery("Select Id, idPersona from Cliente where Nombre like ?");//se hace la consulta y se filtra solo con el nombre
             this.conector.addParameter(1, filter);//manda parametro al statemet
             data = this.conector.executeQuery();
 
@@ -126,8 +126,9 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
         this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call actualizarOficial(?)");
-            this.conector.addParameter(1, modelo.getIdPersona());
+            this.conector.prepareQuery("call actualizarCliente(?,?)");
+            this.conector.addParameter(1, modelo.getIdCliente());
+            this.conector.addParameter(2, modelo.getIdPersona());
             
             
 
@@ -146,8 +147,8 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
          this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call borrarOficial(?)");
-            this.conector.addParameter(1, modelo.getId());
+            this.conector.prepareQuery("call borrarCliente(?)");
+            this.conector.addParameter(1, modelo.getIdCliente());
             return this.conector.executeUpdate();
 
         } catch (Exception ex) {
