@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author josep
  */
 public class FrmOficiales extends javax.swing.JFrame {
-
+    
     Conexion x;
 
     /**
@@ -31,9 +31,9 @@ public class FrmOficiales extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-
+        
     }
-
+    
     public void errorNoConectado() {
         JOptionPane.showMessageDialog(null, "Para ingresar en este módulo debe tener conexión.\nVerifique que esté conectado a la base de datos.");
     }
@@ -385,39 +385,42 @@ public class FrmOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeTxtMouseExited
 
     private void mostrarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtnTxtMouseClicked
-        // TODO add your handling code here:
+        FrmMostrar frm = new FrmMostrar();
+        frm.setVisible(true);
     }//GEN-LAST:event_mostrarBtnTxtMouseClicked
 
     private void mostrarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtnTxtMouseEntered
-        // TODO add your handling code here:
+        mostrarBtn.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_mostrarBtnTxtMouseEntered
 
     private void mostrarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtnTxtMouseExited
-        // TODO add your handling code here:
+        mostrarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_mostrarBtnTxtMouseExited
 
     private void actualizarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseClicked
-        // TODO add your handling code here:
+        FrmActualizar frm = new FrmActualizar();
+        frm.setVisible(true);
     }//GEN-LAST:event_actualizarBtnTxtMouseClicked
 
     private void actualizarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseEntered
-        // TODO add your handling code here:
+        actualizarBtn.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_actualizarBtnTxtMouseEntered
 
     private void actualizarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarBtnTxtMouseExited
-        // TODO add your handling code here:
+        actualizarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_actualizarBtnTxtMouseExited
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
-        // TODO add your handling code here:
+        FrmEliminar frm = new FrmEliminar();
+        frm.setVisible(true);
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
     private void eliminarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseEntered
-        // TODO add your handling code here:
+        eliminarBtn.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_eliminarBtnTxtMouseEntered
 
     private void eliminarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseExited
-        // TODO add your handling code here:
+        eliminarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_eliminarBtnTxtMouseExited
 
     /**
@@ -434,21 +437,21 @@ public class FrmOficiales extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
+                    
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
