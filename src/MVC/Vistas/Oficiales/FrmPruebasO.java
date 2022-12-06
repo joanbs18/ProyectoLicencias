@@ -4,7 +4,7 @@
  */
 package MVC.Vistas.Oficiales;
 
-import MVC.Vistas.Pruebas.*;
+
 import java.awt.Color;
 
 /**

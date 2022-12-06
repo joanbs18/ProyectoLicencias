@@ -31,7 +31,30 @@ public class FrmLoginSecretaria extends javax.swing.JFrame implements Vista<Secr
         }
 
     }
-
+public boolean verificarUsuario(){
+String pass="";
+char[]password=this.passTxt.getPassword();
+for(int x=0;x<password.length;x++){
+pass+=password[x];
+}
+String usuario=this.userTxt.getText();
+int resultado=0;
+String sql="Select NombreUsuario, Contrasenia from Oficial where NombreUsuario='"+usuario+"'  and contrasenia='"+pass+"'";
+        try {
+            Object [][] data;
+            x.prepareQuery(sql);
+           data= x.executeQuery();
+            System.out.println(data[0].length);
+            if(data[0].length==2){
+                System.out.println("listo");
+             return true;
+ 
+            }
+        } catch (Exception ex) {
+           JOptionPane.showMessageDialog(rootPane, "Error con el usuario");
+        }
+return false;
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -371,6 +394,10 @@ public class FrmLoginSecretaria extends javax.swing.JFrame implements Vista<Secr
     private void iniciarSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBtnTxtMouseClicked
         //CODIGO PARA VERIFICAR SI EXISTE O NO EL USUARIO
        //VERIFICAR CONTRASEÑA Y USUARIO
+       if(verificarUsuario()){
+       FrmSecretaria frm = new FrmSecretaria();
+       frm.setVisible(true);
+       }
        
         
     }//GEN-LAST:event_iniciarSesionBtnTxtMouseClicked
