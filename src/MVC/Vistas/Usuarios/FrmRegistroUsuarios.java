@@ -1,8 +1,11 @@
 package MVC.Vistas.Usuarios;
 
+import Data.Conexiones.Conexion;
 import MVC.Vistas.Secretaria.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,10 +15,16 @@ import javax.swing.JOptionPane;
 public class FrmRegistroUsuarios extends javax.swing.JFrame {
 
     int xMouse, yMouse;
-
+ Conexion x;
     public FrmRegistroUsuarios() {
         initComponents();
         this.setLocationRelativeTo(null);
+         try {
+            x = new Conexion();
+            x.conectar();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -367,7 +376,21 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
                 || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
+            String sql="INSERT INTO persona (Cedula, NombreCompleto, FechaNacimiento, Email, Telefono) VALUES (?, ?, ?, ?, ?)";
+            try {
+                x.prepareQuery(sql);
+                x.addParameter(1, txtCedula.getText());
+                x.addParameter(2, txtNombre.getText());
+                x.addParameter(3, txtFecha.getText());
+                x.addParameter(4, txtCorreo.getText());
+                x.addParameter(5, txtNumero.getText());
+                x.executeUpdate();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmRegistroUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             FrmRegistroUsuarios2 frm = new FrmRegistroUsuarios2();
+            
             frm.setVisible(true);
             //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
         }

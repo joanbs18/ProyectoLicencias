@@ -7,6 +7,8 @@ import MVC.Modelos.Oficial;
 import MVC.Vistas.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author joans
  */
 public class FrmLoginOficiales extends javax.swing.JFrame implements Vista<Oficial>{
-private Controlador<Oficial> controlador;
+
     Conexion x;
     int xMouse, yMouse;
 
@@ -30,7 +32,30 @@ private Controlador<Oficial> controlador;
         }
 
     }
-
+public boolean verificarUsuario(){
+String pass="";
+char[]password=this.passTxt.getPassword();
+for(int x=0;x<password.length;x++){
+pass+=password[x];
+}
+String usuario=this.userTxt.getText();
+int resultado=0;
+String sql="Select NombreUsuario, Contrasenia from Oficial where NombreUsuario='"+usuario+"'  and contrasenia='"+pass+"'";
+        try {
+            Object [][] data;
+            x.prepareQuery(sql);
+           data= x.executeQuery();
+            System.out.println(data[0].length);
+            if(data[0].length==2){
+                System.out.println("listo");
+             return true;
+ 
+            }
+        } catch (Exception ex) {
+           JOptionPane.showMessageDialog(rootPane, "Error con el usuario");
+        }
+return false;
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -235,6 +260,11 @@ private Controlador<Oficial> controlador;
         bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 410, 20));
 
         iniciarSesionBtn.setBackground(new java.awt.Color(0, 134, 190));
+        iniciarSesionBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarSesionBtnMouseClicked(evt);
+            }
+        });
 
         iniciarSesionBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         iniciarSesionBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
@@ -368,9 +398,11 @@ private Controlador<Oficial> controlador;
     }//GEN-LAST:event_passTxtMousePressed
 
     private void iniciarSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBtnTxtMouseClicked
-        //CODIGO PARA VERIFICAR SI EXISTE O NO EL USUARIO
-        FrmPrincipal frm = new FrmPrincipal();
-        frm.setVisible(true);
+       if (verificarUsuario()){
+        FrmOficiales frm = new FrmOficiales();
+            frm.setVisible(true);
+       
+       }       
     }//GEN-LAST:event_iniciarSesionBtnTxtMouseClicked
 
     private void registrarseSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseClicked
@@ -403,6 +435,13 @@ private Controlador<Oficial> controlador;
         minimizeBtn.setBackground(Color.white);
         minimizeTxt.setForeground(Color.black);
     }//GEN-LAST:event_minimizeTxtMouseExited
+
+    private void iniciarSesionBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBtnMouseClicked
+if(verificarUsuario()){
+ FrmOficiales frm = new FrmOficiales();
+            frm.setVisible(true);
+}
+    }//GEN-LAST:event_iniciarSesionBtnMouseClicked
 
     /**
      * @param args the command line arguments

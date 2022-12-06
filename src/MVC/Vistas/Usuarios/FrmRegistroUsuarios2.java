@@ -1,11 +1,14 @@
 package MVC.Vistas.Usuarios;
 
+import Data.Conexiones.Conexion;
 import MVC.Vistas.Secretaria.*;
 import Frames.FrmRegistroCompleto;
 import MVC.Vistas.Oficiales.*;
 import MVC.Vistas.Secretaria.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,9 +18,15 @@ import javax.swing.JOptionPane;
 public class FrmRegistroUsuarios2 extends javax.swing.JFrame {
 
     int xMouse, yMouse;
-
+Conexion x;
     public FrmRegistroUsuarios2() {
         initComponents();
+         try {
+            x = new Conexion();
+            x.conectar();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
         this.setLocationRelativeTo(null);
     }
 
@@ -285,6 +294,18 @@ public class FrmRegistroUsuarios2 extends javax.swing.JFrame {
         if (this.txtNombre.getText().equals("Nombre usuario") || this.txtNombre.getText().isEmpty() || this.passTxt.getPassword().equals("********")) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
+            String sql="Insert Into Oficial(IdUsuario,NombreUsuario,Contrasenia,Salario) values(?,?,?,?)";
+            
+            try {
+                x.prepareQuery(sql);
+                 x.addParameter(1, 2);
+                 x.addParameter(2, txtNombre.getText());
+                 x.addParameter(3, 1234);
+                 x.addParameter(4, 10000.0);
+            } catch (Exception ex) {
+                Logger.getLogger(FrmRegistroUsuarios2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
             FrmRegistroCompleto frm = new FrmRegistroCompleto();
             frm.setVisible(true);
             //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS//
