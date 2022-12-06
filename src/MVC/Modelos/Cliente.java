@@ -4,6 +4,9 @@
  */
 package MVC.Modelos;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 /**
  *
  * @author Francisco
@@ -67,5 +70,17 @@ public class Cliente extends Persona implements Modelo{
          return this.idPersona!=null && this.edadCliente!=null;
     }
     
+    public int calcularEdad(String fecha){
+        try{
+    int año= Integer.parseInt(fecha.substring(0, 3));
+    int mes= Integer.parseInt(fecha.substring(5, 6));
+    int dia= Integer.parseInt(fecha.substring(8, 9));
+    Period edad = Period.between(LocalDate.of(año,mes,dia), LocalDate.now());
+    return edad.getYears();
+        }catch(Exception ex){
+            System.out.println("Error con la fecha");
+        }
+return 0;
+    }
     
 }

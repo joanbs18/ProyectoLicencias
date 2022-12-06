@@ -69,6 +69,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         logoP2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaClientes = new javax.swing.JTable();
+        lbCopiar = new javax.swing.JLabel();
         crear1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
@@ -106,9 +107,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         actualizar = new javax.swing.JPanel();
         logoP3 = new javax.swing.JLabel();
         title3 = new javax.swing.JLabel();
-        userLabel1 = new javax.swing.JLabel();
-        userTxt = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
+        txtTelefonoa = new javax.swing.JTextField();
         passLabel1 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         modificarBtn = new javax.swing.JPanel();
@@ -117,16 +116,15 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         jSeparator5 = new javax.swing.JSeparator();
         confirmNewPassLabel = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
-        userTxt2 = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
-        userTxt3 = new javax.swing.JTextField();
-        userTxt4 = new javax.swing.JTextField();
-        userTxt5 = new javax.swing.JTextField();
+        txtCedulaa = new javax.swing.JTextField();
+        txtNombrea = new javax.swing.JTextField();
+        txtEdada = new javax.swing.JTextField();
         confirmNewPassLabel1 = new javax.swing.JLabel();
         confirmNewPassLabel2 = new javax.swing.JLabel();
-        userTxt6 = new javax.swing.JTextField();
+        txtEmaila = new javax.swing.JTextField();
         confirmNewPassLabel3 = new javax.swing.JLabel();
-        userTxt7 = new javax.swing.JTextField();
+        txtFechaa = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
         eliminar = new javax.swing.JPanel();
@@ -452,23 +450,47 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         ));
         jScrollPane3.setViewportView(tablaClientes);
 
+        lbCopiar.setBackground(new java.awt.Color(0, 153, 255));
+        lbCopiar.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lbCopiar.setForeground(new java.awt.Color(51, 153, 255));
+        lbCopiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbCopiar.setText("COPIAR");
+        lbCopiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCopiarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbCopiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbCopiarMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout mostrarLayout = new javax.swing.GroupLayout(mostrar);
         mostrar.setLayout(mostrarLayout);
         mostrarLayout.setHorizontalGroup(
             mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mostrarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
                 .addGroup(mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(title2)
-                    .addComponent(userLabel)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logoP2)
-                .addContainerGap(442, Short.MAX_VALUE))
-            .addGroup(mostrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3)
+                    .addGroup(mostrarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3))
+                    .addGroup(mostrarLayout.createSequentialGroup()
+                        .addGroup(mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mostrarLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(title2)
+                                    .addComponent(userLabel)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(logoP2))
+                            .addGroup(mostrarLayout.createSequentialGroup()
+                                .addGap(279, 279, 279)
+                                .addComponent(lbCopiar, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 291, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         mostrarLayout.setVerticalGroup(
@@ -488,8 +510,10 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
                         .addGap(52, 52, 52)
                         .addComponent(logoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(lbCopiar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
         );
 
         getContentPane().add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
@@ -498,7 +522,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         crear1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title.setText("REGISTRO OFICIALES");
+        title.setText("REGISTRO CLIENTES");
         crear1.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         logoname.setBackground(new java.awt.Color(255, 255, 255));
@@ -757,31 +781,24 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         title3.setText("ACTUALIZAR CLIENTE");
         actualizar.add(title3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        userLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        userLabel1.setText("1.ID");
-        actualizar.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
-
-        userTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtTelefonoa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtTelefonoa.setForeground(new java.awt.Color(204, 204, 204));
+        txtTelefonoa.setBorder(null);
+        txtTelefonoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
+                txtTelefonoaMousePressed(evt);
             }
         });
-        userTxt.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefonoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxtActionPerformed(evt);
+                txtTelefonoaActionPerformed(evt);
             }
         });
-        actualizar.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 270, 30));
-
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 40, 20));
+        actualizar.add(txtTelefonoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 270, 30));
 
         passLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel1.setText("3.NOMBRE COMPLETO");
-        actualizar.add(passLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
+        passLabel1.setText("2.NOMBRE COMPLETO");
+        actualizar.add(passLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
         actualizar.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 270, 20));
@@ -819,124 +836,109 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         actualizar.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 570, 40));
 
         newPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        newPassLabel.setText("2. CEDULA");
-        actualizar.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        newPassLabel.setText("1. CEDULA");
+        actualizar.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 220, 20));
+        actualizar.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 220, 20));
 
         confirmNewPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel.setText("7.EDAD");
+        confirmNewPassLabel.setText("6.EDAD");
         actualizar.add(confirmNewPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 280, -1));
 
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
         actualizar.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 160, 20));
 
-        userTxt2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt2.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt2.setBorder(null);
-        userTxt2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt2MousePressed(evt);
-            }
-        });
-        userTxt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt2ActionPerformed(evt);
-            }
-        });
-        actualizar.add(userTxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 40, 30));
-
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 150, 20));
+        actualizar.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, 20));
 
-        userTxt3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt3.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt3.setBorder(null);
-        userTxt3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCedulaa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCedulaa.setForeground(new java.awt.Color(204, 204, 204));
+        txtCedulaa.setBorder(null);
+        txtCedulaa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt3MousePressed(evt);
+                txtCedulaaMousePressed(evt);
             }
         });
-        userTxt3.addActionListener(new java.awt.event.ActionListener() {
+        txtCedulaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt3ActionPerformed(evt);
+                txtCedulaaActionPerformed(evt);
             }
         });
-        actualizar.add(userTxt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 150, 30));
+        actualizar.add(txtCedulaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, 30));
 
-        userTxt4.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt4.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt4.setBorder(null);
-        userTxt4.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNombrea.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtNombrea.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombrea.setBorder(null);
+        txtNombrea.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt4MousePressed(evt);
+                txtNombreaMousePressed(evt);
             }
         });
-        userTxt4.addActionListener(new java.awt.event.ActionListener() {
+        txtNombrea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt4ActionPerformed(evt);
+                txtNombreaActionPerformed(evt);
             }
         });
-        actualizar.add(userTxt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 220, 30));
+        actualizar.add(txtNombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 220, 30));
 
-        userTxt5.setEditable(false);
-        userTxt5.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt5.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt5.setBorder(null);
-        userTxt5.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEdada.setEditable(false);
+        txtEdada.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEdada.setForeground(new java.awt.Color(204, 204, 204));
+        txtEdada.setBorder(null);
+        txtEdada.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt5MousePressed(evt);
+                txtEdadaMousePressed(evt);
             }
         });
-        userTxt5.addActionListener(new java.awt.event.ActionListener() {
+        txtEdada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt5ActionPerformed(evt);
+                txtEdadaActionPerformed(evt);
             }
         });
-        actualizar.add(userTxt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 100, 30));
+        actualizar.add(txtEdada, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 100, 30));
 
         confirmNewPassLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel1.setText("4. EMAIL");
+        confirmNewPassLabel1.setText("3. EMAIL");
         actualizar.add(confirmNewPassLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 280, -1));
 
         confirmNewPassLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel2.setText("5.TELÉFONO");
+        confirmNewPassLabel2.setText("4.TELÉFONO");
         actualizar.add(confirmNewPassLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 280, -1));
 
-        userTxt6.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt6.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt6.setBorder(null);
-        userTxt6.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEmaila.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEmaila.setForeground(new java.awt.Color(204, 204, 204));
+        txtEmaila.setBorder(null);
+        txtEmaila.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt6MousePressed(evt);
+                txtEmailaMousePressed(evt);
             }
         });
-        userTxt6.addActionListener(new java.awt.event.ActionListener() {
+        txtEmaila.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt6ActionPerformed(evt);
+                txtEmailaActionPerformed(evt);
             }
         });
-        actualizar.add(userTxt6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 270, 30));
+        actualizar.add(txtEmaila, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 270, 30));
 
         confirmNewPassLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel3.setText("6.FECHA NACIMIENTO");
+        confirmNewPassLabel3.setText("5.FECHA NACIMIENTO");
         actualizar.add(confirmNewPassLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 280, -1));
 
-        userTxt7.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt7.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt7.setBorder(null);
-        userTxt7.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtFechaa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtFechaa.setForeground(new java.awt.Color(204, 204, 204));
+        txtFechaa.setBorder(null);
+        txtFechaa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt7MousePressed(evt);
+                txtFechaaMousePressed(evt);
             }
         });
-        userTxt7.addActionListener(new java.awt.event.ActionListener() {
+        txtFechaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt7ActionPerformed(evt);
+                txtFechaaActionPerformed(evt);
             }
         });
-        actualizar.add(userTxt7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 160, 30));
+        actualizar.add(txtFechaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 160, 30));
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
         actualizar.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 270, 20));
@@ -1112,6 +1114,19 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         mostrar.setVisible(false);
         actualizar.setVisible(true);
         eliminar.setVisible(false);
+        if (controlador.getModelo() != null) {
+
+            txtCedulaa.setText(String.valueOf(controlador.getModelo().getCedula()));
+            txtNombrea.setText(controlador.getModelo().getNombreCompleto());
+            txtFechaa.setText(controlador.getModelo().getFechaNacimiento());
+            txtEmaila.setText(controlador.getModelo().getEmail());
+            txtTelefonoa.setText(controlador.getModelo().getTelefono());
+            txtEdada.setText(String.valueOf(controlador.getModelo().calcularEdad(this.controlador.getModelo().getFechaNacimiento())));
+            txtCedulaa.setForeground(Color.gray);
+            txtNombrea.setForeground(Color.gray); txtFechaa.setForeground(Color.gray);
+            txtEmaila.setForeground(Color.gray); txtTelefonoa.setForeground(Color.gray);
+            txtEdada.setForeground(Color.gray); txtCedulaa.setForeground(Color.gray);
+        }
     }//GEN-LAST:event_lblActualizarMouseClicked
 
     private void lblActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseEntered
@@ -1139,16 +1154,17 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
     }//GEN-LAST:event_lblEliminarMouseExited
 
     private void continuarBtnCrearTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseClicked
-//        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
-//            || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
-//            || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-//        } else {
         mostrar.setVisible(false);
         crear1.setVisible(false);
         crear2.setVisible(true);
+        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
+           || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
+           || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
+           JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+       } else {
+       //this.controlador.crear(new Cliente);
         //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
-//        }
+       }
     }//GEN-LAST:event_continuarBtnCrearTxtMouseClicked
 
     private void continuarBtnCrearTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseEntered
@@ -1335,20 +1351,20 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscadorActionPerformed
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
+    private void txtTelefonoaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoaMousePressed
+        if (txtTelefonoa.getText().equals("Ingrese su nombre de usuario")) {
+            txtTelefonoa.setText("");
+            txtTelefonoa.setForeground(Color.black);
         }
         if (String.valueOf(passTxt.getPassword()).isEmpty()) {
             passTxt.setText("********");
             passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_userTxtMousePressed
+    }//GEN-LAST:event_txtTelefonoaMousePressed
 
-    private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
+    private void txtTelefonoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxtActionPerformed
+    }//GEN-LAST:event_txtTelefonoaActionPerformed
 
     private void modificarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseClicked
         JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
@@ -1363,9 +1379,9 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
     }//GEN-LAST:event_modificarBtnTxtMouseExited
 
     private void userTxt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt1MousePressed
-        if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
+        if (txtTelefonoa.getText().equals("Ingrese su nombre de usuario")) {
+            txtTelefonoa.setText("");
+            txtTelefonoa.setForeground(Color.black);
         }
         if (String.valueOf(passTxt.getPassword()).isEmpty()) {
             passTxt.setText("********");
@@ -1382,9 +1398,9 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
             passTxt.setText("");
             passTxt.setForeground(Color.black);
         }
-        if (userTxt.getText().isEmpty()) {
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
+        if (txtTelefonoa.getText().isEmpty()) {
+            txtTelefonoa.setText("Ingrese su nombre de usuario");
+            txtTelefonoa.setForeground(Color.gray);
         }
     }//GEN-LAST:event_passTxt2MousePressed
 
@@ -1402,65 +1418,73 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
     }//GEN-LAST:event_eliminarBtnTxtMouseExited
 
     private void txtBuscadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscadorKeyPressed
-if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-controlador.leer("%"+txtBuscador.getText()+"%");
-}
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            controlador.leer("%" + txtBuscador.getText() + "%");
+        }
     }//GEN-LAST:event_txtBuscadorKeyPressed
 
     private void txtBuscadorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscadorMousePressed
-      if (txtBuscador.getText().equals("Ingrese el numero de cédula")) {
+        if (txtBuscador.getText().equals("Ingrese el numero de cédula")) {
             txtBuscador.setText("");
             txtBuscador.setForeground(Color.black);
         }
     }//GEN-LAST:event_txtBuscadorMousePressed
 
-    private void userTxt2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt2MousePressed
+    private void txtCedulaaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt2MousePressed
+    }//GEN-LAST:event_txtCedulaaMousePressed
 
-    private void userTxt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt2ActionPerformed
+    private void txtCedulaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt2ActionPerformed
+    }//GEN-LAST:event_txtCedulaaActionPerformed
 
-    private void userTxt3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt3MousePressed
+    private void txtNombreaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt3MousePressed
+    }//GEN-LAST:event_txtNombreaMousePressed
 
-    private void userTxt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt3ActionPerformed
+    private void txtNombreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt3ActionPerformed
+    }//GEN-LAST:event_txtNombreaActionPerformed
 
-    private void userTxt4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt4MousePressed
+    private void txtEdadaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEdadaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt4MousePressed
+    }//GEN-LAST:event_txtEdadaMousePressed
 
-    private void userTxt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt4ActionPerformed
+    private void txtEdadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt4ActionPerformed
+    }//GEN-LAST:event_txtEdadaActionPerformed
 
-    private void userTxt5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt5MousePressed
+    private void txtEmailaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt5MousePressed
+    }//GEN-LAST:event_txtEmailaMousePressed
 
-    private void userTxt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt5ActionPerformed
+    private void txtEmailaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt5ActionPerformed
+    }//GEN-LAST:event_txtEmailaActionPerformed
 
-    private void userTxt6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt6MousePressed
+    private void txtFechaaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt6MousePressed
+    }//GEN-LAST:event_txtFechaaMousePressed
 
-    private void userTxt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt6ActionPerformed
+    private void txtFechaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt6ActionPerformed
+    }//GEN-LAST:event_txtFechaaActionPerformed
 
-    private void userTxt7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt7MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt7MousePressed
+    private void lbCopiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCopiarMouseClicked
+        if (this.tablaClientes.getRowCount() > 0 && tablaClientes.getSelectedRow() > -1) {
+            Cliente cliente = new Cliente(Integer.parseInt(String.valueOf(tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0))), null, null, Integer.parseInt(String.valueOf(tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 1))), String.valueOf(tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 2)), String.valueOf(tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 3)), String.valueOf(tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 4)), String.valueOf(tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 5)));
+            controlador.setModelo(cliente);
 
-    private void userTxt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt7ActionPerformed
+        }
+    }//GEN-LAST:event_lbCopiarMouseClicked
+
+    private void lbCopiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCopiarMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt7ActionPerformed
+    }//GEN-LAST:event_lbCopiarMouseEntered
+
+    private void lbCopiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCopiarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbCopiarMouseExited
 
     /**
      * @param args the command line arguments
@@ -1526,7 +1550,6 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -1534,6 +1557,7 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbCopiar;
     private javax.swing.JLabel lblActualizar;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblCorreo;
@@ -1577,22 +1601,20 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JLabel title4;
     private javax.swing.JTextField txtBuscador;
     private javax.swing.JFormattedTextField txtCedula;
+    private javax.swing.JTextField txtCedulaa;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtEdada;
+    private javax.swing.JTextField txtEmaila;
     private javax.swing.JFormattedTextField txtFecha;
+    private javax.swing.JTextField txtFechaa;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre1;
+    private javax.swing.JTextField txtNombrea;
     private javax.swing.JFormattedTextField txtNumero;
+    private javax.swing.JTextField txtTelefonoa;
     private javax.swing.JLabel userLabel;
-    private javax.swing.JLabel userLabel1;
     private javax.swing.JLabel userLabel2;
-    private javax.swing.JTextField userTxt;
     private javax.swing.JTextField userTxt1;
-    private javax.swing.JTextField userTxt2;
-    private javax.swing.JTextField userTxt3;
-    private javax.swing.JTextField userTxt4;
-    private javax.swing.JTextField userTxt5;
-    private javax.swing.JTextField userTxt6;
-    private javax.swing.JTextField userTxt7;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -1608,7 +1630,7 @@ controlador.leer("%"+txtBuscador.getText()+"%");
             Iterator<Cliente> iterator = controlador.getLista().iterator();
             while (iterator.hasNext()) {
                 Cliente cliente = iterator.next();
-                table.addRow(new Object[]{cliente.getIdCliente(), cliente.getCedula(),cliente.getNombreCompleto(),cliente.getFechaNacimiento(),cliente.getEmail(),cliente.getTelefono()});
+                table.addRow(new Object[]{cliente.getIdCliente(), cliente.getCedula(), cliente.getNombreCompleto(), cliente.getFechaNacimiento(), cliente.getEmail(), cliente.getTelefono()});
                 //cliente.getId(),cliente.getCedula(),cliente.getNombreCompleto(),cliente.getTelefono(),cliente.getEmail(),cliente.getFechaNacimiento()
             }
         }
