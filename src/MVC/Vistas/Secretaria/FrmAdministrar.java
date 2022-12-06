@@ -4,23 +4,26 @@
  */
 package MVC.Vistas.Secretaria;
 
-import MVC.Vistas.Oficiales.*;
+
 import Data.Conexiones.Conexion;
 import Frames.FrmRegistroCompleto;
 import MVC.Controlador.Controlador;
-import MVC.Modelos.Oficial;
+
+import MVC.Modelos.Secretaria;
 import MVC.Vistas.Vista;
 import java.awt.Color;
-import java.lang.ModuleLayer.Controller;
+import java.util.Iterator;
+
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author josep
  */
-public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial> {
+public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretaria> {
 
-    private Controlador<Oficial> controlador;
+    private Controlador<Secretaria> controlador;
     Conexion x;
     int yMouse, xMouse;
 
@@ -74,7 +77,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         title2 = new javax.swing.JLabel();
         logoP2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tablaOficial = new javax.swing.JTable();
+        tablaSecretarias = new javax.swing.JTable();
         actualizarMBtn = new javax.swing.JPanel();
         actualizarMBtnTxt = new javax.swing.JLabel();
         eliminarMBtn = new javax.swing.JPanel();
@@ -465,7 +468,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
 
         logoP2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
 
-        tablaOficial.setModel(new javax.swing.table.DefaultTableModel(
+        tablaSecretarias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -473,7 +476,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
                 {null, null, null, null}
             },
             new String [] {
-                "Carnet", "IdPersona", "Nombre de usuario", "Salario"
+                "Id Secretaria", "IdUsuario", "Nombre", "Contraseña"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -484,12 +487,12 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tablaOficial);
-        if (tablaOficial.getColumnModel().getColumnCount() > 0) {
-            tablaOficial.getColumnModel().getColumn(0).setResizable(false);
-            tablaOficial.getColumnModel().getColumn(1).setResizable(false);
-            tablaOficial.getColumnModel().getColumn(2).setResizable(false);
-            tablaOficial.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane3.setViewportView(tablaSecretarias);
+        if (tablaSecretarias.getColumnModel().getColumnCount() > 0) {
+            tablaSecretarias.getColumnModel().getColumn(0).setResizable(false);
+            tablaSecretarias.getColumnModel().getColumn(1).setResizable(false);
+            tablaSecretarias.getColumnModel().getColumn(2).setResizable(false);
+            tablaSecretarias.getColumnModel().getColumn(3).setResizable(false);
         }
 
         actualizarMBtn.setBackground(new java.awt.Color(0, 134, 190));
@@ -1154,6 +1157,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         crear2.setVisible(false);
         actualizar.setVisible(false);
         eliminar.setVisible(false);
+           this.controlador.leer();
     }//GEN-LAST:event_lblMostrarMouseClicked
 
     private void lblMostrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMostrarMouseEntered
@@ -1170,6 +1174,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         mostrar.setVisible(false);
         actualizar.setVisible(true);
         eliminar.setVisible(false);
+     
     }//GEN-LAST:event_lblActualizarMouseClicked
 
     private void lblActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseEntered
@@ -1648,7 +1653,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JPasswordField passTxt2;
     private javax.swing.JPanel registrarseBtn;
     private javax.swing.JLabel registrarseBtnTxt;
-    private javax.swing.JTable tablaOficial;
+    private javax.swing.JTable tablaSecretarias;
     private javax.swing.JLabel title;
     private javax.swing.JLabel title1;
     private javax.swing.JLabel title2;
@@ -1669,12 +1674,22 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
 
     @Override
     public void setControlador(Controlador controlador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+this.controlador=controlador;
     }
 
     @Override
     public void mostarDato() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    DefaultTableModel table = (DefaultTableModel) tablaSecretarias.getModel();
+        table.setRowCount(0);
+        if (controlador.getLista() != null) {
+            Iterator<Secretaria> iterator = controlador.getLista().iterator();
+            while (iterator.hasNext()) {
+                Secretaria s = iterator.next();
+                table.addRow(new Object[]{s.getId(),s.getIdUsuario(),s.getNombreUsuario(),s.getPassword()});
+                //cliente.getId(),cliente.getCedula(),cliente.getNombreCompleto(),cliente.getTelefono(),cliente.getEmail(),cliente.getFechaNacimiento()
+            }
+        }
+        tablaSecretarias.setModel(table);
     }
 
     @Override

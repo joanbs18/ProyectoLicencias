@@ -2,6 +2,9 @@ package MVC.Vistas.Secretaria;
 
 import MVC.Vistas.Usuarios.*;
 import Data.Conexiones.Conexion;
+import MVC.Controlador.Controlador;
+import MVC.Controlador.ControladorSecretaria;
+import MVC.Modelos.Secretaria;
 import MVC.Vistas.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
@@ -11,13 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author joans
  */
-public class FrmLoginSecretaria extends javax.swing.JFrame {
-
-    Conexion x;
+public class FrmLoginSecretaria extends javax.swing.JFrame implements Vista<Secretaria>{
+ private Controlador<Secretaria> controlador;
+ Conexion x;
     int xMouse, yMouse;
 
     public FrmLoginSecretaria() {
         initComponents();
+        this.setControlador(new ControladorSecretaria(this));
         this.setLocationRelativeTo(null);
         try {
             x = new Conexion();
@@ -366,8 +370,9 @@ public class FrmLoginSecretaria extends javax.swing.JFrame {
 
     private void iniciarSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBtnTxtMouseClicked
         //CODIGO PARA VERIFICAR SI EXISTE O NO EL USUARIO
-        FrmPrincipal frm = new FrmPrincipal();
-        frm.setVisible(true);
+       //VERIFICAR CONTRASEÑA Y USUARIO
+       
+        
     }//GEN-LAST:event_iniciarSesionBtnTxtMouseClicked
 
     private void registrarseSesionBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseSesionBtnTxtMouseClicked
@@ -523,4 +528,19 @@ public class FrmLoginSecretaria extends javax.swing.JFrame {
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setControlador(Controlador controlador) {
+this.controlador=controlador ;
+        }
+
+    @Override
+    public void mostarDato() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mostarMensaje(String msg, int messageType) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

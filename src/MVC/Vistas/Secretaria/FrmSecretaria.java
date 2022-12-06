@@ -5,6 +5,10 @@
 package MVC.Vistas.Secretaria;
 
 import Data.Conexiones.Conexion;
+import MVC.Controlador.Controlador;
+import MVC.Controlador.ControladorSecretaria;
+import MVC.Modelos.Secretaria;
+import MVC.Vistas.Vista;
 import java.awt.Color;
 
 
@@ -12,8 +16,8 @@ import java.awt.Color;
  *
  * @author josep
  */
-public class FrmSecretaria extends javax.swing.JFrame {
-
+public class FrmSecretaria extends javax.swing.JFrame implements Vista<Secretaria>{
+ private Controlador<Secretaria> controlador;
     Conexion x;
 
     /**
@@ -22,6 +26,7 @@ public class FrmSecretaria extends javax.swing.JFrame {
     public FrmSecretaria() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setControlador(new ControladorSecretaria (this));
         this.administrarBtn.setVisible(false);
     }
 
@@ -308,7 +313,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
     private void administrarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseClicked
         FrmAdministrar frm = new FrmAdministrar();
+        frm.setControlador(controlador);
+        controlador.setVista(frm);
         frm.setVisible(true);
+        this.controlador.leer(controlador.getModelo());
     }//GEN-LAST:event_administrarBtnMouseClicked
 
     private void administrarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseEntered
@@ -388,4 +396,18 @@ public class FrmSecretaria extends javax.swing.JFrame {
     private javax.swing.JLabel opcionesBtnTxt2;
     private javax.swing.JLabel tituloSisLicencias;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setControlador(Controlador controlador) {
+this.controlador=controlador;    
+    }
+
+    @Override
+    public void mostarDato() {
+    }
+
+    @Override
+    public void mostarMensaje(String msg, int messageType) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

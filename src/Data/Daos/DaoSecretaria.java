@@ -66,13 +66,13 @@ public class DaoSecretaria extends Dao<Secretaria> implements Crud<Secretaria> {
             ArrayList<Secretaria> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select * from Secretaria");//se hace la consulta
+            this.conector.prepareQuery("Select S.Id,S.IdUsuario,S.NombreUsuario,S.Contrasenia from secretaria S");//se hace la consulta
             data = this.conector.executeQuery();
             if (data == null) {
                 return null;
             }
             for (Object[] dt : data) {
-                list.add(new Secretaria((int) (dt[0]), (int) (dt[1]),
+                list.add(new Secretaria(Integer.parseInt(String.valueOf(dt[0])),Integer.parseInt(String.valueOf(dt[1])),
                         String.valueOf(dt[2]), String.valueOf(dt[3])));
             }
             return list;
