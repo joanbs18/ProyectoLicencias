@@ -144,7 +144,7 @@ public class DaoOficial extends Dao<Oficial> implements Crud<Oficial>{
         try {
             this.conector.conectar();
             this.conector.prepareQuery("call borrarOficial(?)");
-            this.conector.addParameter(1, modelo.getId());
+            this.conector.addParameter(1, modelo.getCarnet());
             return this.conector.executeUpdate();
 
         } catch (Exception ex) {

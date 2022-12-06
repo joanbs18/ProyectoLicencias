@@ -1201,8 +1201,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         actualizar.setVisible(false);
         eliminar.setVisible(true);
         if (controlador.getModelo() != null) {
-            System.out.println(controlador.getModelo().getCedula());
-            txtId.setText(String.valueOf(controlador.getModelo().getId()));
+            txtId.setText(String.valueOf(controlador.getModelo().getCarnet()));
         }
     }//GEN-LAST:event_lblEliminarMouseClicked
 
@@ -1419,13 +1418,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
-        Oficial oficial = new Oficial(Integer.parseInt(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 0))),
-                Integer.parseInt(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 1))),
-                String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 2)),
-                String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 3)),
-                Double.parseDouble(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 4))));
-        controlador.setModelo(oficial);
-        controlador.borrar(oficial);
+
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
     private void eliminarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseEntered
