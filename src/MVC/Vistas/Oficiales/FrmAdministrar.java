@@ -1170,7 +1170,8 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         actualizar.setVisible(true);
         eliminar.setVisible(false);
         if (controlador.getModelo() != null) {
-            txtCedulaa.setText(String.valueOf(controlador.getModelo().getCedula()));
+            System.out.println(controlador.getModelo().getCedula());
+            txtCedulaa.setText(String.valueOf(controlador.getModelo().getCarnet()));
             txtNombrea.setText(controlador.getModelo().getNombreCompleto());
             txtFechaa.setText(controlador.getModelo().getFechaNacimiento());
             txtEmaila.setText(controlador.getModelo().getEmail());
@@ -1181,7 +1182,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
             txtEmaila.setForeground(Color.gray);
             txtTelefonoa.setForeground(Color.gray);
             txtEdada.setForeground(Color.gray);
-            txtCedulaa.setForeground(Color.gray);
+      
         }
     }//GEN-LAST:event_lblActualizarMouseClicked
 
