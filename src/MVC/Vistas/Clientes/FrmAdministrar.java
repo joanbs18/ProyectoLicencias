@@ -110,16 +110,25 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         userTxt = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         passLabel1 = new javax.swing.JLabel();
-        passTxt1 = new javax.swing.JPasswordField();
         jSeparator4 = new javax.swing.JSeparator();
         modificarBtn = new javax.swing.JPanel();
         modificarBtnTxt = new javax.swing.JLabel();
         newPassLabel = new javax.swing.JLabel();
-        newPassTxt = new javax.swing.JPasswordField();
         jSeparator5 = new javax.swing.JSeparator();
         confirmNewPassLabel = new javax.swing.JLabel();
-        confirmNewPassTxt = new javax.swing.JPasswordField();
         jSeparator6 = new javax.swing.JSeparator();
+        userTxt2 = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        userTxt3 = new javax.swing.JTextField();
+        userTxt4 = new javax.swing.JTextField();
+        userTxt5 = new javax.swing.JTextField();
+        confirmNewPassLabel1 = new javax.swing.JLabel();
+        confirmNewPassLabel2 = new javax.swing.JLabel();
+        userTxt6 = new javax.swing.JTextField();
+        confirmNewPassLabel3 = new javax.swing.JLabel();
+        userTxt7 = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
         eliminar = new javax.swing.JPanel();
         logoP4 = new javax.swing.JLabel();
         title4 = new javax.swing.JLabel();
@@ -745,16 +754,15 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         actualizar.add(logoP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
         title3.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title3.setText("ACTUALIZAR OFICIALES");
+        title3.setText("ACTUALIZAR CLIENTE");
         actualizar.add(title3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         userLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        userLabel1.setText("1.USUARIO");
+        userLabel1.setText("1.ID");
         actualizar.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         userTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("Ingrese su nombre de usuario");
         userTxt.setBorder(null);
         userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -766,27 +774,17 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
                 userTxtActionPerformed(evt);
             }
         });
-        actualizar.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 350, 30));
+        actualizar.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 270, 30));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 350, 20));
+        actualizar.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 40, 20));
 
         passLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel1.setText("2. CONTRASEÑA ACTUAL");
-        actualizar.add(passLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
-
-        passTxt1.setForeground(new java.awt.Color(204, 204, 204));
-        passTxt1.setText("***********");
-        passTxt1.setBorder(null);
-        passTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                passTxt1MousePressed(evt);
-            }
-        });
-        actualizar.add(passTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 350, 30));
+        passLabel1.setText("3.NOMBRE COMPLETO");
+        actualizar.add(passLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 350, 20));
+        actualizar.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 270, 20));
 
         modificarBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -821,38 +819,130 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         actualizar.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 570, 40));
 
         newPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        newPassLabel.setText("3. CONTRASEÑA NUEVA");
-        actualizar.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
-
-        newPassTxt.setForeground(new java.awt.Color(204, 204, 204));
-        newPassTxt.setText("***********");
-        newPassTxt.setBorder(null);
-        newPassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                newPassTxtMousePressed(evt);
-            }
-        });
-        actualizar.add(newPassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 330, 30));
+        newPassLabel.setText("2. CEDULA");
+        actualizar.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 350, 20));
+        actualizar.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 220, 20));
 
         confirmNewPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel.setText("4. CONFIRMAR NUEVA CONTRASEÑA ");
-        actualizar.add(confirmNewPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 280, -1));
-
-        confirmNewPassTxt.setForeground(new java.awt.Color(204, 204, 204));
-        confirmNewPassTxt.setText("***********");
-        confirmNewPassTxt.setBorder(null);
-        confirmNewPassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                confirmNewPassTxtMousePressed(evt);
-            }
-        });
-        actualizar.add(confirmNewPassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 360, 30));
+        confirmNewPassLabel.setText("7.EDAD");
+        actualizar.add(confirmNewPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 280, -1));
 
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 360, 20));
+        actualizar.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 160, 20));
+
+        userTxt2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        userTxt2.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt2.setBorder(null);
+        userTxt2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxt2MousePressed(evt);
+            }
+        });
+        userTxt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTxt2ActionPerformed(evt);
+            }
+        });
+        actualizar.add(userTxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 40, 30));
+
+        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 150, 20));
+
+        userTxt3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        userTxt3.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt3.setBorder(null);
+        userTxt3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxt3MousePressed(evt);
+            }
+        });
+        userTxt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTxt3ActionPerformed(evt);
+            }
+        });
+        actualizar.add(userTxt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 150, 30));
+
+        userTxt4.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        userTxt4.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt4.setBorder(null);
+        userTxt4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxt4MousePressed(evt);
+            }
+        });
+        userTxt4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTxt4ActionPerformed(evt);
+            }
+        });
+        actualizar.add(userTxt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 220, 30));
+
+        userTxt5.setEditable(false);
+        userTxt5.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        userTxt5.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt5.setBorder(null);
+        userTxt5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxt5MousePressed(evt);
+            }
+        });
+        userTxt5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTxt5ActionPerformed(evt);
+            }
+        });
+        actualizar.add(userTxt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 100, 30));
+
+        confirmNewPassLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel1.setText("4. EMAIL");
+        actualizar.add(confirmNewPassLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 280, -1));
+
+        confirmNewPassLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel2.setText("5.TELÉFONO");
+        actualizar.add(confirmNewPassLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 280, -1));
+
+        userTxt6.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        userTxt6.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt6.setBorder(null);
+        userTxt6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxt6MousePressed(evt);
+            }
+        });
+        userTxt6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTxt6ActionPerformed(evt);
+            }
+        });
+        actualizar.add(userTxt6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 270, 30));
+
+        confirmNewPassLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel3.setText("6.FECHA NACIMIENTO");
+        actualizar.add(confirmNewPassLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 280, -1));
+
+        userTxt7.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        userTxt7.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt7.setBorder(null);
+        userTxt7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxt7MousePressed(evt);
+            }
+        });
+        userTxt7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTxt7ActionPerformed(evt);
+            }
+        });
+        actualizar.add(userTxt7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 160, 30));
+
+        jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 270, 20));
+
+        jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 100, 20));
 
         getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
 
@@ -1260,17 +1350,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         // TODO add your handling code here:
     }//GEN-LAST:event_userTxtActionPerformed
 
-    private void passTxt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxt1MousePressed
-        if (String.valueOf(passTxt.getPassword()).equals("***********")) {
-            passTxt.setText("");
-            passTxt.setForeground(Color.black);
-        }
-        if (userTxt.getText().isEmpty()) {
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_passTxt1MousePressed
-
     private void modificarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseClicked
         JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_modificarBtnTxtMouseClicked
@@ -1282,14 +1361,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
     private void modificarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseExited
         modificarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_modificarBtnTxtMouseExited
-
-    private void newPassTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newPassTxtMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newPassTxtMousePressed
-
-    private void confirmNewPassTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmNewPassTxtMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmNewPassTxtMousePressed
 
     private void userTxt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt1MousePressed
         if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
@@ -1343,6 +1414,54 @@ controlador.leer("%"+txtBuscador.getText()+"%");
         }
     }//GEN-LAST:event_txtBuscadorMousePressed
 
+    private void userTxt2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt2MousePressed
+
+    private void userTxt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt2ActionPerformed
+
+    private void userTxt3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt3MousePressed
+
+    private void userTxt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt3ActionPerformed
+
+    private void userTxt4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt4MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt4MousePressed
+
+    private void userTxt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt4ActionPerformed
+
+    private void userTxt5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt5MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt5MousePressed
+
+    private void userTxt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt5ActionPerformed
+
+    private void userTxt6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt6MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt6MousePressed
+
+    private void userTxt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt6ActionPerformed
+
+    private void userTxt7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt7MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt7MousePressed
+
+    private void userTxt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTxt7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1384,7 +1503,9 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JPanel actualizarBtn;
     private javax.swing.JSeparator cedulaSeparador;
     private javax.swing.JLabel confirmNewPassLabel;
-    private javax.swing.JPasswordField confirmNewPassTxt;
+    private javax.swing.JLabel confirmNewPassLabel1;
+    private javax.swing.JLabel confirmNewPassLabel2;
+    private javax.swing.JLabel confirmNewPassLabel3;
     private javax.swing.JPanel continuarBtnCrear;
     private javax.swing.JLabel continuarBtnCrearTxt;
     private javax.swing.JSeparator correoSeparador;
@@ -1402,6 +1523,8 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1409,6 +1532,7 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblActualizar;
     private javax.swing.JLabel lblCedula;
@@ -1435,7 +1559,6 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JPanel mostrar;
     private javax.swing.JPanel mostrarBtn;
     private javax.swing.JLabel newPassLabel;
-    private javax.swing.JPasswordField newPassTxt;
     private javax.swing.JSeparator nombreSeparador;
     private javax.swing.JSeparator nombreSeparador1;
     private javax.swing.JSeparator numeroSeparado;
@@ -1443,7 +1566,6 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JLabel passLabel1;
     private javax.swing.JLabel passLabel2;
     private javax.swing.JPasswordField passTxt;
-    private javax.swing.JPasswordField passTxt1;
     private javax.swing.JPasswordField passTxt2;
     private javax.swing.JPanel registrarseBtn;
     private javax.swing.JLabel registrarseBtnTxt;
@@ -1465,6 +1587,12 @@ controlador.leer("%"+txtBuscador.getText()+"%");
     private javax.swing.JLabel userLabel2;
     private javax.swing.JTextField userTxt;
     private javax.swing.JTextField userTxt1;
+    private javax.swing.JTextField userTxt2;
+    private javax.swing.JTextField userTxt3;
+    private javax.swing.JTextField userTxt4;
+    private javax.swing.JTextField userTxt5;
+    private javax.swing.JTextField userTxt6;
+    private javax.swing.JTextField userTxt7;
     // End of variables declaration//GEN-END:variables
 
     @Override
