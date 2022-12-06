@@ -131,10 +131,28 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         logoP4 = new javax.swing.JLabel();
         title4 = new javax.swing.JLabel();
         userLabel2 = new javax.swing.JLabel();
-        userTxt1 = new javax.swing.JTextField();
+        txtIde = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         eliminarBtn1 = new javax.swing.JPanel();
         eliminarBtnTxt = new javax.swing.JLabel();
+        newPassLabel1 = new javax.swing.JLabel();
+        txtCedulae = new javax.swing.JTextField();
+        passLabel2 = new javax.swing.JLabel();
+        txtNombree = new javax.swing.JTextField();
+        confirmNewPassLabel4 = new javax.swing.JLabel();
+        txtEmaile = new javax.swing.JTextField();
+        confirmNewPassLabel5 = new javax.swing.JLabel();
+        txtTelefonoe = new javax.swing.JTextField();
+        txtEdade = new javax.swing.JTextField();
+        confirmNewPassLabel6 = new javax.swing.JLabel();
+        confirmNewPassLabel7 = new javax.swing.JLabel();
+        txtFechae = new javax.swing.JTextField();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
+        jSeparator13 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jSeparator15 = new javax.swing.JSeparator();
+        jSeparator16 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -949,33 +967,33 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         eliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoP4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
-        eliminar.add(logoP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
+        eliminar.add(logoP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
 
         title4.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         title4.setText("ELIMINAR CLIENTE");
         eliminar.add(title4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         userLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        userLabel2.setText("ID CLIENTE");
-        eliminar.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        userLabel2.setText("1.ID CLIENTE");
+        eliminar.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        userTxt1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt1.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt1.setBorder(null);
-        userTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtIde.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtIde.setForeground(new java.awt.Color(204, 204, 204));
+        txtIde.setBorder(null);
+        txtIde.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt1MousePressed(evt);
+                txtIdeMousePressed(evt);
             }
         });
-        userTxt1.addActionListener(new java.awt.event.ActionListener() {
+        txtIde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt1ActionPerformed(evt);
+                txtIdeActionPerformed(evt);
             }
         });
-        eliminar.add(userTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 90, 30));
+        eliminar.add(txtIde, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 90, 30));
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-        eliminar.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, 20));
+        eliminar.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 160, 20));
 
         eliminarBtn1.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -1008,6 +1026,139 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         );
 
         eliminar.add(eliminarBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 190, 40));
+
+        newPassLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        newPassLabel1.setText("2. CEDULA");
+        eliminar.add(newPassLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+
+        txtCedulae.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCedulae.setForeground(new java.awt.Color(204, 204, 204));
+        txtCedulae.setBorder(null);
+        txtCedulae.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCedulaeMousePressed(evt);
+            }
+        });
+        txtCedulae.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaeActionPerformed(evt);
+            }
+        });
+        eliminar.add(txtCedulae, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 150, 30));
+
+        passLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        passLabel2.setText("3.NOMBRE COMPLETO");
+        eliminar.add(passLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+
+        txtNombree.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtNombree.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombree.setBorder(null);
+        txtNombree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreeMousePressed(evt);
+            }
+        });
+        txtNombree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreeActionPerformed(evt);
+            }
+        });
+        eliminar.add(txtNombree, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 220, 30));
+
+        confirmNewPassLabel4.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel4.setText("4. EMAIL");
+        eliminar.add(confirmNewPassLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 280, -1));
+
+        txtEmaile.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEmaile.setForeground(new java.awt.Color(204, 204, 204));
+        txtEmaile.setBorder(null);
+        txtEmaile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtEmaileMousePressed(evt);
+            }
+        });
+        txtEmaile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmaileActionPerformed(evt);
+            }
+        });
+        eliminar.add(txtEmaile, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 270, 30));
+
+        confirmNewPassLabel5.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel5.setText("5.TELÉFONO");
+        eliminar.add(confirmNewPassLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 280, -1));
+
+        txtTelefonoe.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtTelefonoe.setForeground(new java.awt.Color(204, 204, 204));
+        txtTelefonoe.setBorder(null);
+        txtTelefonoe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTelefonoeMousePressed(evt);
+            }
+        });
+        txtTelefonoe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoeActionPerformed(evt);
+            }
+        });
+        eliminar.add(txtTelefonoe, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 270, 30));
+
+        txtEdade.setEditable(false);
+        txtEdade.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEdade.setForeground(new java.awt.Color(204, 204, 204));
+        txtEdade.setBorder(null);
+        txtEdade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtEdadeMousePressed(evt);
+            }
+        });
+        txtEdade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEdadeActionPerformed(evt);
+            }
+        });
+        eliminar.add(txtEdade, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 100, 30));
+
+        confirmNewPassLabel6.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel6.setText("6.EDAD");
+        eliminar.add(confirmNewPassLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 280, -1));
+
+        confirmNewPassLabel7.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel7.setText("5.FECHA NACIMIENTO");
+        eliminar.add(confirmNewPassLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 280, -1));
+
+        txtFechae.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtFechae.setForeground(new java.awt.Color(204, 204, 204));
+        txtFechae.setBorder(null);
+        txtFechae.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtFechaeMousePressed(evt);
+            }
+        });
+        txtFechae.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaeActionPerformed(evt);
+            }
+        });
+        eliminar.add(txtFechae, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 160, 30));
+
+        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
+        eliminar.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, 20));
+
+        jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
+        eliminar.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 150, 20));
+
+        jSeparator13.setForeground(new java.awt.Color(0, 0, 0));
+        eliminar.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 220, 20));
+
+        jSeparator14.setForeground(new java.awt.Color(0, 0, 0));
+        eliminar.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 270, 20));
+
+        jSeparator15.setForeground(new java.awt.Color(0, 0, 0));
+        eliminar.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 270, 20));
+
+        jSeparator16.setForeground(new java.awt.Color(0, 0, 0));
+        eliminar.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 100, 20));
 
         getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
 
@@ -1125,6 +1276,23 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         mostrar.setVisible(false);
         actualizar.setVisible(false);
         eliminar.setVisible(true);
+         if (controlador.getModelo() != null) {
+
+            txtCedulae.setText(String.valueOf(controlador.getModelo().getCedula()));
+            txtNombree.setText(controlador.getModelo().getNombreCompleto());
+            txtFechae.setText(controlador.getModelo().getFechaNacimiento());
+            txtEmaile.setText(controlador.getModelo().getEmail());
+            txtTelefonoe.setText(controlador.getModelo().getTelefono());
+            txtEdade.setText(String.valueOf(controlador.getModelo().calcularEdad(this.controlador.getModelo().getFechaNacimiento())));
+            txtCedulae.setForeground(Color.gray);
+            txtNombree.setForeground(Color.gray);
+            txtFechae.setForeground(Color.gray);
+            txtEmaile.setForeground(Color.gray);
+            txtTelefonoe.setForeground(Color.gray);
+            txtEdade.setForeground(Color.gray);
+            txtCedulae.setForeground(Color.gray);
+        }
+         
     }//GEN-LAST:event_lblEliminarMouseClicked
 
     private void lblEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseEntered
@@ -1362,7 +1530,7 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
         modificarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_modificarBtnTxtMouseExited
 
-    private void userTxt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt1MousePressed
+    private void txtIdeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdeMousePressed
         if (txtTelefonoa.getText().equals("Ingrese su nombre de usuario")) {
             txtTelefonoa.setText("");
             txtTelefonoa.setForeground(Color.black);
@@ -1371,15 +1539,15 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
             passTxt.setText("********");
             passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_userTxt1MousePressed
+    }//GEN-LAST:event_txtIdeMousePressed
 
-    private void userTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt1ActionPerformed
+    private void txtIdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt1ActionPerformed
+    }//GEN-LAST:event_txtIdeActionPerformed
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
         //CODIGO PARA ELIMINAR EL USUARIO
-        this.controlador.borrar();
+        //this.controlador.borrar();
         JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
@@ -1460,6 +1628,54 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
         // TODO add your handling code here:
     }//GEN-LAST:event_lbCopiarMouseExited
 
+    private void txtCedulaeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaeMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaeMousePressed
+
+    private void txtCedulaeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaeActionPerformed
+
+    private void txtNombreeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreeMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreeMousePressed
+
+    private void txtNombreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreeActionPerformed
+
+    private void txtEmaileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmaileMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmaileMousePressed
+
+    private void txtEmaileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmaileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmaileActionPerformed
+
+    private void txtTelefonoeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoeMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoeMousePressed
+
+    private void txtTelefonoeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoeActionPerformed
+
+    private void txtEdadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEdadeMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdadeMousePressed
+
+    private void txtEdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdadeActionPerformed
+
+    private void txtFechaeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaeMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaeMousePressed
+
+    private void txtFechaeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1504,6 +1720,10 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
     private javax.swing.JLabel confirmNewPassLabel1;
     private javax.swing.JLabel confirmNewPassLabel2;
     private javax.swing.JLabel confirmNewPassLabel3;
+    private javax.swing.JLabel confirmNewPassLabel4;
+    private javax.swing.JLabel confirmNewPassLabel5;
+    private javax.swing.JLabel confirmNewPassLabel6;
+    private javax.swing.JLabel confirmNewPassLabel7;
     private javax.swing.JPanel continuarBtnCrear;
     private javax.swing.JLabel continuarBtnCrearTxt;
     private javax.swing.JSeparator correoSeparador;
@@ -1523,11 +1743,17 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbCopiar;
@@ -1556,11 +1782,13 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
     private javax.swing.JPanel mostrar;
     private javax.swing.JPanel mostrarBtn;
     private javax.swing.JLabel newPassLabel;
+    private javax.swing.JLabel newPassLabel1;
     private javax.swing.JSeparator nombreSeparador;
     private javax.swing.JSeparator nombreSeparador1;
     private javax.swing.JSeparator numeroSeparado;
     private javax.swing.JLabel passLabel;
     private javax.swing.JLabel passLabel1;
+    private javax.swing.JLabel passLabel2;
     private javax.swing.JPasswordField passTxt;
     private javax.swing.JPanel registrarseBtn;
     private javax.swing.JLabel registrarseBtnTxt;
@@ -1573,19 +1801,25 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
     private javax.swing.JTextField txtBuscador;
     private javax.swing.JFormattedTextField txtCedula;
     private javax.swing.JTextField txtCedulaa;
+    private javax.swing.JTextField txtCedulae;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtEdada;
+    private javax.swing.JTextField txtEdade;
     private javax.swing.JTextField txtEmaila;
+    private javax.swing.JTextField txtEmaile;
     private javax.swing.JFormattedTextField txtFecha;
     private javax.swing.JTextField txtFechaa;
+    private javax.swing.JTextField txtFechae;
+    private javax.swing.JTextField txtIde;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre1;
     private javax.swing.JTextField txtNombrea;
+    private javax.swing.JTextField txtNombree;
     private javax.swing.JFormattedTextField txtNumero;
     private javax.swing.JTextField txtTelefonoa;
+    private javax.swing.JTextField txtTelefonoe;
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel userLabel2;
-    private javax.swing.JTextField userTxt1;
     // End of variables declaration//GEN-END:variables
 
     @Override
