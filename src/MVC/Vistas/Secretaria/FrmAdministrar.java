@@ -81,7 +81,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaSecretarias = new javax.swing.JTable();
         eliminarMBtn = new javax.swing.JPanel();
-        eliminarMBtnTxt = new javax.swing.JLabel();
+        lbCopiar = new javax.swing.JLabel();
         crear1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
@@ -385,7 +385,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         lblEliminar1.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         lblEliminar1.setForeground(new java.awt.Color(255, 255, 255));
         lblEliminar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEliminar1.setText("ELIMINAR");
+        lblEliminar1.setText("INICIO");
         lblEliminar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblEliminar1MouseClicked(evt);
@@ -499,19 +499,19 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
 
         eliminarMBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        eliminarMBtnTxt.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        eliminarMBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        eliminarMBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eliminarMBtnTxt.setText("Copiar");
-        eliminarMBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbCopiar.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lbCopiar.setForeground(new java.awt.Color(255, 255, 255));
+        lbCopiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbCopiar.setText("Copiar");
+        lbCopiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                eliminarMBtnTxtMouseClicked(evt);
+                lbCopiarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                eliminarMBtnTxtMouseEntered(evt);
+                lbCopiarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                eliminarMBtnTxtMouseExited(evt);
+                lbCopiarMouseExited(evt);
             }
         });
 
@@ -519,11 +519,11 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         eliminarMBtn.setLayout(eliminarMBtnLayout);
         eliminarMBtnLayout.setHorizontalGroup(
             eliminarMBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(eliminarMBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+            .addComponent(lbCopiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
         );
         eliminarMBtnLayout.setVerticalGroup(
             eliminarMBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(eliminarMBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+            .addComponent(lbCopiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout mostrarLayout = new javax.swing.GroupLayout(mostrar);
@@ -1420,21 +1420,24 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         eliminarBtn1.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_eliminarBtnTxtMouseExited
 
-    private void eliminarMBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMBtnTxtMouseClicked
-        this.crear1.setVisible(false);
-        this.crear2.setVisible(false);
-        this.mostrar.setVisible(false);
-        this.actualizar.setVisible(false);
-        this.eliminar.setVisible(true);
-    }//GEN-LAST:event_eliminarMBtnTxtMouseClicked
+    private void lbCopiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCopiarMouseClicked
+        if (this.tablaSecretarias.getRowCount() > 0 && tablaSecretarias.getSelectedRow() > -1) {
+            Secretaria secre = new Secretaria(Integer.parseInt(String.valueOf(tablaSecretarias.getValueAt(tablaSecretarias.getSelectedRow(), 0))),
+                    Integer.parseInt(String.valueOf(tablaSecretarias.getValueAt(tablaSecretarias.getSelectedRow(), 1))), 
+                    String.valueOf(tablaSecretarias.getValueAt(tablaSecretarias.getSelectedRow(), 2)), 
+                    String.valueOf(tablaSecretarias.getValueAt(tablaSecretarias.getSelectedRow(), 3)));
+            controlador.setModelo(secre);
 
-    private void eliminarMBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMBtnTxtMouseEntered
+        }
+    }//GEN-LAST:event_lbCopiarMouseClicked
+
+    private void lbCopiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCopiarMouseEntered
         eliminarMBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_eliminarMBtnTxtMouseEntered
+    }//GEN-LAST:event_lbCopiarMouseEntered
 
-    private void eliminarMBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMBtnTxtMouseExited
+    private void lbCopiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCopiarMouseExited
         eliminarMBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_eliminarMBtnTxtMouseExited
+    }//GEN-LAST:event_lbCopiarMouseExited
 
     private void lblEliminar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseClicked
         // TODO add your handling code here:
@@ -1515,7 +1518,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     private javax.swing.JPanel eliminarBtn2;
     private javax.swing.JLabel eliminarBtnTxt;
     private javax.swing.JPanel eliminarMBtn;
-    private javax.swing.JLabel eliminarMBtnTxt;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JSeparator fechaSeparador;
@@ -1531,6 +1533,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbCopiar;
     private javax.swing.JLabel lblActualizar;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblCorreo;
