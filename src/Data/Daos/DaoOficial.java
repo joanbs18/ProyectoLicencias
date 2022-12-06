@@ -67,15 +67,15 @@ public class DaoOficial extends Dao<Oficial> implements Crud<Oficial>{
             ArrayList<Oficial> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select * from oficial");//se hace la consulta
+            this.conector.prepareQuery("SELECT o.Carnet,o.IdUsuario,o.NombreUsuario,o.Contrasenia,o.Salario from oficial o");//se hace la consulta
             data = this.conector.executeQuery();
             if (data == null) {
                 return null;
             }
             for (Object[] dt : data) {
-                list.add(new Oficial((int) (dt[0]), (int) (dt[1]),
+                list.add(new Oficial(Integer.parseInt(String.valueOf(dt[0])),Integer.parseInt(String.valueOf(dt[1])),
                         String.valueOf(dt[2]), String.valueOf(dt[3]),
-                        (double)(dt[4])));
+                        Double.parseDouble(String.valueOf(dt[4]))));
             }
             return list;
         } catch (Exception ex) {

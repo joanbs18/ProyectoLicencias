@@ -15,7 +15,7 @@ public class Oficial extends Persona implements Modelo{
     private final double ASS=3.3;
     
     private Integer carnet;
-    private Integer idPersona;
+    private Integer idUsuario;
     private String nombreUsuario;
     private String contrasenia;
     private Double salario;
@@ -24,7 +24,7 @@ public class Oficial extends Persona implements Modelo{
     public Oficial(Integer carnet, Integer idPersona, String nombreUsuario, String Contrasenia, Double Salario, Integer id, Integer cedula, String nombreCompleto, String fechaNacimiento, String email, String telefono) {
         super(id, cedula, nombreCompleto, fechaNacimiento, email, telefono);
         this.carnet = carnet;
-        this.idPersona = idPersona;
+        this.idUsuario = idPersona;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = Contrasenia;
         this.setSalario(Salario);
@@ -33,7 +33,7 @@ public class Oficial extends Persona implements Modelo{
 
     public Oficial(Integer carnet, Integer idPersona, String nombreUsuario, String contrasenia, Double salario) {
         this.carnet = carnet;
-        this.idPersona = idPersona;
+        this.idUsuario = idPersona;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.setSalario(salario);
@@ -72,11 +72,11 @@ public class Oficial extends Persona implements Modelo{
     }
 
     public Integer getIdPersona() {
-        return idPersona;
+        return idUsuario;
     }
 
     public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+        this.idUsuario = idPersona;
     }
 
     public String getNombreUsuario() {
@@ -110,7 +110,7 @@ public class Oficial extends Persona implements Modelo{
     
     @Override
     public boolean isComplete() {
-         return this.idPersona!=null && this.nombreUsuario!=null 
+         return this.idUsuario!=null && this.nombreUsuario!=null 
                  && this.contrasenia!=null && this.salario!=null;
     }
     
