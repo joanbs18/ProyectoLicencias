@@ -8,10 +8,12 @@ package MVC.Vistas.Secretaria;
 import Data.Conexiones.Conexion;
 import Frames.FrmRegistroCompleto;
 import MVC.Controlador.Controlador;
+import MVC.Modelos.Persona;
 
 import MVC.Modelos.Secretaria;
 import MVC.Vistas.Vista;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.Iterator;
 
 import javax.swing.JOptionPane;
@@ -72,18 +74,14 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         lblEliminar1 = new javax.swing.JLabel();
         mostrar = new javax.swing.JPanel();
         userLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         title2 = new javax.swing.JLabel();
         logoP2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaSecretarias = new javax.swing.JTable();
-        actualizarMBtn = new javax.swing.JPanel();
-        actualizarMBtnTxt = new javax.swing.JLabel();
         eliminarMBtn = new javax.swing.JPanel();
         eliminarMBtnTxt = new javax.swing.JLabel();
-        mostrarBtn2 = new javax.swing.JPanel();
-        mostrarBtn2Txt = new javax.swing.JLabel();
         crear1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
@@ -452,12 +450,22 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         userLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         userLabel.setText("ID");
 
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("Ingrese el ID de la persona");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscar.setForeground(new java.awt.Color(204, 204, 204));
+        txtBuscar.setText("Ingrese el ID de la persona");
+        txtBuscar.setBorder(null);
+        txtBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtBuscarMousePressed(evt);
+            }
+        });
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtBuscarActionPerformed(evt);
+            }
+        });
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyPressed(evt);
             }
         });
 
@@ -488,48 +496,13 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
             }
         });
         jScrollPane3.setViewportView(tablaSecretarias);
-        if (tablaSecretarias.getColumnModel().getColumnCount() > 0) {
-            tablaSecretarias.getColumnModel().getColumn(0).setResizable(false);
-            tablaSecretarias.getColumnModel().getColumn(1).setResizable(false);
-            tablaSecretarias.getColumnModel().getColumn(2).setResizable(false);
-            tablaSecretarias.getColumnModel().getColumn(3).setResizable(false);
-        }
-
-        actualizarMBtn.setBackground(new java.awt.Color(0, 134, 190));
-
-        actualizarMBtnTxt.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        actualizarMBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        actualizarMBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        actualizarMBtnTxt.setText("ACTUALIZAR USUARIO");
-        actualizarMBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                actualizarMBtnTxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                actualizarMBtnTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                actualizarMBtnTxtMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout actualizarMBtnLayout = new javax.swing.GroupLayout(actualizarMBtn);
-        actualizarMBtn.setLayout(actualizarMBtnLayout);
-        actualizarMBtnLayout.setHorizontalGroup(
-            actualizarMBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(actualizarMBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-        );
-        actualizarMBtnLayout.setVerticalGroup(
-            actualizarMBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(actualizarMBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
-        );
 
         eliminarMBtn.setBackground(new java.awt.Color(0, 134, 190));
 
         eliminarMBtnTxt.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         eliminarMBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
         eliminarMBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eliminarMBtnTxt.setText("ELIMINAR USUARIO");
+        eliminarMBtnTxt.setText("Copiar");
         eliminarMBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 eliminarMBtnTxtMouseClicked(evt);
@@ -546,42 +519,11 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         eliminarMBtn.setLayout(eliminarMBtnLayout);
         eliminarMBtnLayout.setHorizontalGroup(
             eliminarMBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eliminarMBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(eliminarMBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(eliminarMBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
         );
         eliminarMBtnLayout.setVerticalGroup(
             eliminarMBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(eliminarMBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        mostrarBtn2.setBackground(new java.awt.Color(0, 134, 190));
-
-        mostrarBtn2Txt.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        mostrarBtn2Txt.setForeground(new java.awt.Color(255, 255, 255));
-        mostrarBtn2Txt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mostrarBtn2Txt.setText("MOSTRAR");
-        mostrarBtn2Txt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mostrarBtn2TxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mostrarBtn2TxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mostrarBtn2TxtMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout mostrarBtn2Layout = new javax.swing.GroupLayout(mostrarBtn2);
-        mostrarBtn2.setLayout(mostrarBtn2Layout);
-        mostrarBtn2Layout.setHorizontalGroup(
-            mostrarBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mostrarBtn2Txt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-        );
-        mostrarBtn2Layout.setVerticalGroup(
-            mostrarBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mostrarBtn2Txt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(eliminarMBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout mostrarLayout = new javax.swing.GroupLayout(mostrar);
@@ -598,7 +540,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
                         .addGroup(mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(userLabel)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(mostrarLayout.createSequentialGroup()
                                 .addComponent(title2)
                                 .addGap(18, 18, 18)
@@ -606,13 +548,9 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mostrarLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(mostrarBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(actualizarMBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(eliminarMBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(277, 277, 277))
         );
         mostrarLayout.setVerticalGroup(
             mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -624,17 +562,14 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
                 .addGap(18, 18, 18)
                 .addComponent(userLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addGroup(mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(actualizarMBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eliminarMBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(mostrarBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(119, 119, 119))
+                .addGap(45, 45, 45)
+                .addComponent(eliminarMBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131))
         );
 
         getContentPane().add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
@@ -1141,6 +1076,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         mostrar.setVisible(false);
         actualizar.setVisible(false);
         eliminar.setVisible(false);
+        this.controlador.crear(new Secretaria());
     }//GEN-LAST:event_lblCrearMouseClicked
 
     private void lblCrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearMouseEntered
@@ -1394,9 +1330,9 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         }
     }//GEN-LAST:event_passTxtMousePressed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
         if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
@@ -1484,22 +1420,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         eliminarBtn1.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_eliminarBtnTxtMouseExited
 
-    private void actualizarMBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarMBtnTxtMouseEntered
-        actualizarMBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_actualizarMBtnTxtMouseEntered
-
-    private void actualizarMBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarMBtnTxtMouseClicked
-        this.crear1.setVisible(false);
-        this.crear2.setVisible(false);
-        this.mostrar.setVisible(false);
-        this.actualizar.setVisible(true);
-        this.eliminar.setVisible(false);
-    }//GEN-LAST:event_actualizarMBtnTxtMouseClicked
-
-    private void actualizarMBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarMBtnTxtMouseExited
-        actualizarMBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_actualizarMBtnTxtMouseExited
-
     private void eliminarMBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMBtnTxtMouseClicked
         this.crear1.setVisible(false);
         this.crear2.setVisible(false);
@@ -1528,17 +1448,18 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         // TODO add your handling code here:
     }//GEN-LAST:event_lblEliminar1MouseExited
 
-    private void mostrarBtn2TxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtn2TxtMouseClicked
+    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            controlador.leer("%" + txtBuscar.getText() + "%");
+        }
+    }//GEN-LAST:event_txtBuscarKeyPressed
 
-    }//GEN-LAST:event_mostrarBtn2TxtMouseClicked
-
-    private void mostrarBtn2TxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtn2TxtMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mostrarBtn2TxtMouseEntered
-
-    private void mostrarBtn2TxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtn2TxtMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mostrarBtn2TxtMouseExited
+    private void txtBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarMousePressed
+        if (txtBuscar.getText().equals("Ingrese el numero de cédula")) {
+            txtBuscar.setText("");
+            txtBuscar.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtBuscarMousePressed
 
     /**
      * @param args the command line arguments
@@ -1579,8 +1500,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel actualizar;
     private javax.swing.JPanel actualizarBtn;
-    private javax.swing.JPanel actualizarMBtn;
-    private javax.swing.JLabel actualizarMBtnTxt;
     private javax.swing.JSeparator cedulaSeparador;
     private javax.swing.JLabel confirmNewPassLabel;
     private javax.swing.JPasswordField confirmNewPassTxt;
@@ -1612,7 +1531,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblActualizar;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblCorreo;
@@ -1638,8 +1556,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     private javax.swing.JLabel modificarBtnTxt;
     private javax.swing.JPanel mostrar;
     private javax.swing.JPanel mostrarBtn;
-    private javax.swing.JPanel mostrarBtn2;
-    private javax.swing.JLabel mostrarBtn2Txt;
     private javax.swing.JLabel newPassLabel;
     private javax.swing.JPasswordField newPassTxt;
     private javax.swing.JSeparator nombreSeparador;
@@ -1659,6 +1575,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     private javax.swing.JLabel title2;
     private javax.swing.JLabel title3;
     private javax.swing.JLabel title4;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JFormattedTextField txtCedula;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JFormattedTextField txtFecha;
