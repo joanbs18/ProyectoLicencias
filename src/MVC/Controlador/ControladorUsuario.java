@@ -6,6 +6,7 @@ package MVC.Controlador;
 
 import Data.Conexiones.Conexion;
 import Data.Daos.DaoUsuario;
+import MVC.Modelos.Persona;
 import MVC.Modelos.Usuario;
 import MVC.Vistas.Vista;
 import java.util.ArrayList;
@@ -102,5 +103,7 @@ public class ControladorUsuario implements Controlador<Usuario>{
     private boolean validar(Usuario usuario) {
         return  usuario.isComplete();
     }
+
+    
     
 }

@@ -7,6 +7,7 @@ package MVC.Controlador;
 import Data.Conexiones.Conexion;
 import Data.Daos.DaoOficial;
 import MVC.Modelos.Oficial;
+import MVC.Modelos.Persona;
 import MVC.Vistas.Vista;
 import java.util.ArrayList;
 
@@ -100,4 +101,6 @@ public class ControladorOficial implements Controlador<Oficial>{
     private boolean validar(Oficial oficial) {
         return oficial.isComplete();
     }
+
+    
 }

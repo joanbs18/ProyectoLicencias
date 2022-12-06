@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class DaoCliente extends Dao<Cliente> implements Crud<Cliente> {
 
-    private Controlador<Persona> controlador;
+  
 
     public DaoCliente(Conector conector) {
         this.conector = conector;
@@ -70,7 +70,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente> {
         try {
             Object[][] datos;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("call verPersona(?)");
+            this.conector.prepareQuery("Select * from clientes where Id=?");
             // this.conector.addParameter(2, modelo.getIdCliente());
             this.conector.addParameter(1, modelo.getIdPersona());
             //this.conector.addParameter(2, modelo.getId());
@@ -100,7 +100,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente> {
             ArrayList<Cliente> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("SELECT clientes.Id,clientes.IdPersona,persona.Id,persona.Cedula,persona.NombreCompleto,persona.FechaNacimiento,persona.Email,persona.Telefono from clientes INNER JOIN persona ON clientes.IdPersona=persona.Id;");//se hace la consulta
+            this.conector.prepareQuery("SELECT clientes.Id,clientes.IdPersona,persona.Id,persona.Cedula,persona.NombreCompleto,persona.FechaNacimiento,persona.Email,persona.Telefono from persona INNER JOIN clientes ON clientes.IdPersona=persona.Id;");//se hace la consulta
             data = this.conector.executeQuery();
             if (data == null) {
                 return null;

@@ -4,6 +4,12 @@
  */
 package MVC.Vistas.Citas;
 
+import Data.Conexiones.Conector;
+import Data.Conexiones.Conexion;
+import MVC.Controlador.Controlador;
+import MVC.Modelos.Cita;
+import MVC.Modelos.Persona;
+import MVC.Vistas.Vista;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -11,8 +17,8 @@ import javax.swing.JOptionPane;
  *
  * @author josep
  */
-public class FrmCitas extends javax.swing.JFrame {
-
+public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
+ private Controlador<Cita> controlador;
     int xMouse, yMouse;
     /**
      * Creates new form FrmCitas
@@ -164,7 +170,7 @@ public class FrmCitas extends javax.swing.JFrame {
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(minimizeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(864, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,9 +419,9 @@ public class FrmCitas extends javax.swing.JFrame {
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(217, 217, 217)
+                .addGap(356, 356, 356)
                 .addComponent(logoP)
-                .addContainerGap(669, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(bg2, javax.swing.GroupLayout.DEFAULT_SIZE, 940, Short.MAX_VALUE))
         );
@@ -423,9 +429,9 @@ public class FrmCitas extends javax.swing.JFrame {
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(logoP, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 476, Short.MAX_VALUE))
+                .addGap(0, 466, Short.MAX_VALUE))
             .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
                     .addGap(0, 40, Short.MAX_VALUE)
@@ -652,7 +658,15 @@ public class FrmCitas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHoraRCActionPerformed
 
     private void lblVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseClicked
-        
+      Persona p= this.controlador.buscarPersona(txtCedulaRC.getText());
+      if(p!=null){
+      txtNombreRC.setText(p.getNombreCompleto());
+      txtCorreoRC.setText(p.getEmail());
+      txtFechaRC.setText(p.getFechaNacimiento());
+      txtNumeroRC.setText(p.getTelefono());
+      }else{
+          System.out.println("Es null");
+      }
     }//GEN-LAST:event_lblVerificarMouseClicked
 
     private void lblVerificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseEntered
@@ -663,6 +677,7 @@ public class FrmCitas extends javax.swing.JFrame {
         btnVerificar.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_lblVerificarMouseExited
 
+   
     /**
      * @param args the command line arguments
      */
@@ -735,4 +750,19 @@ public class FrmCitas extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreRC;
     private javax.swing.JFormattedTextField txtNumeroRC;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setControlador(Controlador controlador) {
+this.controlador=controlador;
+    }
+
+    @Override
+    public void mostarDato() {
+
+    }
+
+    @Override
+    public void mostarMensaje(String msg, int messageType) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

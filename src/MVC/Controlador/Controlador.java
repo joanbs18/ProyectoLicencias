@@ -6,6 +6,7 @@ package MVC.Controlador;
 
 
 
+import MVC.Modelos.Persona;
 import MVC.Vistas.Vista;
 import java.util.ArrayList;
 
@@ -24,4 +25,5 @@ public interface Controlador<Modelo> {//parametro para la interfaz para que trab
     public void leer(String filter);
     public void actualizar(Modelo modelo);
     public void borrar(Modelo modelo);
+   
 }

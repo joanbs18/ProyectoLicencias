@@ -7,6 +7,7 @@ package MVC.Controlador;
 
 import Data.Conexiones.Conexion;
 import Data.Daos.DaoSecretaria;
+import MVC.Modelos.Persona;
 import MVC.Modelos.Secretaria;
 import MVC.Vistas.Vista;
 import java.util.ArrayList;
@@ -103,5 +104,7 @@ public class ControladorSecretaria implements Controlador<Secretaria>{
     private boolean validar(Secretaria secretaria) {
         return  secretaria.isComplete();
     }
+
+    
     
 }

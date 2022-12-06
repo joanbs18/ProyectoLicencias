@@ -7,6 +7,7 @@ package MVC.Controlador;
 import Data.Conexiones.Conexion;
 import Data.Daos.DaoCita;
 import MVC.Modelos.Cita;
+import MVC.Modelos.Persona;
 import MVC.Vistas.Vista;
 import java.util.ArrayList;
 
@@ -102,4 +103,8 @@ public class ControladorCita implements Controlador<Cita>{
     private boolean validar(Cita cita) {
         return cita.isComplete();
     }
+    
+    
+
+    
 }

@@ -7,6 +7,7 @@ package Data.Daos;
 import Data.Conexiones.Conector;
 import Data.Crud.Crud;
 import MVC.Modelos.Cita;
+import MVC.Modelos.Persona;
 import MVC.Modelos.Prueba;
 import java.util.ArrayList;
 
@@ -154,5 +155,26 @@ public class DaoCita extends Dao<Cita> implements Crud<Cita>{
     @Override
     public String getError() {
         return this.error;
+    }
+    
+    public Persona verificadorDePersona(String cedula){
+    this.error = "";
+        try {
+            Object[][] datos;
+            this.conector.conectar();
+            this.conector.prepareQuery("Select cedula,NombreCompleto,FechaNacimiento,Email,Telefono from persona where cedula = ?");
+            this.conector.addParameter(1, cedula);
+            datos=this.conector.executeQuery();
+            
+             return null == datos ? null : new Persona(null, 
+                    Integer.valueOf(String.valueOf(datos[0][0])), String.valueOf(datos[0][1]), 
+                    String.valueOf(datos[0][2]),String.valueOf(String.valueOf(datos[0][3])),String.valueOf(String.valueOf(datos[0][4])));
+
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
     }
 }

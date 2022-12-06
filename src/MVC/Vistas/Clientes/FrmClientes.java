@@ -8,8 +8,11 @@ import MVC.Vistas.Oficiales.*;
 import Frames.*;
 import Data.Conexiones.Conexion;
 import MVC.Controlador.Controlador;
+import MVC.Controlador.ControladorCita;
 import MVC.Controlador.ControladorCliente;
+import MVC.Modelos.Cita;
 import MVC.Modelos.Cliente;
+import MVC.Vistas.Citas.FrmCitas;
 import MVC.Vistas.Vista;
 import java.awt.Color;
 import java.util.logging.Level;
@@ -21,7 +24,9 @@ import javax.swing.JOptionPane;
  * @author josep
  */
 public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
+
     private Controlador<Cliente> controlador;
+    private Controlador<Cita> controlador2;
 
     Conexion x;
 
@@ -30,7 +35,8 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
      */
     public FrmClientes() {
         initComponents();
-        this.setControlador(new ControladorCliente (this));
+        this.setControlador(new ControladorCliente(this));
+        this.controlador2=new ControladorCita(this);
         this.setLocationRelativeTo(null);
         try {
             x = new Conexion();
@@ -40,7 +46,7 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
         }
         this.administrarBtn.setVisible(false);
     }
-    
+
     public void errorNoConectado() {
         JOptionPane.showMessageDialog(null, "Para ingresar en este módulo debe tener conexión.\nVerifique que esté conectado a la base de datos.");
     }
@@ -264,7 +270,7 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
         crearBtn.setLayout(crearBtnLayout);
         crearBtnLayout.setHorizontalGroup(
             crearBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(crearBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addComponent(crearBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
         crearBtnLayout.setVerticalGroup(
             crearBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,6 +314,11 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
         bg.add(administrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 170, 40));
 
         crearBtn1.setBackground(new java.awt.Color(0, 134, 190));
+        crearBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearBtn1MouseClicked(evt);
+            }
+        });
 
         crearBtnTxt1.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         crearBtnTxt1.setForeground(new java.awt.Color(255, 255, 255));
@@ -397,11 +408,11 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
     }//GEN-LAST:event_minimizeTxtMouseExited
 
     private void opcionesBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMouseEntered
-        opcionesBtn.setBackground(new Color(255,102,51));
+        opcionesBtn.setBackground(new Color(255, 102, 51));
     }//GEN-LAST:event_opcionesBtnMouseEntered
 
     private void opcionesBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMouseExited
-        opcionesBtn.setBackground(new Color(0,0,0));
+        opcionesBtn.setBackground(new Color(0, 0, 0));
     }//GEN-LAST:event_opcionesBtnMouseExited
 
     private void opcionesBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMousePressed
@@ -413,13 +424,12 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
         frm.setControlador(controlador);
         controlador.setVista(frm);
         frm.setVisible(true);
-        //this.controlador.setVista(this);
-        this.controlador.leer(this.controlador.getModelo());
-         
+        // this.controlador.setVista(this);
+
     }//GEN-LAST:event_administrarBtnMouseClicked
 
     private void administrarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseEntered
-        administrarBtn.setBackground(new Color(255,102,51));
+        administrarBtn.setBackground(new Color(255, 102, 51));
     }//GEN-LAST:event_administrarBtnMouseEntered
 
     private void administrarBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseExited
@@ -427,7 +437,12 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
     }//GEN-LAST:event_administrarBtnMouseExited
 
     private void crearBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseClicked
-        // TODO add your handling code here:
+   FrmCitas frm = new FrmCitas();
+        frm.setControlador(controlador2);
+        controlador2.setVista(frm);
+        frm.setVisible(true);
+        // this.controlador.setVista(this);
+    
     }//GEN-LAST:event_crearBtnTxt1MouseClicked
 
     private void crearBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseEntered
@@ -441,6 +456,10 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
     private void bgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseClicked
         administrarBtn.setVisible(false);
     }//GEN-LAST:event_bgMouseClicked
+
+    private void crearBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtn1MouseClicked
+     
+    }//GEN-LAST:event_crearBtn1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -456,21 +475,21 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(FrmClientes.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(FrmClientes.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(FrmClientes.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmClientes.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -524,16 +543,16 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
 
     @Override
     public void setControlador(Controlador controlador) {
-        try{
-        this.controlador=controlador;
-        }catch(Exception ex){
+        try {
+            this.controlador = controlador;
+        } catch (Exception ex) {
             System.out.println("eeee");
         }
     }
 
     @Override
     public void mostarDato() {
-        
+        System.out.println("ddd");
     }
 
     @Override

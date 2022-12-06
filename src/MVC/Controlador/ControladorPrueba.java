@@ -104,5 +104,7 @@ public class ControladorPrueba implements Controlador<Prueba>{
     private boolean validar(Prueba prueba) {
         return prueba.isComplete();
     }
+
+    
     
 }

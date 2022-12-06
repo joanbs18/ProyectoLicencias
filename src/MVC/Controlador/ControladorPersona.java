@@ -102,6 +102,8 @@ public class ControladorPersona implements Controlador<Persona>{
     private boolean validar(Persona persona) {
         return persona.isComplete();
     }
+
+   
     
     
 }
