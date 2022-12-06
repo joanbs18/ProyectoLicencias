@@ -8,7 +8,6 @@ package MVC.Vistas.Secretaria;
 import Data.Conexiones.Conexion;
 import Frames.FrmRegistroCompleto;
 import MVC.Controlador.Controlador;
-import MVC.Modelos.Persona;
 
 import MVC.Modelos.Secretaria;
 import MVC.Vistas.Vista;
@@ -26,7 +25,6 @@ import javax.swing.table.DefaultTableModel;
 public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretaria> {
 
     private Controlador<Secretaria> controlador;
-    Conexion x;
     int yMouse, xMouse;
 
     /**
@@ -35,10 +33,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     public FrmAdministrar() {
         initComponents();
         this.setLocationRelativeTo(null);
-        try {
-            x.conectar();
-        } catch (Exception e) {
-        }
         this.crear1.setVisible(true);
         this.crear2.setVisible(false);
         this.mostrar.setVisible(false);
@@ -1138,16 +1132,17 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
     }//GEN-LAST:event_lblEliminarMouseExited
 
     private void continuarBtnCrearTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseClicked
-//        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
-//            || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
-//            || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-//        } else {
-        mostrar.setVisible(false);
-        crear1.setVisible(false);
-        crear2.setVisible(true);
+        if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
+            || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
+            || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+//        mostrar.setVisible(false);
+//        crear1.setVisible(false);
+//        crear2.setVisible(true);
         //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
-//        }
+        
+        }
     }//GEN-LAST:event_continuarBtnCrearTxtMouseClicked
 
     private void continuarBtnCrearTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseEntered
