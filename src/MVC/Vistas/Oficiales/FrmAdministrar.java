@@ -7,11 +7,14 @@ package MVC.Vistas.Oficiales;
 import Data.Conexiones.Conexion;
 import Frames.FrmRegistroCompleto;
 import MVC.Controlador.Controlador;
+
 import MVC.Modelos.Oficial;
 import MVC.Vistas.Vista;
 import java.awt.Color;
-import java.lang.ModuleLayer.Controller;
+import java.util.Iterator;
+
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +35,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         try {
             x.conectar();
         } catch (Exception e) {
+            e.toString();
         }
         this.crear1.setVisible(true);
         this.crear2.setVisible(false);
@@ -466,17 +470,17 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
 
         tablaOficial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Carnet", "IdPersona", "Nombre de usuario", "Salario"
+                "Carnet", "IdUsuario", "Nombre de usuario", "Contraseña", "Salario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -485,10 +489,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         });
         jScrollPane3.setViewportView(tablaOficial);
         if (tablaOficial.getColumnModel().getColumnCount() > 0) {
-            tablaOficial.getColumnModel().getColumn(0).setResizable(false);
-            tablaOficial.getColumnModel().getColumn(1).setResizable(false);
-            tablaOficial.getColumnModel().getColumn(2).setResizable(false);
-            tablaOficial.getColumnModel().getColumn(3).setResizable(false);
+            tablaOficial.getColumnModel().getColumn(4).setResizable(false);
         }
 
         actualizarMBtn.setBackground(new java.awt.Color(0, 134, 190));
@@ -1525,15 +1526,15 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     }//GEN-LAST:event_lblEliminar1MouseExited
 
     private void mostrarBtn2TxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtn2TxtMouseClicked
-
+        this.controlador.leer();
     }//GEN-LAST:event_mostrarBtn2TxtMouseClicked
 
     private void mostrarBtn2TxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtn2TxtMouseEntered
-        // TODO add your handling code here:
+        mostrarBtn2.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_mostrarBtn2TxtMouseEntered
 
     private void mostrarBtn2TxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarBtn2TxtMouseExited
-        // TODO add your handling code here:
+        mostrarBtn2.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_mostrarBtn2TxtMouseExited
 
     /**
@@ -1669,16 +1670,25 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
 
     @Override
     public void setControlador(Controlador controlador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.controlador = controlador;
     }
 
     @Override
     public void mostarDato() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        DefaultTableModel table = (DefaultTableModel) tablaOficial.getModel();
+        table.setRowCount(0);
+        if (controlador.getLista() != null) {
+            Iterator<Oficial> iterator = controlador.getLista().iterator();
+            while (iterator.hasNext()) {
+                Oficial oficial = iterator.next();
+                table.addRow(new Object[]{oficial.getCarnet(), oficial.getIdPersona(), oficial.getNombreUsuario(), oficial.getContrasenia(), oficial.getSalario()});
+            }
+        }
+        tablaOficial.setModel(table);
     }
 
     @Override
     public void mostarMensaje(String msg, int messageType) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        JOptionPane.showMessageDialog(null, msg, "Oficial", messageType);
     }
 }

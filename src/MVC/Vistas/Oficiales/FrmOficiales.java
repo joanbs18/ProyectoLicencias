@@ -4,19 +4,21 @@
  */
 package MVC.Vistas.Oficiales;
 
-import Frames.*;
 import Data.Conexiones.Conexion;
+import MVC.Controlador.Controlador;
+import MVC.Controlador.ControladorOficial;
+import MVC.Modelos.Oficial;
+import MVC.Vistas.Vista;
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author josep
  */
-public class FrmOficiales extends javax.swing.JFrame {
-    
+public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial> {
+
+    private Controlador<Oficial> controlador;
     Conexion x;
 
     /**
@@ -25,17 +27,8 @@ public class FrmOficiales extends javax.swing.JFrame {
     public FrmOficiales() {
         initComponents();
         this.setLocationRelativeTo(null);
-        try {
-            x = new Conexion();
-            x.conectar();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+        this.setControlador(new ControladorOficial(this));
         this.administrarBtn.setVisible(false);
-    }
-    
-    public void errorNoConectado() {
-        JOptionPane.showMessageDialog(null, "Para ingresar en este módulo debe tener conexión.\nVerifique que esté conectado a la base de datos.");
     }
 
     /**
@@ -390,11 +383,11 @@ public class FrmOficiales extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeTxtMouseExited
 
     private void opcionesBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMouseEntered
-        opcionesBtn.setBackground(new Color(255,102,51));
+        opcionesBtn.setBackground(new Color(255, 102, 51));
     }//GEN-LAST:event_opcionesBtnMouseEntered
 
     private void opcionesBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMouseExited
-        opcionesBtn.setBackground(new Color(0,0,0));
+        opcionesBtn.setBackground(new Color(0, 0, 0));
     }//GEN-LAST:event_opcionesBtnMouseExited
 
     private void opcionesBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBtnMousePressed
@@ -403,11 +396,14 @@ public class FrmOficiales extends javax.swing.JFrame {
 
     private void administrarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseClicked
         FrmAdministrar frm = new FrmAdministrar();
+        frm.setControlador(controlador);
+        controlador.setVista(frm);
         frm.setVisible(true);
+        this.controlador.leer(controlador.getModelo());
     }//GEN-LAST:event_administrarBtnMouseClicked
 
     private void administrarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseEntered
-        administrarBtn.setBackground(new Color(255,102,51));
+        administrarBtn.setBackground(new Color(255, 102, 51));
     }//GEN-LAST:event_administrarBtnMouseEntered
 
     private void administrarBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseExited
@@ -444,21 +440,21 @@ public class FrmOficiales extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmOficiales.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -497,4 +493,19 @@ public class FrmOficiales extends javax.swing.JFrame {
     private javax.swing.JLabel opcionesBtnTxt;
     private javax.swing.JLabel tituloSisLicencias;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setControlador(Controlador controlador) {
+        this.controlador = controlador;
+    }
+
+    @Override
+    public void mostarDato() {
+
+    }
+
+    @Override
+    public void mostarMensaje(String msg, int messageType) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

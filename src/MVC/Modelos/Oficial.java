@@ -40,7 +40,7 @@ public class Oficial extends Persona implements Modelo{
       
     }
     public Oficial(){
-        this(null,null,null,null,null);
+        this(null,null,null,null,0.0);
         
     }
 

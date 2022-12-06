@@ -1157,7 +1157,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Secretar
         crear2.setVisible(false);
         actualizar.setVisible(false);
         eliminar.setVisible(false);
-           this.controlador.leer();
+        this.controlador.leer();
     }//GEN-LAST:event_lblMostrarMouseClicked
 
     private void lblMostrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMostrarMouseEntered
