@@ -2,6 +2,8 @@ package MVC.Vistas.Oficiales;
 
 import MVC.Vistas.Usuarios.*;
 import Data.Conexiones.Conexion;
+import MVC.Controlador.Controlador;
+import MVC.Modelos.Oficial;
 import MVC.Vistas.*;
 import MVC.Vistas.Oficiales.*;
 import java.awt.Color;
@@ -11,13 +13,14 @@ import javax.swing.JOptionPane;
  *
  * @author joans
  */
-public class FrmLoginOficiales extends javax.swing.JFrame {
-
+public class FrmLoginOficiales extends javax.swing.JFrame implements Vista<Oficial>{
+private Controlador<Oficial> controlador;
     Conexion x;
     int xMouse, yMouse;
 
     public FrmLoginOficiales() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
         try {
             x = new Conexion();
@@ -523,4 +526,18 @@ public class FrmLoginOficiales extends javax.swing.JFrame {
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setControlador(Controlador controlador) {
+ 
+    }
+
+    @Override
+    public void mostarDato() {
+    }
+
+    @Override
+    public void mostarMensaje(String msg, int messageType) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -10,6 +10,7 @@ import MVC.Controlador.ControladorFechaDisponibles;
 import MVC.Controlador.ControladorPersona;
 import MVC.Modelos.Cita;
 import MVC.Modelos.FechasDisponibles;
+import MVC.Modelos.Modelo;
 import MVC.Modelos.Persona;
 import MVC.Vistas.Vista;
 import java.awt.Color;
@@ -21,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author josep
  */
-public class FrmCitas extends javax.swing.JFrame implements Vista<Cita> {
+public class FrmCitas extends javax.swing.JFrame implements Vista<Modelo> {
  private Controlador<Cita> controlador;
  
     int xMouse, yMouse;
@@ -460,7 +461,7 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita> {
     }//GEN-LAST:event_txtIdRCActionPerformed
 
     private void txtIdRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdRCMousePressed
-        if ("Número de cédula".equals(txtIdRC.getText())) {
+        if ("Número de id".equals(txtIdRC.getText())) {
             txtIdRC.setText("");
             txtIdRC.setForeground(Color.black);
         }
@@ -497,7 +498,7 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita> {
     }//GEN-LAST:event_registrarCitaBtnTxtMouseEntered
 
     private void registrarCitaBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarCitaBtnTxtMouseClicked
-        if (this.txtIdRC.getText().equals("Numero de ID del cliente") || this.txtIdRC.getText().isEmpty()) {
+        if (this.txtIdRC.getText().equals("Número de ID") || this.txtIdRC.getText().isEmpty()||txtFechaRC.getText().isEmpty()||txtHoraRC.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
 

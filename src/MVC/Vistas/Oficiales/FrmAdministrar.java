@@ -1683,7 +1683,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
             Iterator<Oficial> iterator = controlador.getLista().iterator();
             while (iterator.hasNext()) {
                 Oficial oficial = iterator.next();
-                table.addRow(new Object[]{oficial.getCarnet(), oficial.getIdPersona(), oficial.getNombreUsuario(), oficial.getContrasenia(), oficial.getSalario()});
+                table.addRow(new Object[]{oficial.getCarnet(), oficial.getNombreCompleto(), oficial.getNombreUsuario(),oficial.getEmail(), oficial.getContrasenia(), oficial.getSalario()});
             }
         }
         tablaOficial.setModel(table);
