@@ -15,8 +15,6 @@ import MVC.Modelos.Cliente;
 import MVC.Vistas.Citas.FrmCitas;
 import MVC.Vistas.Vista;
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
