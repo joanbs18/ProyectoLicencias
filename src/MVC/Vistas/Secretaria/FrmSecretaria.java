@@ -54,6 +54,10 @@ public class FrmSecretaria extends javax.swing.JFrame implements Vista<Secretari
         opcionesBtnTxt2 = new javax.swing.JLabel();
         administrarBtn = new javax.swing.JPanel();
         administrarBtnTxt = new javax.swing.JLabel();
+        crearBtn = new javax.swing.JPanel();
+        crearBtnTxt = new javax.swing.JLabel();
+        crearBtn1 = new javax.swing.JPanel();
+        crearBtnTxt1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -253,6 +257,74 @@ public class FrmSecretaria extends javax.swing.JFrame implements Vista<Secretari
 
         bg.add(administrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 170, 40));
 
+        crearBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        crearBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        crearBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        crearBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        crearBtnTxt.setText("PRUEBAS");
+        crearBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        crearBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                crearBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                crearBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout crearBtnLayout = new javax.swing.GroupLayout(crearBtn);
+        crearBtn.setLayout(crearBtnLayout);
+        crearBtnLayout.setHorizontalGroup(
+            crearBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(crearBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+        );
+        crearBtnLayout.setVerticalGroup(
+            crearBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(crearBtnLayout.createSequentialGroup()
+                .addComponent(crearBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
+        );
+
+        bg.add(crearBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
+        crearBtn1.setBackground(new java.awt.Color(0, 134, 190));
+
+        crearBtnTxt1.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        crearBtnTxt1.setForeground(new java.awt.Color(255, 255, 255));
+        crearBtnTxt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        crearBtnTxt1.setText("CITAS");
+        crearBtnTxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        crearBtnTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearBtnTxt1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                crearBtnTxt1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                crearBtnTxt1MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout crearBtn1Layout = new javax.swing.GroupLayout(crearBtn1);
+        crearBtn1.setLayout(crearBtn1Layout);
+        crearBtn1Layout.setHorizontalGroup(
+            crearBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(crearBtnTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+        );
+        crearBtn1Layout.setVerticalGroup(
+            crearBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(crearBtn1Layout.createSequentialGroup()
+                .addComponent(crearBtnTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
+        );
+
+        bg.add(crearBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -327,6 +399,31 @@ public class FrmSecretaria extends javax.swing.JFrame implements Vista<Secretari
         administrarBtn.setBackground(new Color(0, 0, 0));
     }//GEN-LAST:event_administrarBtnMouseExited
 
+    private void crearBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxtMouseClicked
+        FrmRegistroSecretaria frm = new FrmRegistroSecretaria();
+        frm.setVisible(true);
+    }//GEN-LAST:event_crearBtnTxtMouseClicked
+
+    private void crearBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxtMouseEntered
+        crearBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_crearBtnTxtMouseEntered
+
+    private void crearBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxtMouseExited
+        crearBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_crearBtnTxtMouseExited
+
+    private void crearBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearBtnTxt1MouseClicked
+
+    private void crearBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearBtnTxt1MouseEntered
+
+    private void crearBtnTxt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearBtnTxt1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -381,6 +478,10 @@ public class FrmSecretaria extends javax.swing.JFrame implements Vista<Secretari
     private javax.swing.JPanel administrarBtn;
     private javax.swing.JLabel administrarBtnTxt;
     private javax.swing.JPanel bg;
+    private javax.swing.JPanel crearBtn;
+    private javax.swing.JPanel crearBtn1;
+    private javax.swing.JLabel crearBtnTxt;
+    private javax.swing.JLabel crearBtnTxt1;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
@@ -390,9 +491,7 @@ public class FrmSecretaria extends javax.swing.JFrame implements Vista<Secretari
     private javax.swing.JLabel logoname;
     private javax.swing.JPanel minimizeBtn;
     private javax.swing.JLabel minimizeTxt;
-    private javax.swing.JPanel opcionesBtn;
     private javax.swing.JPanel opcionesBtn2;
-    private javax.swing.JLabel opcionesBtnTxt;
     private javax.swing.JLabel opcionesBtnTxt2;
     private javax.swing.JLabel tituloSisLicencias;
     // End of variables declaration//GEN-END:variables

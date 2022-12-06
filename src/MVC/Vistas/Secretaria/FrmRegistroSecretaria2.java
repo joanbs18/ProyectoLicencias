@@ -58,7 +58,7 @@ public class FrmRegistroSecretaria2 extends javax.swing.JFrame {
         bg.add(logoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 60, 60));
 
         title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title.setText("REGISTRO OFICIALES");
+        title.setText("REGISTRO SECRETARIA");
         bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         header.setBackground(new java.awt.Color(0, 0, 0));
