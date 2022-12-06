@@ -47,10 +47,11 @@ public class DaoPersona extends Dao<Persona> implements Crud<Persona> {
         try {
             Object[][] datos;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("call verPersona(?)");
-            this.conector.addParameter(1, modelo.getId());
+            this.conector.prepareQuery("Select cedula,NombreCompleto,FechaNacimiento,Email,Telefono from persona where id = ?");
+            this.conector.addParameter(1, 1);
             datos = this.conector.executeQuery();
-            return null == datos ? null : new Persona(Integer.valueOf(String.valueOf(datos[0][0])), Integer.valueOf(String.valueOf(datos[0][1])), String.valueOf(datos[0][2]), String.valueOf(datos[0][3]), String.valueOf(datos[0][4]), String.valueOf(datos[0][5]));
+            System.out.println(datos[0][0]);
+            return null == datos ? null : new Persona(null,Integer.valueOf(String.valueOf(datos[0][0])), String.valueOf(datos[0][1]), String.valueOf(datos[0][2]), String.valueOf(datos[0][3]), String.valueOf(datos[0][4]));
         } catch (Exception ex) {
             this.error = ex.toString();
         } finally {

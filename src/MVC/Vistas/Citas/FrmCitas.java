@@ -4,27 +4,33 @@
  */
 package MVC.Vistas.Citas;
 
-import Data.Conexiones.Conector;
-import Data.Conexiones.Conexion;
+
 import MVC.Controlador.Controlador;
+import MVC.Controlador.ControladorFechaDisponibles;
+import MVC.Controlador.ControladorPersona;
 import MVC.Modelos.Cita;
+import MVC.Modelos.FechasDisponibles;
 import MVC.Modelos.Persona;
 import MVC.Vistas.Vista;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author josep
  */
-public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
+public class FrmCitas extends javax.swing.JFrame implements Vista<Cita> {
  private Controlador<Cita> controlador;
+ 
     int xMouse, yMouse;
     /**
      * Creates new form FrmCitas
      */
     public FrmCitas() {
         initComponents();
+
         this.setLocationRelativeTo(null);
     }
 
@@ -48,20 +54,8 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
         registrarBtn = new javax.swing.JPanel();
         registrarCitaBtnTxt = new javax.swing.JLabel();
         lblCedula2 = new javax.swing.JLabel();
-        txtCedulaRC = new javax.swing.JFormattedTextField();
+        txtIdRC = new javax.swing.JFormattedTextField();
         cedulaSeparador2 = new javax.swing.JSeparator();
-        lblNombre = new javax.swing.JLabel();
-        txtNombreRC = new javax.swing.JTextField();
-        nombreSeparador = new javax.swing.JSeparator();
-        lblCorreo = new javax.swing.JLabel();
-        txtCorreoRC = new javax.swing.JTextField();
-        correoSeparador = new javax.swing.JSeparator();
-        lblFecha = new javax.swing.JLabel();
-        txtFechaNacimientoRC = new javax.swing.JFormattedTextField();
-        fechaSeparador = new javax.swing.JSeparator();
-        lblNumero = new javax.swing.JLabel();
-        txtNumeroRC = new javax.swing.JFormattedTextField();
-        numeroSeparado = new javax.swing.JSeparator();
         logoP1 = new javax.swing.JLabel();
         lblCedula3 = new javax.swing.JLabel();
         txtFechaRC = new javax.swing.JFormattedTextField();
@@ -72,6 +66,9 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
         title = new javax.swing.JLabel();
         btnVerificar = new javax.swing.JPanel();
         lblVerificar = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaCita = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -218,114 +215,28 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
         bg2.add(registrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, 310, 40));
 
         lblCedula2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        lblCedula2.setText("NÚMERO DE CÉDULA");
+        lblCedula2.setText("NÚMERO DE ID");
         bg2.add(lblCedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 150, -1));
 
-        txtCedulaRC.setBorder(null);
-        txtCedulaRC.setForeground(new java.awt.Color(204, 204, 204));
-        txtCedulaRC.setText("Número de cédula");
-        txtCedulaRC.setToolTipText("");
-        txtCedulaRC.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtCedulaRC.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtIdRC.setBorder(null);
+        txtIdRC.setForeground(new java.awt.Color(204, 204, 204));
+        txtIdRC.setText("Número de ID");
+        txtIdRC.setToolTipText("");
+        txtIdRC.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtIdRC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtCedulaRCMousePressed(evt);
+                txtIdRCMousePressed(evt);
             }
         });
-        txtCedulaRC.addActionListener(new java.awt.event.ActionListener() {
+        txtIdRC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaRCActionPerformed(evt);
+                txtIdRCActionPerformed(evt);
             }
         });
-        bg2.add(txtCedulaRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 310, 20));
+        bg2.add(txtIdRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 310, 20));
 
         cedulaSeparador2.setForeground(new java.awt.Color(0, 0, 0));
         bg2.add(cedulaSeparador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 310, 20));
-
-        lblNombre.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        lblNombre.setText("NOMBRE COMPLETO");
-        bg2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
-
-        txtNombreRC.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtNombreRC.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombreRC.setText("Nombre completo");
-        txtNombreRC.setBorder(null);
-        txtNombreRC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtNombreRCMousePressed(evt);
-            }
-        });
-        bg2.add(txtNombreRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 310, 20));
-
-        nombreSeparador.setForeground(new java.awt.Color(0, 0, 0));
-        bg2.add(nombreSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 310, 30));
-
-        lblCorreo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        lblCorreo.setText("CORREO ELECTRÓNICO");
-        bg2.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, 20));
-
-        txtCorreoRC.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtCorreoRC.setForeground(new java.awt.Color(204, 204, 204));
-        txtCorreoRC.setText("ejemplo@ejemplo.com");
-        txtCorreoRC.setBorder(null);
-        txtCorreoRC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtCorreoRCMousePressed(evt);
-            }
-        });
-        txtCorreoRC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoRCActionPerformed(evt);
-            }
-        });
-        bg2.add(txtCorreoRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 310, 20));
-
-        correoSeparador.setForeground(new java.awt.Color(0, 0, 0));
-        bg2.add(correoSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 310, 30));
-
-        lblFecha.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        lblFecha.setText("FECHA DE NACIMIENTO");
-        bg2.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
-
-        txtFechaNacimientoRC.setBorder(null);
-        txtFechaNacimientoRC.setForeground(new java.awt.Color(204, 204, 204));
-        txtFechaNacimientoRC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
-        txtFechaNacimientoRC.setText("yyyy-MM-dd");
-        txtFechaNacimientoRC.setToolTipText("");
-        txtFechaNacimientoRC.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtFechaNacimientoRC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtFechaNacimientoRCMousePressed(evt);
-            }
-        });
-        bg2.add(txtFechaNacimientoRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 310, 20));
-
-        fechaSeparador.setForeground(new java.awt.Color(0, 0, 0));
-        bg2.add(fechaSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 310, 20));
-
-        lblNumero.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        lblNumero.setText("NÚMERO TELEFÓNICO");
-        bg2.add(lblNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
-
-        txtNumeroRC.setBorder(null);
-        txtNumeroRC.setForeground(new java.awt.Color(204, 204, 204));
-        txtNumeroRC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtNumeroRC.setText("####-####");
-        txtNumeroRC.setToolTipText("");
-        txtNumeroRC.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtNumeroRC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtNumeroRCMousePressed(evt);
-            }
-        });
-        txtNumeroRC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroRCActionPerformed(evt);
-            }
-        });
-        bg2.add(txtNumeroRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 310, 20));
-
-        numeroSeparado.setForeground(new java.awt.Color(0, 0, 0));
-        bg2.add(numeroSeparado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 310, 20));
 
         logoP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
         bg2.add(logoP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 60, 44));
@@ -413,6 +324,30 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
 
         bg2.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 20));
 
+        tablaCita.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre Cliente", "Fecha", "Hora", "Estado"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaCita);
+
+        bg2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 370, 180));
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        bg2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, -1, -1));
+
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
@@ -491,115 +426,45 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
         yMouse = evt.getY();
     }//GEN-LAST:event_headerMousePressed
 
-    private void txtNumeroRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroRCActionPerformed
+    private void lblVerificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseExited
+        btnVerificar.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_lblVerificarMouseExited
+
+    private void lblVerificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseEntered
+        registrarBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_lblVerificarMouseEntered
+
+    private void lblVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseClicked
+       
+        
+    }//GEN-LAST:event_lblVerificarMouseClicked
+
+    private void txtHoraRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraRCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroRCActionPerformed
+    }//GEN-LAST:event_txtHoraRCActionPerformed
 
-    private void txtNumeroRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNumeroRCMousePressed
-        if ("####-####".equals(txtNumeroRC.getText())) {
-            txtNumeroRC.setText("");
-            txtNumeroRC.setForeground(Color.black);
-        }
-        if (txtCedulaRC.getText().isEmpty()) {
-            txtCedulaRC.setText("Número de cédula");
-            txtCedulaRC.setForeground(Color.gray);
-        }
-        if (txtCorreoRC.getText().isEmpty()) {
-            txtCorreoRC.setText("ejemplo@ejemplo.com");
-            txtCorreoRC.setForeground(Color.gray);
-        }
-        if (txtNombreRC.getText().isEmpty()) {
-            txtNombreRC.setText("Nombre completo");
-            txtNombreRC.setForeground(Color.gray);
-        }
-        if (txtFechaNacimientoRC.getText().isEmpty()) {
-            txtFechaNacimientoRC.setText("yyyy-MM-dd");
-            txtFechaNacimientoRC.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_txtNumeroRCMousePressed
-
-    private void txtFechaNacimientoRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaNacimientoRCMousePressed
-        if ("yyyy-MM-dd".equals(txtFechaNacimientoRC.getText())) {
-            txtFechaNacimientoRC.setText("");
-            txtFechaNacimientoRC.setForeground(Color.black);
-        }
-        if (txtNumeroRC.getText().isEmpty()) {
-            txtNumeroRC.setText("####-####");
-            txtNumeroRC.setForeground(Color.gray);
-        }
-        if (txtNombreRC.getText().isEmpty()) {
-            txtNombreRC.setText("Nombre completo");
-            txtNombreRC.setForeground(Color.gray);
-        }
-        if (txtCorreoRC.getText().isEmpty()) {
-            txtCorreoRC.setText("ejemplo@ejemplo.com");
-            txtCorreoRC.setForeground(Color.gray);
-        }
-        if (txtCedulaRC.getText().isEmpty()) {
-            txtCedulaRC.setText("Número de cédula");
-            txtCedulaRC.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_txtFechaNacimientoRCMousePressed
-
-    private void txtCorreoRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoRCActionPerformed
+    private void txtHoraRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHoraRCMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoRCActionPerformed
+    }//GEN-LAST:event_txtHoraRCMousePressed
 
-    private void txtCorreoRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoRCMousePressed
-        if ("ejemplo@ejemplo.com".equals(txtCorreoRC.getText())) {
-            txtCorreoRC.setText("");
-            txtCorreoRC.setForeground(Color.black);
-        }
-        if (txtCedulaRC.getText().isEmpty()) {
-            txtCedulaRC.setText("Número de cédula");
-            txtCedulaRC.setForeground(Color.gray);
-        }
-        if (txtNombreRC.getText().isEmpty()) {
-            txtNombreRC.setText("Nombre completo");
-            txtNombreRC.setForeground(Color.gray);
-        }
-        if (txtFechaNacimientoRC.getText().isEmpty()) {
-            txtFechaNacimientoRC.setText("yyyy-MM-dd");
-            txtFechaNacimientoRC.setForeground(Color.gray);
-        }
-        if (txtNumeroRC.getText().isEmpty()) {
-            txtNumeroRC.setText("####-####");
-            txtNumeroRC.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_txtCorreoRCMousePressed
-
-    private void txtNombreRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreRCMousePressed
-        if ("Nombre completo".equals(txtNombreRC.getText())) {
-            txtNombreRC.setText("");
-            txtNombreRC.setForeground(Color.black);
-        }
-        if (txtCedulaRC.getText().isEmpty()) {
-            txtCedulaRC.setText("Número de cédula");
-            txtCedulaRC.setForeground(Color.gray);
-        }
-        if (txtFechaNacimientoRC.getText().isEmpty()) {
-            txtFechaNacimientoRC.setText("yyyy-MM-dd");
-            txtFechaNacimientoRC.setForeground(Color.gray);
-        }
-        if (txtNumeroRC.getText().isEmpty()) {
-            txtNumeroRC.setText("####-####");
-            txtNumeroRC.setForeground(Color.gray);
-        }
-        if (txtCorreoRC.getText().isEmpty()) {
-            txtCorreoRC.setText("ejemplo@ejemplo.com");
-            txtCorreoRC.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_txtNombreRCMousePressed
-
-    private void txtCedulaRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaRCActionPerformed
+    private void txtFechaRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaRCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaRCActionPerformed
+    }//GEN-LAST:event_txtFechaRCActionPerformed
 
-    private void txtCedulaRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaRCMousePressed
-        if ("Número de cédula".equals(txtCedulaRC.getText())) {
-            txtCedulaRC.setText("");
-            txtCedulaRC.setForeground(Color.black);
+    private void txtFechaRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaRCMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaRCMousePressed
+
+    private void txtIdRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdRCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdRCActionPerformed
+
+    private void txtIdRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdRCMousePressed
+        if ("Número de cédula".equals(txtIdRC.getText())) {
+            txtIdRC.setText("");
+            txtIdRC.setForeground(Color.black);
         }
+        /*
         if (txtNombreRC.getText().isEmpty()) {
             txtNombreRC.setText("Nombre completo");
             txtNombreRC.setForeground(Color.gray);
@@ -620,7 +485,8 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
             txtFechaNacimientoRC.setText("YYYY-MM-DD");
             txtFechaNacimientoRC.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_txtCedulaRCMousePressed
+        */
+    }//GEN-LAST:event_txtIdRCMousePressed
 
     private void registrarCitaBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarCitaBtnTxtMouseExited
         registrarBtn.setBackground(new Color(0, 134, 190));
@@ -631,51 +497,17 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
     }//GEN-LAST:event_registrarCitaBtnTxtMouseEntered
 
     private void registrarCitaBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarCitaBtnTxtMouseClicked
-        if (this.txtCedulaRC.getText().equals("Número de cédula") || this.txtCedulaRC.getText().isEmpty() || this.txtCorreoRC.getText().equals("ejemplo@ejemplo.com")
-            || this.txtCorreoRC.getText().isEmpty() || this.txtFechaNacimientoRC.getText().equals("YYYY-MM-DD") || this.txtFechaNacimientoRC.getText().isEmpty()
-            || this.txtNombreRC.getText().equals("Nombre completo") || this.txtNombreRC.getText().isEmpty() || this.txtNumeroRC.getText().equals("####-####") || this.txtNumeroRC.getText().isEmpty()) {
+        if (this.txtIdRC.getText().equals("Numero de ID del cliente") || this.txtIdRC.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
 
-            //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
+            this.controlador.crear(new Cita(null,Integer.parseInt(String.valueOf(txtIdRC.getText())),txtFechaRC.getText(),txtHoraRC.getText(),true));
         }
     }//GEN-LAST:event_registrarCitaBtnTxtMouseClicked
 
-    private void txtFechaRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaRCMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaRCMousePressed
-
-    private void txtFechaRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaRCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaRCActionPerformed
-
-    private void txtHoraRCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHoraRCMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraRCMousePressed
-
-    private void txtHoraRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraRCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraRCActionPerformed
-
-    private void lblVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseClicked
-      Persona p= this.controlador.buscarPersona(txtCedulaRC.getText());
-      if(p!=null){
-      txtNombreRC.setText(p.getNombreCompleto());
-      txtCorreoRC.setText(p.getEmail());
-      txtFechaRC.setText(p.getFechaNacimiento());
-      txtNumeroRC.setText(p.getTelefono());
-      }else{
-          System.out.println("Es null");
-      }
-    }//GEN-LAST:event_lblVerificarMouseClicked
-
-    private void lblVerificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseEntered
-        registrarBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_lblVerificarMouseEntered
-
-    private void lblVerificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerificarMouseExited
-        btnVerificar.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_lblVerificarMouseExited
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+this.mostarDato();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
     /**
@@ -720,35 +552,26 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
     private javax.swing.JSeparator cedulaSeparador2;
     private javax.swing.JSeparator cedulaSeparador3;
     private javax.swing.JSeparator cedulaSeparador4;
-    private javax.swing.JSeparator correoSeparador;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
-    private javax.swing.JSeparator fechaSeparador;
     private javax.swing.JPanel header;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCedula2;
     private javax.swing.JLabel lblCedula3;
     private javax.swing.JLabel lblCedula4;
-    private javax.swing.JLabel lblCorreo;
-    private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblVerificar;
     private javax.swing.JLabel logoP;
     private javax.swing.JLabel logoP1;
     private javax.swing.JPanel minimizeBtn;
     private javax.swing.JLabel minimizeTxt;
-    private javax.swing.JSeparator nombreSeparador;
-    private javax.swing.JSeparator numeroSeparado;
     private javax.swing.JPanel registrarBtn;
     private javax.swing.JLabel registrarCitaBtnTxt;
+    private javax.swing.JTable tablaCita;
     private javax.swing.JLabel title;
-    private javax.swing.JFormattedTextField txtCedulaRC;
-    private javax.swing.JTextField txtCorreoRC;
-    private javax.swing.JFormattedTextField txtFechaNacimientoRC;
     private javax.swing.JFormattedTextField txtFechaRC;
     private javax.swing.JFormattedTextField txtHoraRC;
-    private javax.swing.JTextField txtNombreRC;
-    private javax.swing.JFormattedTextField txtNumeroRC;
+    private javax.swing.JFormattedTextField txtIdRC;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -756,9 +579,21 @@ public class FrmCitas extends javax.swing.JFrame implements Vista<Cita>{
 this.controlador=controlador;
     }
 
+  
     @Override
     public void mostarDato() {
-
+ DefaultTableModel table = (DefaultTableModel) this.tablaCita.getModel();
+        table.setRowCount(0);
+        if (controlador.getLista() != null) {
+            System.out.println("fff");
+            Iterator<Cita> iterator = controlador.getLista().iterator();
+            while (iterator.hasNext()) {
+                Cita c = iterator.next();
+                table.addRow(new Object[]{c.getId(), c.getIdCliente(), c.getFecha(),c.getHora(),c.getEstado()});
+                //cliente.getId(),cliente.getCedula(),cliente.getNombreCompleto(),cliente.getTelefono(),cliente.getEmail(),cliente.getFechaNacimiento()
+            }
+        }
+        tablaCita.setModel(table);
     }
 
     @Override
