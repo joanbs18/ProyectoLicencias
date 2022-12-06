@@ -53,13 +53,13 @@ public class ControladorCliente implements Controlador<Cliente>{
 
     @Override
     public void crear(Cliente cliente) {
-        if (this.validar(cliente)){
+      // if (this.validar(cliente)){
             if (this.dao.crear(cliente)){
                 this.vista.mostarMensaje("Registro agregado correctamente", Vista.messageTypeSuccess);
             }else{
                 this.vista.mostarMensaje("Error al agregar el registro", Vista.messageTypeError);
             }
-        }
+       // }
     }
 
     @Override

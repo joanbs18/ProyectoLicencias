@@ -1159,13 +1159,13 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
     private void continuarBtnCrearTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseClicked
         mostrar.setVisible(false);
         crear1.setVisible(false);
-        crear2.setVisible(true);
+        
         if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
                 || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
                 || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
-            this.controlador.crear(new Cliente(null, null, null, Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText()));
+            this.controlador.crear(new Cliente(1, 1, 1, Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText()));
 
             //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
         }
@@ -1643,6 +1643,5 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
 
     @Override
     public void mostarMensaje(String msg, int messageType) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

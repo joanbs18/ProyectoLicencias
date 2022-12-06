@@ -6,35 +6,51 @@ package Data.Daos;
 
 import Data.Conexiones.Conector;
 import Data.Crud.Crud;
+import MVC.Controlador.Controlador;
 import MVC.Modelos.Cliente;
+import MVC.Modelos.Persona;
 import java.util.ArrayList;
 
 /**
  *
  * @author Francisco
  */
-public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
+public class DaoCliente extends Dao<Cliente> implements Crud<Cliente> {
+
+    private Controlador<Persona> controlador;
+
     public DaoCliente(Conector conector) {
-        this.conector=conector;
+        this.conector = conector;
     }
 
+    /*
+     this.conector.prepareQuery("INSERT INTO persona (Cedula, NombreCompleto, FechaNacimiento, Email, Telefono) VALUES (?, ?, ?, ?, ?) ");
+            this.conector.addParameter(1, modelo.getCedula());
+            this.conector.addParameter(2, modelo.getNombreCompleto());
+            this.conector.addParameter(3, modelo.getFechaNacimiento());
+            this.conector.addParameter(4, modelo.getEmail());
+            this.conector.addParameter(5, modelo.getTelefono());
+     */
     @Override
     public boolean crear(Cliente modelo) {
         this.error = "";
         try {
             Object[][] datos;
             this.conector.conectar();
-            this.conector.prepareQuery("call insertarPersona(?,?,?,?,?)");
+            this.conector.prepareQuery("INSERT INTO persona (Cedula, NombreCompleto, FechaNacimiento, Email, Telefono) VALUES (?, ?, ?, ?, ?) ");
             this.conector.addParameter(1, modelo.getCedula());
             this.conector.addParameter(2, modelo.getNombreCompleto());
             this.conector.addParameter(3, modelo.getFechaNacimiento());
             this.conector.addParameter(4, modelo.getEmail());
             this.conector.addParameter(5, modelo.getTelefono());
-            this.conector.executeUpdate();
-            
-            this.conector.prepareQuery("call insertarCliente(?)");
-            this.conector.addParameter(1, modelo.getIdPersona());
-            
+          this.conector.executeUpdate();
+
+            this.conector.prepareQuery("SELECT * FROM persona ORDER BY ID DESC LIMIT 1");
+          
+           datos=this.conector.executeQuery();
+
+            this.conector.prepareQuery("Insert into clientes (idPersona) values(?);");
+            this.conector.addParameter(1,datos[0][0]);
             return this.conector.executeUpdate();
 
         } catch (Exception ex) {
@@ -44,6 +60,9 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
         }
         return false;
     }
+    public void crearCliente(Cliente usuario){
+    
+    }
 
     @Override
     public Cliente leer(Cliente modelo) {
@@ -52,7 +71,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             Object[][] datos;
             this.conector.conectar();//llamamos el metodo conectar
             this.conector.prepareQuery("call verPersona(?)");
-           // this.conector.addParameter(2, modelo.getIdCliente());
+            // this.conector.addParameter(2, modelo.getIdCliente());
             this.conector.addParameter(1, modelo.getIdPersona());
             //this.conector.addParameter(2, modelo.getId());
             //this.conector.addParameter(4, modelo.getCedula());
@@ -60,13 +79,12 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             //this.conector.addParameter(6, modelo.getFechaNacimiento());
             //this.conector.addParameter(7, modelo.getEmail());
             //this.conector.addParameter(8, modelo.getTelefono());
-            
-            
+
             datos = this.conector.executeQuery();
-            return null == datos ? null : new Cliente(Integer.valueOf(String.valueOf(datos[0][0])),Integer.valueOf(String.valueOf(datos[0][1])),
-                    Integer.valueOf(String.valueOf(datos[0][2])),Integer.valueOf(String.valueOf(datos[0][3])),
-                    String.valueOf(datos[0][4]),String.valueOf(datos[0][5]),
-                    String.valueOf(datos[0][6]),String.valueOf(datos[0][7]));
+            return null == datos ? null : new Cliente(Integer.valueOf(String.valueOf(datos[0][0])), Integer.valueOf(String.valueOf(datos[0][1])),
+                    Integer.valueOf(String.valueOf(datos[0][2])), Integer.valueOf(String.valueOf(datos[0][3])),
+                    String.valueOf(datos[0][4]), String.valueOf(datos[0][5]),
+                    String.valueOf(datos[0][6]), String.valueOf(datos[0][7]));
         } catch (Exception ex) {
             this.error = ex.toString();
         } finally {
@@ -88,9 +106,9 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
                 return null;
             }
             for (Object[] dt : data) {
-                list.add(new Cliente(Integer.parseInt(String.valueOf(dt[0])),Integer.parseInt(String.valueOf(dt[1])),Integer.parseInt(String.valueOf(dt[2])),Integer.parseInt(String.valueOf(dt[3])),
+                list.add(new Cliente(Integer.parseInt(String.valueOf(dt[0])), Integer.parseInt(String.valueOf(dt[1])), Integer.parseInt(String.valueOf(dt[2])), Integer.parseInt(String.valueOf(dt[3])),
                         String.valueOf(dt[4]), String.valueOf(dt[5]),
-                         String.valueOf(dt[6]), String.valueOf(dt[7])));
+                        String.valueOf(dt[6]), String.valueOf(dt[7])));
             }
             return list;
         } catch (Exception ex) {
@@ -101,7 +119,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
         return null;
 
     }
-    
+
     /*
      System.out.println("fffff");
         this.error = "";
@@ -126,9 +144,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             this.conector.desconectar();
         }
         return null;
-    */
-    
-
+     */
     @Override
     public ArrayList<Cliente> leer(String filter) {
         this.error = "";
@@ -144,9 +160,9 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
                 return null;
             }
             for (Object[] dt : data) {
-                list.add(new Cliente(Integer.parseInt(String.valueOf(dt[0])),Integer.parseInt(String.valueOf(dt[1])),Integer.parseInt(String.valueOf(dt[2])),Integer.parseInt(String.valueOf(dt[3])),
+                list.add(new Cliente(Integer.parseInt(String.valueOf(dt[0])), Integer.parseInt(String.valueOf(dt[1])), Integer.parseInt(String.valueOf(dt[2])), Integer.parseInt(String.valueOf(dt[3])),
                         String.valueOf(dt[4]), String.valueOf(dt[5]),
-                         String.valueOf(dt[6]), String.valueOf(dt[7])));
+                        String.valueOf(dt[6]), String.valueOf(dt[7])));
             }
             return list;
         } catch (Exception ex) {
@@ -165,8 +181,6 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             this.conector.prepareQuery("call actualizarCliente(?,?)");
             this.conector.addParameter(1, modelo.getIdCliente());
             this.conector.addParameter(2, modelo.getIdPersona());
-            
-            
 
             return this.conector.executeUpdate();
 
@@ -180,7 +194,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
 
     @Override
     public boolean borrar(Cliente modelo) {
-         this.error = "";
+        this.error = "";
         try {
             this.conector.conectar();
             this.conector.prepareQuery("call borrarCliente(?)");
@@ -194,6 +208,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
         }
         return false;
     }
+
     @Override
     public String getError() {
         return this.error;
