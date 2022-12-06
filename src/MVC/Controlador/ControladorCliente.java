@@ -6,7 +6,6 @@ package MVC.Controlador;
 
 import Data.Conexiones.Conexion;
 import Data.Daos.DaoCliente;
-import Data.Daos.DaoOficial;
 import MVC.Modelos.Cliente;
 
 import MVC.Vistas.Vista;
@@ -65,7 +64,7 @@ public class ControladorCliente implements Controlador<Cliente>{
 
     @Override
     public void leer(Cliente ciente) {
-        this.cliente=dao.leer(cliente);
+        this.cliente=dao.leer(ciente);
         this.vista.mostarDato();
     }
     

@@ -42,15 +42,15 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
         try {
             Object[][] datos;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("call verCliente(?)");
-            this.conector.addParameter(2, modelo.getIdCliente());
-            this.conector.addParameter(3, modelo.getIdPersona());
-            this.conector.addParameter(1, modelo.getId());
-            this.conector.addParameter(4, modelo.getCedula());
-            this.conector.addParameter(5, modelo.getNombreCompleto());
-            this.conector.addParameter(6, modelo.getFechaNacimiento());
-            this.conector.addParameter(7, modelo.getEmail());
-            this.conector.addParameter(8, modelo.getTelefono());
+            this.conector.prepareQuery("call verPersona(?)");
+           // this.conector.addParameter(2, modelo.getIdCliente());
+            this.conector.addParameter(1, modelo.getIdPersona());
+            //this.conector.addParameter(2, modelo.getId());
+            //this.conector.addParameter(4, modelo.getCedula());
+            //this.conector.addParameter(5, modelo.getNombreCompleto());
+            //this.conector.addParameter(6, modelo.getFechaNacimiento());
+            //this.conector.addParameter(7, modelo.getEmail());
+            //this.conector.addParameter(8, modelo.getTelefono());
             
             
             datos = this.conector.executeQuery();
@@ -68,6 +68,34 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
 
     @Override
     public ArrayList<Cliente> leer() {
+        System.out.println("fffff");
+        this.error = "";
+        try {
+            ArrayList<Cliente> list = new ArrayList<>();
+            Object[][] data;
+            this.conector.conectar();//llamamos el metodo conectar
+            this.conector.prepareQuery("SELECT clientes.Id,clientes.IdPersona,persona.Id,persona.Cedula,persona.NombreCompleto,persona.FechaNacimiento,persona.Email,persona.Telefono from clientes INNER JOIN persona ON clientes.IdPersona=persona.Id;");//se hace la consulta
+            data = this.conector.executeQuery();
+            if (data == null) {
+                return null;
+            }
+            for (Object[] dt : data) {
+                list.add(new Cliente(Integer.parseInt(String.valueOf(dt[0])),Integer.parseInt(String.valueOf(dt[1])),Integer.parseInt(String.valueOf(dt[2])),Integer.parseInt(String.valueOf(dt[3])),
+                        String.valueOf(dt[4]), String.valueOf(dt[5]),
+                         String.valueOf(dt[6]), String.valueOf(dt[7])));
+            }
+            return list;
+        } catch (Exception ex) {
+            this.error = ex.toString();
+        } finally {
+            this.conector.desconectar();
+        }
+        return null;
+
+    }
+    
+    /*
+     System.out.println("fffff");
         this.error = "";
         try {
             ArrayList<Cliente> list = new ArrayList<>();
@@ -90,8 +118,8 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             this.conector.desconectar();
         }
         return null;
-
-    }
+    */
+    
 
     @Override
     public ArrayList<Cliente> leer(String filter) {
@@ -100,7 +128,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
             ArrayList<Cliente> list = new ArrayList<>();
             Object[][] data;
             this.conector.conectar();//llamamos el metodo conectar
-            this.conector.prepareQuery("Select Id, idPersona from Cliente where Nombre like ?");//se hace la consulta y se filtra solo con el nombre
+            this.conector.prepareQuery("SELECT clientes.Id,clientes.IdPersona,persona.Id,persona.Cedula,persona.NombreCompleto,persona.FechaNacimiento,persona.Email,persona.Telefono from clientes INNER JOIN persona ON clientes.IdPersona=persona.Id where cedula like ?;");//se hace la consulta y se filtra solo con el nombre
             this.conector.addParameter(1, filter);//manda parametro al statemet
             data = this.conector.executeQuery();
 
@@ -108,7 +136,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
                 return null;
             }
             for (Object[] dt : data) {
-                list.add(new Cliente((int) (dt[0]), (int) (dt[1]),(int)(dt[2]),(int)(dt[3]),
+                list.add(new Cliente(Integer.parseInt(String.valueOf(dt[0])),Integer.parseInt(String.valueOf(dt[1])),Integer.parseInt(String.valueOf(dt[2])),Integer.parseInt(String.valueOf(dt[3])),
                         String.valueOf(dt[4]), String.valueOf(dt[5]),
                          String.valueOf(dt[6]), String.valueOf(dt[7])));
             }

@@ -45,6 +45,7 @@ public class Cliente extends Persona implements Modelo{
         this.idPersona = idPersona;
         
     }
+    
 
     public Cliente(Integer idCliente, Integer idPersona) {
         this.idCliente = idCliente;
