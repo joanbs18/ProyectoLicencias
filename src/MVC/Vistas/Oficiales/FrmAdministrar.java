@@ -7,6 +7,7 @@ package MVC.Vistas.Oficiales;
 import Data.Conexiones.Conexion;
 import Frames.FrmRegistroCompleto;
 import MVC.Controlador.Controlador;
+import MVC.Modelos.Cliente;
 
 import MVC.Modelos.Oficial;
 import MVC.Vistas.Vista;
@@ -68,8 +69,8 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         lblActualizar = new javax.swing.JLabel();
         eliminarBtn = new javax.swing.JPanel();
         lblEliminar = new javax.swing.JLabel();
-        eliminarBtn2 = new javax.swing.JPanel();
-        lblEliminar1 = new javax.swing.JLabel();
+        inicioBtn = new javax.swing.JPanel();
+        lblInicio = new javax.swing.JLabel();
         mostrar = new javax.swing.JPanel();
         userLabel = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -78,6 +79,8 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         logoP2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaOficial = new javax.swing.JTable();
+        copiarBtn = new javax.swing.JPanel();
+        copiarBtnTxt = new javax.swing.JLabel();
         crear1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
@@ -112,23 +115,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         lblNombre1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        actualizar = new javax.swing.JPanel();
-        logoP3 = new javax.swing.JLabel();
-        title3 = new javax.swing.JLabel();
-        userLabel1 = new javax.swing.JLabel();
-        userTxt = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        passLabel1 = new javax.swing.JLabel();
-        passTxt1 = new javax.swing.JPasswordField();
-        jSeparator4 = new javax.swing.JSeparator();
-        modificarBtn = new javax.swing.JPanel();
-        modificarBtnTxt = new javax.swing.JLabel();
-        newPassLabel = new javax.swing.JLabel();
-        newPassTxt = new javax.swing.JPasswordField();
-        jSeparator5 = new javax.swing.JSeparator();
-        confirmNewPassLabel = new javax.swing.JLabel();
-        confirmNewPassTxt = new javax.swing.JPasswordField();
-        jSeparator6 = new javax.swing.JSeparator();
         eliminar = new javax.swing.JPanel();
         logoP4 = new javax.swing.JLabel();
         title4 = new javax.swing.JLabel();
@@ -140,6 +126,29 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         jSeparator8 = new javax.swing.JSeparator();
         eliminarBtn1 = new javax.swing.JPanel();
         eliminarBtnTxt = new javax.swing.JLabel();
+        actualizar = new javax.swing.JPanel();
+        logoP3 = new javax.swing.JLabel();
+        title3 = new javax.swing.JLabel();
+        txtTelefonoa = new javax.swing.JTextField();
+        passLabel1 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        modificarBtn = new javax.swing.JPanel();
+        modificarBtnTxt = new javax.swing.JLabel();
+        newPassLabel = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        confirmNewPassLabel = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
+        txtCedulaa = new javax.swing.JTextField();
+        txtNombrea = new javax.swing.JTextField();
+        txtEdada = new javax.swing.JTextField();
+        confirmNewPassLabel1 = new javax.swing.JLabel();
+        confirmNewPassLabel2 = new javax.swing.JLabel();
+        txtEmaila = new javax.swing.JTextField();
+        confirmNewPassLabel3 = new javax.swing.JLabel();
+        txtFechaa = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -376,34 +385,34 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        eliminarBtn2.setBackground(new java.awt.Color(0, 134, 190));
+        inicioBtn.setBackground(new java.awt.Color(0, 134, 190));
 
-        lblEliminar1.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        lblEliminar1.setForeground(new java.awt.Color(255, 255, 255));
-        lblEliminar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEliminar1.setText("ELIMINAR");
-        lblEliminar1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblInicio.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblInicio.setForeground(new java.awt.Color(255, 255, 255));
+        lblInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInicio.setText("INICIO");
+        lblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEliminar1MouseClicked(evt);
+                lblInicioMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblEliminar1MouseEntered(evt);
+                lblInicioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblEliminar1MouseExited(evt);
+                lblInicioMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout eliminarBtn2Layout = new javax.swing.GroupLayout(eliminarBtn2);
-        eliminarBtn2.setLayout(eliminarBtn2Layout);
-        eliminarBtn2Layout.setHorizontalGroup(
-            eliminarBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout inicioBtnLayout = new javax.swing.GroupLayout(inicioBtn);
+        inicioBtn.setLayout(inicioBtnLayout);
+        inicioBtnLayout.setHorizontalGroup(
+            inicioBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        eliminarBtn2Layout.setVerticalGroup(
-            eliminarBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(eliminarBtn2Layout.createSequentialGroup()
-                .addComponent(lblEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+        inicioBtnLayout.setVerticalGroup(
+            inicioBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inicioBtnLayout.createSequentialGroup()
+                .addComponent(lblInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -419,7 +428,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
                 .addContainerGap())
             .addComponent(actualizarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(eliminarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(eliminarBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(inicioBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,7 +436,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
                 .addGap(16, 16, 16)
                 .addComponent(logoG, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(eliminarBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inicioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(crearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -486,6 +495,35 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
             tablaOficial.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        copiarBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        copiarBtnTxt.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        copiarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        copiarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        copiarBtnTxt.setText("COPIAR");
+        copiarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                copiarBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                copiarBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                copiarBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout copiarBtnLayout = new javax.swing.GroupLayout(copiarBtn);
+        copiarBtn.setLayout(copiarBtnLayout);
+        copiarBtnLayout.setHorizontalGroup(
+            copiarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(copiarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+        );
+        copiarBtnLayout.setVerticalGroup(
+            copiarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(copiarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout mostrarLayout = new javax.swing.GroupLayout(mostrar);
         mostrar.setLayout(mostrarLayout);
         mostrarLayout.setHorizontalGroup(
@@ -506,6 +544,10 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
                         .addComponent(logoP2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(mostrarLayout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addComponent(copiarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mostrarLayout.setVerticalGroup(
             mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,8 +566,10 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
                         .addGap(52, 52, 52)
                         .addComponent(logoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(copiarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
 
         getContentPane().add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
@@ -779,127 +823,9 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         jTextArea1.setText("Para finalizar con su proceso de registro en el\nsistema de Licencias Code, por favor, ingrese\nsu nombre de usuario y contraseña que utilizará\npara ingresar en el perfil de su usuario.\n\nPor su seguridad, le sugerimos que esta \ncontraseña sea lo más segura posible. Evite \nnombres sencillos o fáciles de adivinar. \n\nAl dar click en el botón de \"REGISTRARSE\" solo\npodrá editar su contraseña desde el apartado de \nseguridad. \nPara ello, deberá ingresar su contraseña actual.\nEn caso de no recordar su contraseña actual, deberá\ncontactarse con nuestros asesores.\n");
         jScrollPane1.setViewportView(jTextArea1);
 
-        crear2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 360, 300));
+        crear2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 370, 320));
 
         getContentPane().add(crear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
-
-        actualizar.setBackground(new java.awt.Color(255, 255, 255));
-        actualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        logoP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
-        actualizar.add(logoP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
-
-        title3.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title3.setText("ACTUALIZAR OFICIALES");
-        actualizar.add(title3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
-
-        userLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        userLabel1.setText("1.USUARIO");
-        actualizar.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
-
-        userTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("Ingrese su nombre de usuario");
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
-            }
-        });
-        userTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxtActionPerformed(evt);
-            }
-        });
-        actualizar.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 350, 30));
-
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 350, 20));
-
-        passLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel1.setText("2. CONTRASEÑA ACTUAL");
-        actualizar.add(passLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
-
-        passTxt1.setForeground(new java.awt.Color(204, 204, 204));
-        passTxt1.setText("***********");
-        passTxt1.setBorder(null);
-        passTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                passTxt1MousePressed(evt);
-            }
-        });
-        actualizar.add(passTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 350, 30));
-
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 350, 20));
-
-        modificarBtn.setBackground(new java.awt.Color(0, 134, 190));
-
-        modificarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        modificarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        modificarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        modificarBtnTxt.setText(" MODIFICAR");
-        modificarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        modificarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modificarBtnTxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                modificarBtnTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                modificarBtnTxtMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout modificarBtnLayout = new javax.swing.GroupLayout(modificarBtn);
-        modificarBtn.setLayout(modificarBtnLayout);
-        modificarBtnLayout.setHorizontalGroup(
-            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
-        );
-        modificarBtnLayout.setVerticalGroup(
-            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        actualizar.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 570, 40));
-
-        newPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        newPassLabel.setText("3. CONTRASEÑA NUEVA");
-        actualizar.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
-
-        newPassTxt.setForeground(new java.awt.Color(204, 204, 204));
-        newPassTxt.setText("***********");
-        newPassTxt.setBorder(null);
-        newPassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                newPassTxtMousePressed(evt);
-            }
-        });
-        actualizar.add(newPassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 330, 30));
-
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 350, 20));
-
-        confirmNewPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel.setText("4. CONFIRMAR NUEVA CONTRASEÑA ");
-        actualizar.add(confirmNewPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 280, -1));
-
-        confirmNewPassTxt.setForeground(new java.awt.Color(204, 204, 204));
-        confirmNewPassTxt.setText("***********");
-        confirmNewPassTxt.setBorder(null);
-        confirmNewPassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                confirmNewPassTxtMousePressed(evt);
-            }
-        });
-        actualizar.add(confirmNewPassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 360, 30));
-
-        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 360, 20));
-
-        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
 
         eliminar.setBackground(new java.awt.Color(255, 255, 255));
         eliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -985,6 +911,184 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
 
         getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
 
+        actualizar.setBackground(new java.awt.Color(255, 255, 255));
+        actualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logoP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGO_PEQUEÑO.png"))); // NOI18N
+        actualizar.add(logoP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
+
+        title3.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        title3.setText("ACTUALIZAR OFICIAL");
+        actualizar.add(title3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        txtTelefonoa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtTelefonoa.setForeground(new java.awt.Color(204, 204, 204));
+        txtTelefonoa.setBorder(null);
+        txtTelefonoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTelefonoaMousePressed(evt);
+            }
+        });
+        txtTelefonoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoaActionPerformed(evt);
+            }
+        });
+        actualizar.add(txtTelefonoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 280, 30));
+
+        passLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        passLabel1.setText("2.NOMBRE COMPLETO");
+        actualizar.add(passLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 320, 20));
+
+        modificarBtn.setBackground(new java.awt.Color(0, 134, 190));
+
+        modificarBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        modificarBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        modificarBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        modificarBtnTxt.setText(" MODIFICAR");
+        modificarBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        modificarBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarBtnTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                modificarBtnTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                modificarBtnTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificarBtnLayout = new javax.swing.GroupLayout(modificarBtn);
+        modificarBtn.setLayout(modificarBtnLayout);
+        modificarBtnLayout.setHorizontalGroup(
+            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+        );
+        modificarBtnLayout.setVerticalGroup(
+            modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        actualizar.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 570, 40));
+
+        newPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        newPassLabel.setText("1. NÚMERO DE CÉDULA");
+        actualizar.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 310, 20));
+
+        confirmNewPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel.setText("6.EDAD");
+        actualizar.add(confirmNewPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 280, -1));
+
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 280, 20));
+
+        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 20));
+
+        txtCedulaa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCedulaa.setForeground(new java.awt.Color(204, 204, 204));
+        txtCedulaa.setBorder(null);
+        txtCedulaa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCedulaaMousePressed(evt);
+            }
+        });
+        txtCedulaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaaActionPerformed(evt);
+            }
+        });
+        actualizar.add(txtCedulaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 310, 30));
+
+        txtNombrea.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtNombrea.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombrea.setBorder(null);
+        txtNombrea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreaMousePressed(evt);
+            }
+        });
+        txtNombrea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreaActionPerformed(evt);
+            }
+        });
+        actualizar.add(txtNombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 310, 30));
+
+        txtEdada.setEditable(false);
+        txtEdada.setBackground(new java.awt.Color(255, 255, 255));
+        txtEdada.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEdada.setForeground(new java.awt.Color(255, 255, 255));
+        txtEdada.setBorder(null);
+        txtEdada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtEdadaMousePressed(evt);
+            }
+        });
+        txtEdada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEdadaActionPerformed(evt);
+            }
+        });
+        actualizar.add(txtEdada, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 280, 30));
+
+        confirmNewPassLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel1.setText("3. EMAIL");
+        actualizar.add(confirmNewPassLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 280, -1));
+
+        confirmNewPassLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel2.setText("4.TELÉFONO");
+        actualizar.add(confirmNewPassLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 280, -1));
+
+        txtEmaila.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEmaila.setForeground(new java.awt.Color(204, 204, 204));
+        txtEmaila.setBorder(null);
+        txtEmaila.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtEmailaMousePressed(evt);
+            }
+        });
+        txtEmaila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailaActionPerformed(evt);
+            }
+        });
+        actualizar.add(txtEmaila, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 320, 30));
+
+        confirmNewPassLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        confirmNewPassLabel3.setText("5.FECHA NACIMIENTO");
+        actualizar.add(confirmNewPassLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 280, -1));
+
+        txtFechaa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtFechaa.setForeground(new java.awt.Color(204, 204, 204));
+        txtFechaa.setBorder(null);
+        txtFechaa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtFechaaMousePressed(evt);
+            }
+        });
+        txtFechaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaaActionPerformed(evt);
+            }
+        });
+        actualizar.add(txtFechaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 280, 30));
+
+        jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 280, 20));
+
+        jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 280, 20));
+
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1065,6 +1169,20 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         mostrar.setVisible(false);
         actualizar.setVisible(true);
         eliminar.setVisible(false);
+        if (controlador.getModelo() != null) {
+            txtCedulaa.setText(String.valueOf(controlador.getModelo().getCedula()));
+            txtNombrea.setText(controlador.getModelo().getNombreCompleto());
+            txtFechaa.setText(controlador.getModelo().getFechaNacimiento());
+            txtEmaila.setText(controlador.getModelo().getEmail());
+            txtTelefonoa.setText(controlador.getModelo().getTelefono());
+            txtCedulaa.setForeground(Color.gray);
+            txtNombrea.setForeground(Color.gray);
+            txtFechaa.setForeground(Color.gray);
+            txtEmaila.setForeground(Color.gray);
+            txtTelefonoa.setForeground(Color.gray);
+            txtEdada.setForeground(Color.gray);
+            txtCedulaa.setForeground(Color.gray);
+        }
     }//GEN-LAST:event_lblActualizarMouseClicked
 
     private void lblActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseEntered
@@ -1288,61 +1406,8 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
-        }
-        if (String.valueOf(passTxt.getPassword()).isEmpty()) {
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_userTxtMousePressed
-
-    private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userTxtActionPerformed
-
-    private void passTxt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxt1MousePressed
-        if (String.valueOf(passTxt.getPassword()).equals("***********")) {
-            passTxt.setText("");
-            passTxt.setForeground(Color.black);
-        }
-        if (userTxt.getText().isEmpty()) {
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_passTxt1MousePressed
-
-    private void modificarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseClicked
-        JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_modificarBtnTxtMouseClicked
-
-    private void modificarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseEntered
-        modificarBtn.setBackground(new Color(0, 156, 223));
-    }//GEN-LAST:event_modificarBtnTxtMouseEntered
-
-    private void modificarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseExited
-        modificarBtn.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_modificarBtnTxtMouseExited
-
-    private void newPassTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newPassTxtMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newPassTxtMousePressed
-
-    private void confirmNewPassTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmNewPassTxtMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmNewPassTxtMousePressed
-
     private void userTxt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt1MousePressed
-        if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
-        }
-        if (String.valueOf(passTxt.getPassword()).isEmpty()) {
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
-        }
+ 
     }//GEN-LAST:event_userTxt1MousePressed
 
     private void userTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt1ActionPerformed
@@ -1350,14 +1415,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     }//GEN-LAST:event_userTxt1ActionPerformed
 
     private void passTxt2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxt2MousePressed
-        if (String.valueOf(passTxt.getPassword()).equals("***********")) {
-            passTxt.setText("");
-            passTxt.setForeground(Color.black);
-        }
-        if (userTxt.getText().isEmpty()) {
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
-        }
+
     }//GEN-LAST:event_passTxt2MousePressed
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
@@ -1374,17 +1432,105 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         eliminarBtn1.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_eliminarBtnTxtMouseExited
 
-    private void lblEliminar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblEliminar1MouseClicked
+    private void lblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioMouseClicked
+        FrmOficiales frm = new FrmOficiales();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblInicioMouseClicked
 
-    private void lblEliminar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblEliminar1MouseEntered
+    private void lblInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioMouseEntered
+        inicioBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_lblInicioMouseEntered
 
-    private void lblEliminar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseExited
+    private void lblInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioMouseExited
+        inicioBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_lblInicioMouseExited
+
+    private void copiarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_copiarBtnTxtMouseClicked
+        if (this.tablaOficial.getRowCount() > 0 && tablaOficial.getSelectedRow() > -1) {
+            Oficial oficial = new Oficial(Integer.parseInt(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 0))),
+                    Integer.parseInt(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 1))),
+                    String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 2)),
+                    String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 3)),
+                    Double.parseDouble(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 4))));
+            controlador.setModelo(oficial);
+        }
+    }//GEN-LAST:event_copiarBtnTxtMouseClicked
+
+    private void copiarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_copiarBtnTxtMouseEntered
+        copiarBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_copiarBtnTxtMouseEntered
+
+    private void copiarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_copiarBtnTxtMouseExited
+        copiarBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_copiarBtnTxtMouseExited
+
+    private void txtTelefonoaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoaMousePressed
+        if (txtTelefonoa.getText().equals("Ingrese su nombre de usuario")) {
+            txtTelefonoa.setText("");
+            txtTelefonoa.setForeground(Color.black);
+        }
+        if (String.valueOf(passTxt.getPassword()).isEmpty()) {
+            passTxt.setText("********");
+            passTxt.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtTelefonoaMousePressed
+
+    private void txtTelefonoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblEliminar1MouseExited
+    }//GEN-LAST:event_txtTelefonoaActionPerformed
+
+    private void modificarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseClicked
+        JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_modificarBtnTxtMouseClicked
+
+    private void modificarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseEntered
+        modificarBtn.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_modificarBtnTxtMouseEntered
+
+    private void modificarBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseExited
+        modificarBtn.setBackground(new Color(0, 134, 190));
+    }//GEN-LAST:event_modificarBtnTxtMouseExited
+
+    private void txtCedulaaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaaMousePressed
+
+    private void txtCedulaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaaActionPerformed
+
+    private void txtNombreaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreaMousePressed
+
+    private void txtNombreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreaActionPerformed
+
+    private void txtEdadaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEdadaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdadaMousePressed
+
+    private void txtEdadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdadaActionPerformed
+
+    private void txtEmailaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailaMousePressed
+
+    private void txtEmailaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailaActionPerformed
+
+    private void txtFechaaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaaMousePressed
+
+    private void txtFechaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1426,9 +1572,13 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JPanel actualizarBtn;
     private javax.swing.JSeparator cedulaSeparador;
     private javax.swing.JLabel confirmNewPassLabel;
-    private javax.swing.JPasswordField confirmNewPassTxt;
+    private javax.swing.JLabel confirmNewPassLabel1;
+    private javax.swing.JLabel confirmNewPassLabel2;
+    private javax.swing.JLabel confirmNewPassLabel3;
     private javax.swing.JPanel continuarBtnCrear;
     private javax.swing.JLabel continuarBtnCrearTxt;
+    private javax.swing.JPanel copiarBtn;
+    private javax.swing.JLabel copiarBtnTxt;
     private javax.swing.JSeparator correoSeparador;
     private javax.swing.JPanel crear1;
     private javax.swing.JPanel crear2;
@@ -1436,22 +1586,24 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JPanel eliminar;
     private javax.swing.JPanel eliminarBtn;
     private javax.swing.JPanel eliminarBtn1;
-    private javax.swing.JPanel eliminarBtn2;
     private javax.swing.JLabel eliminarBtnTxt;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JSeparator fechaSeparador;
     private javax.swing.JPanel header;
+    private javax.swing.JPanel inicioBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblActualizar;
@@ -1459,8 +1611,8 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblCrear;
     private javax.swing.JLabel lblEliminar;
-    private javax.swing.JLabel lblEliminar1;
     private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblMostrar;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombre1;
@@ -1480,7 +1632,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JPanel mostrar;
     private javax.swing.JPanel mostrarBtn;
     private javax.swing.JLabel newPassLabel;
-    private javax.swing.JPasswordField newPassTxt;
     private javax.swing.JSeparator nombreSeparador;
     private javax.swing.JSeparator nombreSeparador1;
     private javax.swing.JSeparator numeroSeparado;
@@ -1488,7 +1639,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JLabel passLabel1;
     private javax.swing.JLabel passLabel2;
     private javax.swing.JPasswordField passTxt;
-    private javax.swing.JPasswordField passTxt1;
     private javax.swing.JPasswordField passTxt2;
     private javax.swing.JPanel registrarseBtn;
     private javax.swing.JLabel registrarseBtnTxt;
@@ -1499,15 +1649,19 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JLabel title3;
     private javax.swing.JLabel title4;
     private javax.swing.JFormattedTextField txtCedula;
+    private javax.swing.JTextField txtCedulaa;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtEdada;
+    private javax.swing.JTextField txtEmaila;
     private javax.swing.JFormattedTextField txtFecha;
+    private javax.swing.JTextField txtFechaa;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre1;
+    private javax.swing.JTextField txtNombrea;
     private javax.swing.JFormattedTextField txtNumero;
+    private javax.swing.JTextField txtTelefonoa;
     private javax.swing.JLabel userLabel;
-    private javax.swing.JLabel userLabel1;
     private javax.swing.JLabel userLabel2;
-    private javax.swing.JTextField userTxt;
     private javax.swing.JTextField userTxt1;
     // End of variables declaration//GEN-END:variables
 
