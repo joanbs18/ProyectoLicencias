@@ -73,6 +73,8 @@ public class Cliente extends Persona implements Modelo{
     public int calcularEdad(String fecha){
         try{
     int año= Integer.parseInt(fecha.substring(0, 3));
+    
+            System.out.println(año);
     int mes= Integer.parseInt(fecha.substring(5, 6));
     int dia= Integer.parseInt(fecha.substring(8, 9));
     Period edad = Period.between(LocalDate.of(año,mes,dia), LocalDate.now());

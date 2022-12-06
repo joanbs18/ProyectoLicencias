@@ -22,7 +22,16 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
     public boolean crear(Cliente modelo) {
         this.error = "";
         try {
+            Object[][] datos;
             this.conector.conectar();
+            this.conector.prepareQuery("call insertarPersona(?,?,?,?,?)");
+            this.conector.addParameter(1, modelo.getCedula());
+            this.conector.addParameter(2, modelo.getNombreCompleto());
+            this.conector.addParameter(3, modelo.getFechaNacimiento());
+            this.conector.addParameter(4, modelo.getEmail());
+            this.conector.addParameter(5, modelo.getTelefono());
+            this.conector.executeUpdate();
+            
             this.conector.prepareQuery("call insertarCliente(?)");
             this.conector.addParameter(1, modelo.getIdPersona());
             
@@ -68,7 +77,6 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente>{
 
     @Override
     public ArrayList<Cliente> leer() {
-        System.out.println("fffff");
         this.error = "";
         try {
             ArrayList<Cliente> list = new ArrayList<>();

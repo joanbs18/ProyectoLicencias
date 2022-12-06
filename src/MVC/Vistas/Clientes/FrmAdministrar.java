@@ -1123,9 +1123,12 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
             txtTelefonoa.setText(controlador.getModelo().getTelefono());
             txtEdada.setText(String.valueOf(controlador.getModelo().calcularEdad(this.controlador.getModelo().getFechaNacimiento())));
             txtCedulaa.setForeground(Color.gray);
-            txtNombrea.setForeground(Color.gray); txtFechaa.setForeground(Color.gray);
-            txtEmaila.setForeground(Color.gray); txtTelefonoa.setForeground(Color.gray);
-            txtEdada.setForeground(Color.gray); txtCedulaa.setForeground(Color.gray);
+            txtNombrea.setForeground(Color.gray);
+            txtFechaa.setForeground(Color.gray);
+            txtEmaila.setForeground(Color.gray);
+            txtTelefonoa.setForeground(Color.gray);
+            txtEdada.setForeground(Color.gray);
+            txtCedulaa.setForeground(Color.gray);
         }
     }//GEN-LAST:event_lblActualizarMouseClicked
 
@@ -1158,13 +1161,14 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         crear1.setVisible(false);
         crear2.setVisible(true);
         if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
-           || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
-           || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-       } else {
-       //this.controlador.crear(new Cliente);
-        //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
-       }
+                || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
+                || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.controlador.crear(new Cliente(null, null, null, Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText()));
+
+            //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
+        }
     }//GEN-LAST:event_continuarBtnCrearTxtMouseClicked
 
     private void continuarBtnCrearTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseEntered
