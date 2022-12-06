@@ -867,6 +867,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
         actualizar.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, 20));
 
+        txtCedulaa.setEditable(false);
         txtCedulaa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtCedulaa.setForeground(new java.awt.Color(204, 204, 204));
         txtCedulaa.setBorder(null);
@@ -1031,6 +1032,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         newPassLabel1.setText("2. CEDULA");
         eliminar.add(newPassLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
+        txtCedulae.setEditable(false);
         txtCedulae.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtCedulae.setForeground(new java.awt.Color(204, 204, 204));
         txtCedulae.setBorder(null);
@@ -1050,6 +1052,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         passLabel2.setText("3.NOMBRE COMPLETO");
         eliminar.add(passLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
 
+        txtNombree.setEditable(false);
         txtNombree.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtNombree.setForeground(new java.awt.Color(204, 204, 204));
         txtNombree.setBorder(null);
@@ -1069,6 +1072,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         confirmNewPassLabel4.setText("4. EMAIL");
         eliminar.add(confirmNewPassLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 280, -1));
 
+        txtEmaile.setEditable(false);
         txtEmaile.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEmaile.setForeground(new java.awt.Color(204, 204, 204));
         txtEmaile.setBorder(null);
@@ -1088,6 +1092,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         confirmNewPassLabel5.setText("5.TELÉFONO");
         eliminar.add(confirmNewPassLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 280, -1));
 
+        txtTelefonoe.setEditable(false);
         txtTelefonoe.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtTelefonoe.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefonoe.setBorder(null);
@@ -1127,6 +1132,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         confirmNewPassLabel7.setText("5.FECHA NACIMIENTO");
         eliminar.add(confirmNewPassLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 280, -1));
 
+        txtFechae.setEditable(false);
         txtFechae.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtFechae.setForeground(new java.awt.Color(204, 204, 204));
         txtFechae.setBorder(null);
@@ -1276,8 +1282,8 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         mostrar.setVisible(false);
         actualizar.setVisible(false);
         eliminar.setVisible(true);
-         if (controlador.getModelo() != null) {
-
+        if (controlador.getModelo() != null) {
+            txtIde.setText(String.valueOf(controlador.getModelo().getIdCliente()));
             txtCedulae.setText(String.valueOf(controlador.getModelo().getCedula()));
             txtNombree.setText(controlador.getModelo().getNombreCompleto());
             txtFechae.setText(controlador.getModelo().getFechaNacimiento());
@@ -1292,7 +1298,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
             txtEdade.setForeground(Color.gray);
             txtCedulae.setForeground(Color.gray);
         }
-         
+
     }//GEN-LAST:event_lblEliminarMouseClicked
 
     private void lblEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseEntered
@@ -1305,18 +1311,17 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
 
     private void continuarBtnCrearTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseClicked
         mostrar.setVisible(false);
-        
-        
+
         if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
                 || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
                 || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
             this.controlador.crear(new Cliente(null, null, null, Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText()));
-JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCedula.getText());
+            JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula " + txtCedula.getText());
             //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
         }
-       
+
     }//GEN-LAST:event_continuarBtnCrearTxtMouseClicked
 
     private void continuarBtnCrearTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseEntered
@@ -1519,7 +1524,10 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
     }//GEN-LAST:event_txtTelefonoaActionPerformed
 
     private void modificarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseClicked
-        JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
+
+        this.controlador.actualizar(new Cliente(Integer.parseInt(txtIde.getText()), null, null, Integer.parseInt(txtCedulae.getText()), txtNombree.getText(), txtFechae.getText(), txtEmaile.getText(), txtTelefonoe.getText()));
+        JOptionPane.showConfirmDialog(rootPane, "Registro Actualizado");
+
     }//GEN-LAST:event_modificarBtnTxtMouseClicked
 
     private void modificarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseEntered
@@ -1547,8 +1555,8 @@ JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCed
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
         //CODIGO PARA ELIMINAR EL USUARIO
-        //this.controlador.borrar();
-        JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
+        this.controlador.borrar(new Cliente(Integer.parseInt(txtIde.getText()), null, null, Integer.parseInt(txtCedulae.getText()), txtNombree.getText(), txtFechae.getText(), txtEmaile.getText(), txtTelefonoe.getText()));
+        JOptionPane.showMessageDialog(null, "Cliente " + txtIde.getText());
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
     private void eliminarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseEntered

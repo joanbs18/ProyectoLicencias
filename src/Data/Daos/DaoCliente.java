@@ -178,7 +178,7 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente> {
         this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call actualizarCliente(?,?)");
+            this.conector.prepareQuery("UPDATE clientes set IdPersona=idpersona where Id=idcliente");
             this.conector.addParameter(1, modelo.getIdCliente());
             this.conector.addParameter(2, modelo.getIdPersona());
 
@@ -197,8 +197,12 @@ public class DaoCliente extends Dao<Cliente> implements Crud<Cliente> {
         this.error = "";
         try {
             this.conector.conectar();
-            this.conector.prepareQuery("call borrarCliente(?)");
+            this.conector.prepareQuery("DELETE FROM citas WHERE IdCliente=?");
             this.conector.addParameter(1, modelo.getIdCliente());
+            this.conector.executeUpdate();
+            this.conector.prepareQuery("DELETE FROM clientes WHERE Id=?");
+            this.conector.addParameter(1, modelo.getIdCliente());
+            
             return this.conector.executeUpdate();
 
         } catch (Exception ex) {

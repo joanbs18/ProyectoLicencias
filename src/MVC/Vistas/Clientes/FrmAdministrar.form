@@ -1333,6 +1333,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCedulaa">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="12" style="0"/>
             </Property>
@@ -1657,6 +1658,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCedulae">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="12" style="0"/>
             </Property>
@@ -1692,6 +1694,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombree">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="12" style="0"/>
             </Property>
@@ -1727,6 +1730,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmaile">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="12" style="0"/>
             </Property>
@@ -1762,6 +1766,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtTelefonoe">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="12" style="0"/>
             </Property>
@@ -1833,6 +1838,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechae">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="12" style="0"/>
             </Property>

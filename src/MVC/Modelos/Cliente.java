@@ -67,16 +67,16 @@ public class Cliente extends Persona implements Modelo{
     
     @Override
     public boolean isComplete() {
-         return this.idPersona!=null && this.edadCliente!=null;
+         return true;
     }
     
     public int calcularEdad(String fecha){
         try{
-    int año= Integer.parseInt(fecha.substring(0, 3));
+    int año= Integer.parseInt(fecha.substring(0, 4));
     
             System.out.println(año);
-    int mes= Integer.parseInt(fecha.substring(5, 6));
-    int dia= Integer.parseInt(fecha.substring(8, 9));
+    int mes= Integer.parseInt(fecha.substring(5, 7));
+    int dia= Integer.parseInt(fecha.substring(8, 10));
     Period edad = Period.between(LocalDate.of(año,mes,dia), LocalDate.now());
     return edad.getYears();
         }catch(Exception ex){
