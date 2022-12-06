@@ -133,9 +133,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         userLabel2 = new javax.swing.JLabel();
         userTxt1 = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
-        passLabel2 = new javax.swing.JLabel();
-        passTxt2 = new javax.swing.JPasswordField();
-        jSeparator8 = new javax.swing.JSeparator();
         eliminarBtn1 = new javax.swing.JPanel();
         eliminarBtnTxt = new javax.swing.JLabel();
 
@@ -955,16 +952,15 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         eliminar.add(logoP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
         title4.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        title4.setText("ELIMINAR OFICIAL");
+        title4.setText("ELIMINAR CLIENTE");
         eliminar.add(title4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         userLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        userLabel2.setText("USUARIO");
-        eliminar.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        userLabel2.setText("ID CLIENTE");
+        eliminar.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         userTxt1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         userTxt1.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt1.setText("Ingrese su nombre de usuario");
         userTxt1.setBorder(null);
         userTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -976,27 +972,10 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
                 userTxt1ActionPerformed(evt);
             }
         });
-        eliminar.add(userTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 410, 30));
+        eliminar.add(userTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 90, 30));
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-        eliminar.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 410, 20));
-
-        passLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel2.setText("CONTRASEÑA");
-        eliminar.add(passLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
-
-        passTxt2.setForeground(new java.awt.Color(204, 204, 204));
-        passTxt2.setText("***********");
-        passTxt2.setBorder(null);
-        passTxt2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                passTxt2MousePressed(evt);
-            }
-        });
-        eliminar.add(passTxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 410, 30));
-
-        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
-        eliminar.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 410, 20));
+        eliminar.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, 20));
 
         eliminarBtn1.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -1158,17 +1137,18 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
 
     private void continuarBtnCrearTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseClicked
         mostrar.setVisible(false);
-        crear1.setVisible(false);
+        
         
         if (this.txtCedula.getText().equals("Número de cédula") || this.txtCedula.getText().isEmpty() || this.txtCorreo.getText().equals("ejemplo@ejemplo.com")
                 || this.txtCorreo.getText().isEmpty() || this.txtFecha.getText().equals("YYYY-MM-DD") || this.txtFecha.getText().isEmpty()
                 || this.txtNombre.getText().equals("Nombre completo") || this.txtNombre.getText().isEmpty() || this.txtNumero.getText().equals("####-####") || this.txtNumero.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
-            this.controlador.crear(new Cliente(1, 1, 1, Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText()));
-
+            this.controlador.crear(new Cliente(null, null, null, Integer.parseInt(txtCedula.getText()), txtNombre.getText(), txtFecha.getText(), txtCorreo.getText(), txtNumero.getText()));
+JOptionPane.showConfirmDialog(rootPane, "Agredado el cliente con cedula "+txtCedula.getText());
             //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
         }
+       
     }//GEN-LAST:event_continuarBtnCrearTxtMouseClicked
 
     private void continuarBtnCrearTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarBtnCrearTxtMouseEntered
@@ -1397,19 +1377,9 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
         // TODO add your handling code here:
     }//GEN-LAST:event_userTxt1ActionPerformed
 
-    private void passTxt2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxt2MousePressed
-        if (String.valueOf(passTxt.getPassword()).equals("***********")) {
-            passTxt.setText("");
-            passTxt.setForeground(Color.black);
-        }
-        if (txtTelefonoa.getText().isEmpty()) {
-            txtTelefonoa.setText("Ingrese su nombre de usuario");
-            txtTelefonoa.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_passTxt2MousePressed
-
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
         //CODIGO PARA ELIMINAR EL USUARIO
+        this.controlador.borrar();
         JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
@@ -1558,7 +1528,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbCopiar;
@@ -1592,9 +1561,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Cliente>
     private javax.swing.JSeparator numeroSeparado;
     private javax.swing.JLabel passLabel;
     private javax.swing.JLabel passLabel1;
-    private javax.swing.JLabel passLabel2;
     private javax.swing.JPasswordField passTxt;
-    private javax.swing.JPasswordField passTxt2;
     private javax.swing.JPanel registrarseBtn;
     private javax.swing.JLabel registrarseBtnTxt;
     private javax.swing.JTable tablaClientes;
