@@ -5,6 +5,7 @@
 package MVC.Vistas.Usuarios;
 
 import Data.Conexiones.Conexion;
+import MVC.Vistas.Clientes.FrmClientes;
 import MVC.Vistas.Oficiales.FrmLoginOficiales;
 import MVC.Vistas.Oficiales.FrmOficiales;
 import MVC.Vistas.Secretaria.FrmLoginSecretaria;
@@ -327,7 +328,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitTxtMouseExited
 
     private void secretariasBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secretariasBtnTxtMouseClicked
-        FrmLoginSecretaria frm = new FrmLoginSecretaria();
+//        FrmLoginSecretaria frm = new FrmLoginSecretaria();
+        FrmSecretaria frm = new FrmSecretaria();
         frm.setVisible(true);
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_secretariasBtnTxtMouseClicked
@@ -349,11 +351,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_clientesBtnTxtMouseEntered
 
     private void clientesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesBtnTxtMouseClicked
-
+        FrmClientes frm = new FrmClientes();
+        frm.setVisible(true);
     }//GEN-LAST:event_clientesBtnTxtMouseClicked
 
     private void oficialesBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oficialesBtnTxtMouseClicked
-        FrmLoginOficiales frm = new FrmLoginOficiales();
+//        FrmLoginOficiales frm = new FrmLoginOficiales();
+        FrmOficiales frm = new FrmOficiales();
         frm.setVisible(true);
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_oficialesBtnTxtMouseClicked

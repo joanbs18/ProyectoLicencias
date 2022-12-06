@@ -8,6 +8,8 @@ import Data.Conexiones.Conexion;
 import MVC.Controlador.Controlador;
 import MVC.Controlador.ControladorOficial;
 import MVC.Modelos.Oficial;
+import MVC.Vistas.Citas.FrmCitas;
+import MVC.Vistas.Secretaria.FrmPruebasS;
 import MVC.Vistas.Vista;
 import java.awt.Color;
 
@@ -351,7 +353,7 @@ public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial>{
     }//GEN-LAST:event_crearBtnTxtMouseEntered
 
     private void crearBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxtMouseClicked
-        FrmRegistroOficiales frm = new FrmRegistroOficiales();
+        FrmPruebasO frm = new FrmPruebasO();
         frm.setVisible(true);
     }//GEN-LAST:event_crearBtnTxtMouseClicked
 
@@ -411,7 +413,8 @@ public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial>{
     }//GEN-LAST:event_administrarBtnMouseExited
 
     private void crearBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseClicked
-        // TODO add your handling code here:
+        FrmCitas frm = new FrmCitas();
+        frm.setVisible(true);
     }//GEN-LAST:event_crearBtnTxt1MouseClicked
 
     private void crearBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseEntered

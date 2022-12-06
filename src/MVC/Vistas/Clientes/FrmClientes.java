@@ -34,7 +34,7 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
     public FrmClientes() {
         initComponents();
         this.setControlador(new ControladorCliente(this));
-        this.controlador2=new ControladorCita(this);
+        this.controlador2 = new ControladorCita(this);
         this.setLocationRelativeTo(null);
         try {
             x = new Conexion();
@@ -435,12 +435,12 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
     }//GEN-LAST:event_administrarBtnMouseExited
 
     private void crearBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseClicked
-   FrmCitas frm = new FrmCitas();
+        FrmCitas frm = new FrmCitas();
         frm.setControlador(controlador2);
         controlador2.setVista(frm);
         frm.setVisible(true);
         // this.controlador.setVista(this);
-    
+
     }//GEN-LAST:event_crearBtnTxt1MouseClicked
 
     private void crearBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtnTxt1MouseEntered
@@ -456,7 +456,7 @@ public class FrmClientes extends javax.swing.JFrame implements Vista<Cliente> {
     }//GEN-LAST:event_bgMouseClicked
 
     private void crearBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBtn1MouseClicked
-     
+
     }//GEN-LAST:event_crearBtn1MouseClicked
 
     /**
