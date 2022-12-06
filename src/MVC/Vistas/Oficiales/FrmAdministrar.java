@@ -7,7 +7,6 @@ package MVC.Vistas.Oficiales;
 import Data.Conexiones.Conexion;
 import Frames.FrmRegistroCompleto;
 import MVC.Controlador.Controlador;
-import MVC.Modelos.Cliente;
 
 import MVC.Modelos.Oficial;
 import MVC.Vistas.Vista;
@@ -119,18 +118,15 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         logoP4 = new javax.swing.JLabel();
         title4 = new javax.swing.JLabel();
         userLabel2 = new javax.swing.JLabel();
-        userTxt1 = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
-        passLabel2 = new javax.swing.JLabel();
-        passTxt2 = new javax.swing.JPasswordField();
-        jSeparator8 = new javax.swing.JSeparator();
         eliminarBtn1 = new javax.swing.JPanel();
         eliminarBtnTxt = new javax.swing.JLabel();
         actualizar = new javax.swing.JPanel();
         logoP3 = new javax.swing.JLabel();
         title3 = new javax.swing.JLabel();
-        txtTelefonoa = new javax.swing.JTextField();
-        passLabel1 = new javax.swing.JLabel();
+        txtContraseniaActual = new javax.swing.JTextField();
+        lblNombreCompleto = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         modificarBtn = new javax.swing.JPanel();
         modificarBtnTxt = new javax.swing.JLabel();
@@ -139,16 +135,19 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         confirmNewPassLabel = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
-        txtCedulaa = new javax.swing.JTextField();
-        txtNombrea = new javax.swing.JTextField();
-        txtEdada = new javax.swing.JTextField();
+        txtCarnet = new javax.swing.JTextField();
+        txtNombreCompleto = new javax.swing.JTextField();
+        txtConfirmarNContrasenia = new javax.swing.JTextField();
         confirmNewPassLabel1 = new javax.swing.JLabel();
         confirmNewPassLabel2 = new javax.swing.JLabel();
-        txtEmaila = new javax.swing.JTextField();
+        txtSalario = new javax.swing.JTextField();
         confirmNewPassLabel3 = new javax.swing.JLabel();
-        txtFechaa = new javax.swing.JTextField();
+        txtContraseniaNueva = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
+        lblNombreUsuario = new javax.swing.JLabel();
+        txtNombreUsuario = new javax.swing.JTextField();
+        jSeparator12 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -456,7 +455,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         userLabel.setText("ID");
 
         jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("Ingrese el ID de la persona");
+        jTextField1.setText("Ingrese el ID del Oficial");
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -473,17 +472,17 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
 
         tablaOficial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Carnet", "IdUsuario", "Nombre de usuario", "Contraseña", "Salario"
+                "Carnet", "Nombre completo", "Nombre de usuario", "Correo electrónico", "Contraseña", "Salario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -491,9 +490,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
             }
         });
         jScrollPane3.setViewportView(tablaOficial);
-        if (tablaOficial.getColumnModel().getColumnCount() > 0) {
-            tablaOficial.getColumnModel().getColumn(4).setResizable(false);
-        }
 
         copiarBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -838,44 +834,27 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         eliminar.add(title4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         userLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        userLabel2.setText("USUARIO");
-        eliminar.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        userLabel2.setText("ID");
+        eliminar.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
-        userTxt1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        userTxt1.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt1.setText("Ingrese su nombre de usuario");
-        userTxt1.setBorder(null);
-        userTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtId.setForeground(new java.awt.Color(204, 204, 204));
+        txtId.setText("ID Oficial");
+        txtId.setBorder(null);
+        txtId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxt1MousePressed(evt);
+                txtIdMousePressed(evt);
             }
         });
-        userTxt1.addActionListener(new java.awt.event.ActionListener() {
+        txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTxt1ActionPerformed(evt);
+                txtIdActionPerformed(evt);
             }
         });
-        eliminar.add(userTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 410, 30));
+        eliminar.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 410, 30));
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-        eliminar.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 410, 20));
-
-        passLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel2.setText("CONTRASEÑA");
-        eliminar.add(passLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
-
-        passTxt2.setForeground(new java.awt.Color(204, 204, 204));
-        passTxt2.setText("***********");
-        passTxt2.setBorder(null);
-        passTxt2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                passTxt2MousePressed(evt);
-            }
-        });
-        eliminar.add(passTxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 410, 30));
-
-        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
-        eliminar.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 410, 20));
+        eliminar.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 410, 20));
 
         eliminarBtn1.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -907,7 +886,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
             .addComponent(eliminarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        eliminar.add(eliminarBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 190, 40));
+        eliminar.add(eliminarBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 190, 40));
 
         getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
 
@@ -921,27 +900,27 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         title3.setText("ACTUALIZAR OFICIAL");
         actualizar.add(title3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        txtTelefonoa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtTelefonoa.setForeground(new java.awt.Color(204, 204, 204));
-        txtTelefonoa.setBorder(null);
-        txtTelefonoa.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtContraseniaActual.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtContraseniaActual.setForeground(new java.awt.Color(204, 204, 204));
+        txtContraseniaActual.setBorder(null);
+        txtContraseniaActual.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtTelefonoaMousePressed(evt);
+                txtContraseniaActualMousePressed(evt);
             }
         });
-        txtTelefonoa.addActionListener(new java.awt.event.ActionListener() {
+        txtContraseniaActual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoaActionPerformed(evt);
+                txtContraseniaActualActionPerformed(evt);
             }
         });
-        actualizar.add(txtTelefonoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 280, 30));
+        actualizar.add(txtContraseniaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 280, 30));
 
-        passLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel1.setText("2.NOMBRE COMPLETO");
-        actualizar.add(passLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        lblNombreCompleto.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        lblNombreCompleto.setText("NOMBRE COMPLETO");
+        actualizar.add(lblNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 320, 20));
+        actualizar.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 320, 20));
 
         modificarBtn.setBackground(new java.awt.Color(0, 134, 190));
 
@@ -966,126 +945,148 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         modificarBtn.setLayout(modificarBtnLayout);
         modificarBtnLayout.setHorizontalGroup(
             modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
         );
         modificarBtnLayout.setVerticalGroup(
             modificarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(modificarBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        actualizar.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 570, 40));
+        actualizar.add(modificarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 290, 40));
 
         newPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        newPassLabel.setText("1. NÚMERO DE CÉDULA");
+        newPassLabel.setText("CARNET");
         actualizar.add(newPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
         actualizar.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 310, 20));
 
         confirmNewPassLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel.setText("6.EDAD");
+        confirmNewPassLabel.setText("CONFIRMAR NUEVA CONTRASEÑA");
         actualizar.add(confirmNewPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 280, -1));
 
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 280, 20));
+        actualizar.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 280, 20));
 
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
         actualizar.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 20));
 
-        txtCedulaa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtCedulaa.setForeground(new java.awt.Color(204, 204, 204));
-        txtCedulaa.setBorder(null);
-        txtCedulaa.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCarnet.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCarnet.setForeground(new java.awt.Color(204, 204, 204));
+        txtCarnet.setBorder(null);
+        txtCarnet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtCedulaaMousePressed(evt);
+                txtCarnetMousePressed(evt);
             }
         });
-        txtCedulaa.addActionListener(new java.awt.event.ActionListener() {
+        txtCarnet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaaActionPerformed(evt);
+                txtCarnetActionPerformed(evt);
             }
         });
-        actualizar.add(txtCedulaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 310, 30));
+        actualizar.add(txtCarnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 310, 30));
 
-        txtNombrea.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtNombrea.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombrea.setBorder(null);
-        txtNombrea.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNombreCompleto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtNombreCompleto.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombreCompleto.setBorder(null);
+        txtNombreCompleto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtNombreaMousePressed(evt);
+                txtNombreCompletoMousePressed(evt);
             }
         });
-        txtNombrea.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreaActionPerformed(evt);
+                txtNombreCompletoActionPerformed(evt);
             }
         });
-        actualizar.add(txtNombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 310, 30));
+        actualizar.add(txtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 310, 30));
 
-        txtEdada.setEditable(false);
-        txtEdada.setBackground(new java.awt.Color(255, 255, 255));
-        txtEdada.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEdada.setForeground(new java.awt.Color(255, 255, 255));
-        txtEdada.setBorder(null);
-        txtEdada.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtConfirmarNContrasenia.setEditable(false);
+        txtConfirmarNContrasenia.setBackground(new java.awt.Color(255, 255, 255));
+        txtConfirmarNContrasenia.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtConfirmarNContrasenia.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmarNContrasenia.setBorder(null);
+        txtConfirmarNContrasenia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEdadaMousePressed(evt);
+                txtConfirmarNContraseniaMousePressed(evt);
             }
         });
-        txtEdada.addActionListener(new java.awt.event.ActionListener() {
+        txtConfirmarNContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEdadaActionPerformed(evt);
+                txtConfirmarNContraseniaActionPerformed(evt);
             }
         });
-        actualizar.add(txtEdada, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 280, 30));
+        actualizar.add(txtConfirmarNContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 280, 30));
 
         confirmNewPassLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel1.setText("3. EMAIL");
-        actualizar.add(confirmNewPassLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 280, -1));
+        confirmNewPassLabel1.setText("SALARIO");
+        actualizar.add(confirmNewPassLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 280, -1));
 
         confirmNewPassLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel2.setText("4.TELÉFONO");
-        actualizar.add(confirmNewPassLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 280, -1));
+        confirmNewPassLabel2.setText("CONTRASEÑA ACTUAL");
+        actualizar.add(confirmNewPassLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 280, -1));
 
-        txtEmaila.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEmaila.setForeground(new java.awt.Color(204, 204, 204));
-        txtEmaila.setBorder(null);
-        txtEmaila.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtSalario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtSalario.setForeground(new java.awt.Color(204, 204, 204));
+        txtSalario.setBorder(null);
+        txtSalario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEmailaMousePressed(evt);
+                txtSalarioMousePressed(evt);
             }
         });
-        txtEmaila.addActionListener(new java.awt.event.ActionListener() {
+        txtSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailaActionPerformed(evt);
+                txtSalarioActionPerformed(evt);
             }
         });
-        actualizar.add(txtEmaila, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 320, 30));
+        actualizar.add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 320, 30));
 
         confirmNewPassLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        confirmNewPassLabel3.setText("5.FECHA NACIMIENTO");
-        actualizar.add(confirmNewPassLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 280, -1));
+        confirmNewPassLabel3.setText("CONTRASEÑA NUEVA");
+        actualizar.add(confirmNewPassLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 280, -1));
 
-        txtFechaa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtFechaa.setForeground(new java.awt.Color(204, 204, 204));
-        txtFechaa.setBorder(null);
-        txtFechaa.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtContraseniaNueva.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtContraseniaNueva.setForeground(new java.awt.Color(204, 204, 204));
+        txtContraseniaNueva.setBorder(null);
+        txtContraseniaNueva.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtFechaaMousePressed(evt);
+                txtContraseniaNuevaMousePressed(evt);
             }
         });
-        txtFechaa.addActionListener(new java.awt.event.ActionListener() {
+        txtContraseniaNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaaActionPerformed(evt);
+                txtContraseniaNuevaActionPerformed(evt);
             }
         });
-        actualizar.add(txtFechaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 280, 30));
+        actualizar.add(txtContraseniaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 280, 30));
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
-        actualizar.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 280, 20));
+        actualizar.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 280, 20));
 
         jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
         actualizar.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 280, 20));
+
+        lblNombreUsuario.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        lblNombreUsuario.setText("NOMBRE USUARIO");
+        actualizar.add(lblNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 130, -1));
+
+        txtNombreUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtNombreUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombreUsuario.setBorder(null);
+        txtNombreUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreUsuarioMousePressed(evt);
+            }
+        });
+        txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreUsuarioActionPerformed(evt);
+            }
+        });
+        actualizar.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 310, 30));
+
+        jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 310, 20));
 
         getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 780, 580));
 
@@ -1171,18 +1172,17 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         eliminar.setVisible(false);
         if (controlador.getModelo() != null) {
             System.out.println(controlador.getModelo().getCedula());
-            txtCedulaa.setText(String.valueOf(controlador.getModelo().getCarnet()));
-            txtNombrea.setText(controlador.getModelo().getNombreCompleto());
-            txtFechaa.setText(controlador.getModelo().getFechaNacimiento());
-            txtEmaila.setText(controlador.getModelo().getEmail());
-            txtTelefonoa.setText(controlador.getModelo().getTelefono());
-            txtCedulaa.setForeground(Color.gray);
-            txtNombrea.setForeground(Color.gray);
-            txtFechaa.setForeground(Color.gray);
-            txtEmaila.setForeground(Color.gray);
-            txtTelefonoa.setForeground(Color.gray);
-            txtEdada.setForeground(Color.gray);
-      
+            txtCarnet.setText(String.valueOf(controlador.getModelo().getCarnet()));
+            txtNombreCompleto.setText(String.valueOf(controlador.getModelo().getIdPersona()));
+            txtContraseniaNueva.setText(controlador.getModelo().getFechaNacimiento());
+            txtSalario.setText(String.valueOf(controlador.getModelo().getSalario()));
+            txtContraseniaActual.setText(controlador.getModelo().getTelefono());
+            txtCarnet.setForeground(Color.gray);
+            txtNombreCompleto.setForeground(Color.gray);
+            txtContraseniaNueva.setForeground(Color.gray);
+            txtSalario.setForeground(Color.gray);
+            txtContraseniaActual.setForeground(Color.gray);
+            txtConfirmarNContrasenia.setForeground(Color.gray);
         }
     }//GEN-LAST:event_lblActualizarMouseClicked
 
@@ -1200,6 +1200,10 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         mostrar.setVisible(false);
         actualizar.setVisible(false);
         eliminar.setVisible(true);
+        if (controlador.getModelo() != null) {
+            System.out.println(controlador.getModelo().getCedula());
+            txtId.setText(String.valueOf(controlador.getModelo().getId()));
+        }
     }//GEN-LAST:event_lblEliminarMouseClicked
 
     private void lblEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseEntered
@@ -1219,7 +1223,6 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         mostrar.setVisible(false);
         crear1.setVisible(false);
         crear2.setVisible(true);
-        //AGREGAR ACÁ EL CÓDIGO O MÉTODO PARA ALMACENAR LOS DATOS EN LA BASE DE DATOS//
 //        }
     }//GEN-LAST:event_continuarBtnCrearTxtMouseClicked
 
@@ -1407,22 +1410,22 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void userTxt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxt1MousePressed
- 
-    }//GEN-LAST:event_userTxt1MousePressed
+    private void txtIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMousePressed
 
-    private void userTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxt1ActionPerformed
+    }//GEN-LAST:event_txtIdMousePressed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTxt1ActionPerformed
-
-    private void passTxt2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxt2MousePressed
-
-    }//GEN-LAST:event_passTxt2MousePressed
+    }//GEN-LAST:event_txtIdActionPerformed
 
     private void eliminarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseClicked
-        //CODIGO PARA ELIMINAR EL USUARIO
-
-        JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
+        Oficial oficial = new Oficial(Integer.parseInt(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 0))),
+                Integer.parseInt(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 1))),
+                String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 2)),
+                String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 3)),
+                Double.parseDouble(String.valueOf(tablaOficial.getValueAt(tablaOficial.getSelectedRow(), 4))));
+        controlador.setModelo(oficial);
+        controlador.borrar(oficial);
     }//GEN-LAST:event_eliminarBtnTxtMouseClicked
 
     private void eliminarBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarBtnTxtMouseEntered
@@ -1466,20 +1469,20 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         copiarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_copiarBtnTxtMouseExited
 
-    private void txtTelefonoaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoaMousePressed
-        if (txtTelefonoa.getText().equals("Ingrese su nombre de usuario")) {
-            txtTelefonoa.setText("");
-            txtTelefonoa.setForeground(Color.black);
+    private void txtContraseniaActualMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseniaActualMousePressed
+        if (txtContraseniaActual.getText().equals("Ingrese su nombre de usuario")) {
+            txtContraseniaActual.setText("");
+            txtContraseniaActual.setForeground(Color.black);
         }
         if (String.valueOf(passTxt.getPassword()).isEmpty()) {
             passTxt.setText("********");
             passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_txtTelefonoaMousePressed
+    }//GEN-LAST:event_txtContraseniaActualMousePressed
 
-    private void txtTelefonoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoaActionPerformed
+    private void txtContraseniaActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseniaActualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoaActionPerformed
+    }//GEN-LAST:event_txtContraseniaActualActionPerformed
 
     private void modificarBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarBtnTxtMouseClicked
         JOptionPane.showMessageDialog(null, "PRUEBA", "PRUEBA", JOptionPane.INFORMATION_MESSAGE);
@@ -1493,45 +1496,53 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
         modificarBtn.setBackground(new Color(0, 134, 190));
     }//GEN-LAST:event_modificarBtnTxtMouseExited
 
-    private void txtCedulaaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaaMousePressed
+    private void txtCarnetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCarnetMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaaMousePressed
+    }//GEN-LAST:event_txtCarnetMousePressed
 
-    private void txtCedulaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaaActionPerformed
+    private void txtCarnetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCarnetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaaActionPerformed
+    }//GEN-LAST:event_txtCarnetActionPerformed
 
-    private void txtNombreaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreaMousePressed
+    private void txtNombreCompletoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreCompletoMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreaMousePressed
+    }//GEN-LAST:event_txtNombreCompletoMousePressed
 
-    private void txtNombreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreaActionPerformed
+    private void txtNombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreaActionPerformed
+    }//GEN-LAST:event_txtNombreCompletoActionPerformed
 
-    private void txtEdadaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEdadaMousePressed
+    private void txtConfirmarNContraseniaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtConfirmarNContraseniaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEdadaMousePressed
+    }//GEN-LAST:event_txtConfirmarNContraseniaMousePressed
 
-    private void txtEdadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadaActionPerformed
+    private void txtConfirmarNContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmarNContraseniaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEdadaActionPerformed
+    }//GEN-LAST:event_txtConfirmarNContraseniaActionPerformed
 
-    private void txtEmailaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailaMousePressed
+    private void txtSalarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalarioMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailaMousePressed
+    }//GEN-LAST:event_txtSalarioMousePressed
 
-    private void txtEmailaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailaActionPerformed
+    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailaActionPerformed
+    }//GEN-LAST:event_txtSalarioActionPerformed
 
-    private void txtFechaaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaaMousePressed
+    private void txtContraseniaNuevaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseniaNuevaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaaMousePressed
+    }//GEN-LAST:event_txtContraseniaNuevaMousePressed
 
-    private void txtFechaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaaActionPerformed
+    private void txtContraseniaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseniaNuevaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaaActionPerformed
+    }//GEN-LAST:event_txtContraseniaNuevaActionPerformed
+
+    private void txtNombreUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreUsuarioMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreUsuarioMousePressed
+
+    private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1598,12 +1609,12 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
@@ -1617,6 +1628,8 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JLabel lblMostrar;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblNombreCompleto;
+    private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel logoG;
     private javax.swing.JLabel logoP;
@@ -1637,10 +1650,7 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JSeparator nombreSeparador1;
     private javax.swing.JSeparator numeroSeparado;
     private javax.swing.JLabel passLabel;
-    private javax.swing.JLabel passLabel1;
-    private javax.swing.JLabel passLabel2;
     private javax.swing.JPasswordField passTxt;
-    private javax.swing.JPasswordField passTxt2;
     private javax.swing.JPanel registrarseBtn;
     private javax.swing.JLabel registrarseBtnTxt;
     private javax.swing.JTable tablaOficial;
@@ -1649,21 +1659,22 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     private javax.swing.JLabel title2;
     private javax.swing.JLabel title3;
     private javax.swing.JLabel title4;
+    private javax.swing.JTextField txtCarnet;
     private javax.swing.JFormattedTextField txtCedula;
-    private javax.swing.JTextField txtCedulaa;
+    private javax.swing.JTextField txtConfirmarNContrasenia;
+    private javax.swing.JTextField txtContraseniaActual;
+    private javax.swing.JTextField txtContraseniaNueva;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtEdada;
-    private javax.swing.JTextField txtEmaila;
     private javax.swing.JFormattedTextField txtFecha;
-    private javax.swing.JTextField txtFechaa;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre1;
-    private javax.swing.JTextField txtNombrea;
+    private javax.swing.JTextField txtNombreCompleto;
+    private javax.swing.JTextField txtNombreUsuario;
     private javax.swing.JFormattedTextField txtNumero;
-    private javax.swing.JTextField txtTelefonoa;
+    private javax.swing.JTextField txtSalario;
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel userLabel2;
-    private javax.swing.JTextField userTxt1;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -1689,4 +1700,5 @@ public class FrmAdministrar extends javax.swing.JFrame implements Vista<Oficial>
     public void mostarMensaje(String msg, int messageType) {
         JOptionPane.showMessageDialog(null, msg, "Oficial", messageType);
     }
+
 }

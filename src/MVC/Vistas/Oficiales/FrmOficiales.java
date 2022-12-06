@@ -10,15 +10,15 @@ import MVC.Controlador.ControladorOficial;
 import MVC.Modelos.Oficial;
 import MVC.Vistas.Vista;
 import java.awt.Color;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author josep
  */
-public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial> {
+public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial>{
 
     private Controlador<Oficial> controlador;
+
     Conexion x;
 
     /**
@@ -28,6 +28,7 @@ public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial> {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setControlador(new ControladorOficial(this));
+//        this.setControlador2(new ControladorPersona(this));
         this.administrarBtn.setVisible(false);
     }
 
@@ -399,7 +400,6 @@ public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial> {
         frm.setControlador(controlador);
         controlador.setVista(frm);
         frm.setVisible(true);
-        this.controlador.leer(controlador.getModelo());
     }//GEN-LAST:event_administrarBtnMouseClicked
 
     private void administrarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrarBtnMouseEntered
@@ -508,4 +508,5 @@ public class FrmOficiales extends javax.swing.JFrame implements Vista<Oficial> {
     public void mostarMensaje(String msg, int messageType) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

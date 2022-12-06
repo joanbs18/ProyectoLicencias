@@ -90,13 +90,11 @@ public class ControladorOficial implements Controlador<Oficial>{
 
     @Override
     public void borrar(Oficial oficial) {
-        if (this.validar(oficial)){
             if (this.dao.borrar(oficial)){
                 this.vista.mostarMensaje("Registro borrado correctamente", Vista.messageTypeSuccess);
             }else{
                 this.vista.mostarMensaje("Error al borrar el registro", Vista.messageTypeError);
             }
-        }
     }
 
     private boolean validar(Oficial oficial) {
