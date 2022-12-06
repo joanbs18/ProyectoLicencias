@@ -10,8 +10,17 @@ import MVC.Vistas.Oficiales.FrmLoginOficiales;
 import MVC.Vistas.Oficiales.FrmOficiales;
 import MVC.Vistas.Secretaria.FrmLoginSecretaria;
 import MVC.Vistas.Secretaria.FrmSecretaria;
+import img.iMG;
 import java.awt.Color;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -25,7 +34,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
      * Creates new form FrmInicial
      */
     public FrmPrincipal() {
+       
         initComponents();
+        
+        jLabel1.setVisible(true);
+        tiempoOcultar(jLabel1,1);
+        
         this.setLocationRelativeTo(null);
         try {
             x = new Conexion();
@@ -34,7 +48,35 @@ public class FrmPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "¡Oh! Algo falló en este proceso. \nInténtalo de nuevo.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
+ static int conta;
+  public void tiempoOcultar(JLabel l1,int time) {
+        int tiempo = time * 10000;
+        Timer timer;
+        TimerTask timerTask;
+        timerTask = new TimerTask() {
 
+            @Override
+            public void run() {
+                switch (conta) {
+                    case 0:
+                        conta++;
+                        l1.setVisible(true);
+                        break;
+                    case 1:
+                        conta = 2;
+                        l1.setVisible(false);
+                        cancel();
+                        break;
+
+                }
+
+            }
+
+        };
+
+        timer = new Timer();
+        timer.schedule(timerTask, 0, tiempo);
+    }
     public void errorNoConectado() {
         JOptionPane.showMessageDialog(null, "Para ingresar en este módulo debe tener conexión.\nVerifique que esté conectado a la base de datos.");
     }
@@ -49,6 +91,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
         logoG = new javax.swing.JLabel();
         imagen = new javax.swing.JLabel();
@@ -76,6 +119,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ezgif.com-gif-maker.gif"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         logoname.setBackground(new java.awt.Color(255, 255, 255));
         logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
@@ -439,6 +486,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
     private javax.swing.JLabel imagen;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logoG;
     private javax.swing.JLabel logoP;
     private javax.swing.JLabel logoname;
